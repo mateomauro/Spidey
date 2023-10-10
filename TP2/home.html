@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/comunes.css">
+    <link rel="stylesheet" href="css/fuentes-colores.css">
+</head>
+
+<body>
+    <div class="contenedor-loading">
+        <span class="contador">0</span>
+        <div class="loader"></div>
+    </div>
+    <div class="contenedor ocultar">
+        <header class="header">
+            <nav class="nav">
+                <div class="menu contenedor-iconos-nav">
+                    <button class="btn-trasparente" id="btnMenuPrincipal">
+                        <img src="iconos-svg/menu-comun.svg" class="icono">
+                    </button>
+                </div>
+                <div class="logo-headear contenedor-iconos-nav">
+                    <a href="home.html"><img src="iconos-svg/logo.jpg" class="logo-img"></a>
+                </div>
+                <div class="buscador contenedor-iconos-nav">
+                    <img src="iconos-svg/lupa-blanca.svg" class="icono">
+                </div>
+                <div class="buscador-escritorio">
+                    <input type="text" placeholder="Buscar juego...">
+                    <img src="iconos-svg/buscar.svg" alt="">
+                </div>
+                <div class="favoritos contenedor-iconos-nav">
+                    <button class="btn-trasparente">
+                        <img src="iconos-svg/corazon icono.svg" class="icono">
+                        <p class="texto-body">Mis favoritos</p>
+                    </button>
+                </div>
+                <div class="carrito contenedor-iconos-nav">
+                    <button class="btn-trasparente" id="btnCarrito">
+                        <img src="iconos-svg/carrito.svg" class="icono">
+                    </button>
+                </div>
+                <div class="perfil contenedor-iconos-nav">
+                    <button class="btn-trasparente" id="btnPerfil">
+                        <img src="iconos-svg/perfil.svg" class="icono">
+                    </button>
+                </div>
+            </nav>
+
+            <div class="menu-desplegado ocultar">
+                <!-- parte de arriba -->
+                <div class="menu-desplegado-categorias-principales">
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/Home.svg" class="icono-mas-chico">
+                        <li class="texto-body">Inicio</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/reciente.svg" class="icono-mas-chico">
+                        <li class="texto-body">Recientes</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/Home.svg" class="icono-mas-chico">
+                        <li class="texto-body">Nuevos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/carrito.svg" class="icono-mas-chico">
+                        <li class="texto-body">Mi carrito</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/corazon icono.svg" class="icono-mas-chico">
+                        <li class="texto-body">Mis favoritos</li>
+                    </div>
+                    <hr>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/aventura.svg" class="icono-mas-chico">
+                        <li class="texto-body">Aventura</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/Belleza.svg" class="icono-mas-chico">
+                        <li class="texto-body">Belleza</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/carreras.svg" class="icono-mas-chico">
+                        <li class="texto-body">Carreras</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/cartas.svg" class="icono-mas-chico">
+                        <li class="texto-body">Cartas</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/deportes.svg" class="icono-mas-chico">
+                        <li class="texto-body">Deportes</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/disparos.svg" class="icono-mas-chico">
+                        <li class="texto-body">Disparos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/escape.svg" class="icono-mas-chico">
+                        <li class="texto-body">Escapes</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/gratis.svg" class="icono-mas-chico">
+                        <li class="texto-body">Gratis</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/motos.svg" class="icono-mas-chico">
+                        <li class="texto-body">Motos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/musicales.svg" class="icono-mas-chico">
+                        <li class="texto-body">Musicales</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/pagos.svg" class="icono-mas-chico">
+                        <li class="texto-body">Pagos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/terror.svg" class="icono-mas-chico">
+                        <li class="texto-body">Terror</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/multijugador.svg" class="icono-mas-chico">
+                        <li class="texto-body">Multijugador</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/estrategias.svg" class="icono-mas-chico">
+                        <li class="texto-body">Estrategia</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/puzlle.svg" class="icono-mas-chico">
+                        <li class="texto-body">Puzle</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/velocidad.svg" class="icono-mas-chico">
+                        <li class="texto-body">Velocidad</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/vestir.svg" class="icono-mas-chico">
+                        <li class="texto-body">Vestir</li>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- ultima parte -->
+                <div class="menu-desplegado-redes-sociales">
+                    <p class="texto-body">Nuestras redes</p>
+                    <div class="redes-sociales">
+                        <img src="iconos-svg/facebook.svg" class="icono-chico">
+                        <img src="iconos-svg/twitter.svg" class="icono-chico">
+                        <img src="iconos-svg/Instagram.svg" class="icono-chico">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mi-perfil-desplegado ocultar">
+                <div class="contenedor-configuraciones-perfil-desplegado">
+                    <div class="perfil-soy-yo">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/perfil.svg" class="icono">
+                        </div>
+                        <div>
+                            <p class="texto-body">MateoElLibertario</p>
+                        </div>
+                    </div>
+                    <div class="configuraciones-perfil-desplegado">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/perfil-mini.svg" class="icono-mas-chico">
+                        </div>
+                        <div>
+                            <p class="texto-chico">Mi perfil</p>
+                        </div>
+                    </div>
+                    <div class="configuraciones-perfil-desplegado">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/editar perfil.svg" class="icono-mas-chico">
+                        </div>
+                        <div>
+                            <p class="texto-chico">Editar perfil</p>
+                        </div>
+                    </div>
+                    <div class="configuraciones-perfil-desplegado">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/Config.svg" class="icono-mas-chico">
+                        </div>
+                        <div>
+                            <p class="texto-chico">Configuracion de cuenta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-cerrar-sesion">
+                    <a href="registro.html"><button>
+                            Cerrar sesión
+                        </button></a>
+                </div>
+                <div class="contenedor-cruz" id="btnCruzPerfil">
+                    <img src="iconos-svg/cruz-Grande.svg" class="icono-mas-chico">
+                </div>
+
+            </div>
+
+            <!-- CARRITO -->
+            <div class="seccion-carrito ocultar">
+                <div class="contenedor-carrito">
+                    <div class="contenedor-todas-compras">
+                        <div class="contenedor-compras">
+                            <div class="contenedor-img-compra">
+                                <img class="imagen-carrito" src="iconos-svg/mario-bros-carrito.png" alt="Mario">
+                            </div>
+                            <div class="contenedor-compra-carrito">
+                                <div class="contedor-agrego-compra">
+                                    <h3 class="titulo-compra">Super mario bros</h3>
+                                    <h3 class="titulo-compra">$999</h3>
+                                </div>
+                                <div class="contenedor-btn-compra">
+                                    <button class="btn-carrito btn-eliminar">Eliminar</button>
+                                    <button class="btn-carrito btn-comprar">Comprar ahora</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenedor-compras">
+                            <div class="contenedor-img-compra">
+                                <img class="imagen-carrito" src="iconos-svg/fifa-carrito.png" alt="Fifa">
+                            </div>
+                            <div class="contenedor-compra-carrito">
+                                <div class="contedor-agrego-compra">
+                                    <h3 class="titulo-compra">Super mario bros</h3>
+                                    <h3 class="titulo-compra">$999</h3>
+                                </div>
+                                <div class="contenedor-btn-compra">
+                                    <button class="btn-carrito btn-eliminar">Eliminar</button>
+                                    <button class="btn-carrito btn-comprar">Comprar ahora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resumen-compra">
+                        <div class="titulo-resumen-compra">
+                            <h2>Resumen de compra</h2>
+                        </div>
+                        <div class="articulo">
+                            <p class="texto-chico">Producto</p>
+                            <p class="texto-chico">$1998</p>
+                        </div>
+                        <div class="articulo">
+                            <p class="texto-chico">Descuento</p>
+                            <p class="texto-chico">10%</p>
+                        </div>
+                        <div class="articulo">
+                            <h3>Total</h3>
+                            <h3>$1798</h3>
+                        </div>
+                        <div class="contenedor-btn-realizar-compra">
+                            <button class="btn-compra">Continuar comprar</button>
+                        </div>
+                    </div>
+                    <div class="contenedor-cruz" id="btnCruzCarrito">
+                        <img src="iconos-svg/cruz-Grande.svg" class="icono">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="recomendados">
+            <div class="contenedor-carrusel-recomendado" id="carrusel">
+                <div class="nombre-categoria-recomendado">
+                    <h1>Los mas jugados de la semana</h2>
+                </div>
+                <div class="contenedor-cards-recomendado">
+                    <!-- 1 card -->
+                    <div class="card_box-recomendada">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/Rocketlegue.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Rocket league</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card-recomendada">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 2 card -->
+                    <div class="card_box-recomendada">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/4enlinea.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">4 en linea</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <a href="juego.html">
+                                <button class="btn-card-recomendada">Jugar</button>
+                            </a>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 3 card -->
+                    <div class="card_box-recomendada">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/Pool.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Pool</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card-recomendada">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="indicadores">
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                    <span class="indicador"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CARRUSELES CHICOS -->
+        <!-- carrusel 1 -->
+        <div class="carruseles">
+            <button class="flecha flecha-derecha">
+                <img src="iconos-svg/flecha-derecha.svg">
+            </button>
+            <button class="flecha flecha-izquierda">
+                <img src="iconos-svg/flecha-izquierda.svg">
+            </button>
+
+            <div class="contenedor-carrusel" id="carrusel">
+                <div class="nombre-categoria">
+                    <h2>Juegos gratis</h2>
+                    <a href="" class="ver-mas texto-chico">Ver mas</a>
+                </div>
+                <div class="contenedor-cards">
+                    <!-- 1 card -->
+                    <div class="card_box">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/ClashRoyale.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Clash royale</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 2 card -->
+                    <div class="card_box">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/dragon ball.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Dragon ball</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 3 card -->
+                    <div class="card_box">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/Minecracft.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Minecraft</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 4 card -->
+                    <div class="card_box">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/Ufc.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">UFC 6</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 5 card -->
+                    <div class="card_box">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/warzone.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Warzone 5</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+
+                    <!-- 6 card -->
+                    <div class="card_box">
+                        <!-- CARD GRATIS -->
+                        <div class="parte-img">
+                            <img class="img-card-nueva" src="iconos-svg/Mafia.png">
+                            <div class="opacidad-cards">
+                                <p class="titulo-del-juego-card-box">Mafia 4</p>
+                            </div>
+                        </div>
+                        <div class="card-parte-boton">
+                            <button class="btn-card">Jugar</button>
+                        </div>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- carrusel 2 -->
+            <div class="carruseles">
+                <button class="flecha flecha-derecha">
+                    <img src="iconos-svg/flecha-derecha.svg">
+                </button>
+                <button class="flecha flecha-izquierda">
+                    <img src="iconos-svg/flecha-izquierda.svg">
+                </button>
+
+                <div class="contenedor-carrusel" id="carrusel">
+                    <div class="nombre-categoria">
+                        <h2>Juegos comprados</h2>
+                        <a href="" class="ver-mas texto-chico">Ver mas</a>
+                    </div>
+                    <div class="contenedor-cards">
+                        <!-- 1 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/AmoungUs.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Amoungus</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+
+                        <!-- 2 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/Monopoly.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Monopoly</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+
+                        <!-- 3 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/needforspeed.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Need for speed</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+
+                        <!-- 4 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/Agario.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Agario</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 5 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/autos.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Need for speed underground</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+
+                        <!-- 6 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/avengers.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Avengers</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 7 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/Crash.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Crash</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 8 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/gtaV.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Gta V</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 9 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/Ludo.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Ludo</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 10 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/jurasic wordl.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Jurasic park 3</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 11 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/spiderman.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Spiderman 2</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                        <!-- 12 card -->
+                        <div class="card_box">
+                            <!-- CARD COMPRADA -->
+                            <div class="parte-img">
+                                <img class="img-card-nueva" src="iconos-svg/Darkjuego.png">
+                                <div class="opacidad-cards">
+                                    <p class="titulo-del-juego-card-box">Asalto en la galaxia</p>
+                                </div>
+                            </div>
+                            <div class="card-parte-boton">
+                                <button class="btn-card">Jugar</button>
+                            </div>
+                            <span class="span-comprar"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- carrusel 3 -->
+                <div class="carruseles">
+                    <button class="flecha flecha-derecha">
+                        <img src="iconos-svg/flecha-derecha.svg">
+                    </button>
+                    <button class="flecha flecha-izquierda">
+                        <img src="iconos-svg/flecha-izquierda.svg">
+                    </button>
+
+                    <div class="contenedor-carrusel" id="carrusel">
+                        <div class="nombre-categoria">
+                            <h2>Juegos pagos</h2>
+                            <a href="" class="ver-mas texto-chico">Ver mas</a>
+                        </div>
+                        <div class="contenedor-cards">
+                            <!-- 1 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/godOfWar.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">God of war 5</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$600</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 2 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/Magia.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Harry potter</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado"> $99</p>
+                                    <p class="oferta">$120 </p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 3 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/thelastofus2.jpg">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">The last of us 2</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$2499</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 4 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/sonic.jpg">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Sonic 3</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado"> $100</p>
+                                    <p class="oferta">$199 </p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 5 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/fifa24.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Fifa 2024</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$900</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- 6 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/Nhl 2024.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Nhl 2024</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$2500</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 7 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/CallOfDuty.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Call of duty</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$4500</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 8 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/assassinsCreed.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Assassins creed</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$3900</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 9 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/mortalKombat1.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Mortal kombat 1</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$2900</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 10 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/sleenderman.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Slenderman</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$1800</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 11 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/wrc.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Rally edicion limitada 2022</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$900</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+
+                            <!-- 12 card -->
+                            <div class="card_box">
+                                <!-- CARD COMPRAR -->
+                                <div class="parte-img">
+                                    <img class="img-card-nueva" src="iconos-svg/payDay3.png">
+                                    <div class="opacidad-cards">
+                                        <p class="titulo-del-juego-card-box">Pay day 3</p>
+                                    </div>
+                                </div>
+                                <div class="card-nombre-precio">
+                                    <p class="texto-resaltado">$700</p>
+                                </div>
+                                <div class="card-boton-agregadoCarrito ocultar">
+                                    <button class="agregado-al-carrito" disabled>
+                                        Añadido al carrito
+                                    </button>
+                                    <button class="tacho-basura">
+                                        <img src="iconos-svg/tacho basura.svg">
+                                    </button>
+                                </div>
+                                <div class="card-boton-comprar">
+                                    <button class="CartBtn">
+                                        <div class="IconContainer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="0.7rem"
+                                                viewBox="0 0 576 512" fill="#EFEFFF" class="cart">
+                                                <path
+                                                    d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <p class="text">Añadir al carrito</p>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- EL FOOTER -->
+        <footer class="footer">
+            <div class="section-footer-logo-copi">
+                <div class="logo-footer">
+                    <a href="home.html"><img src="iconos-svg/logo.jpg" class="logo-img"></a>
+                </div>
+                <p class="texto-chico">@2023 Juegos gamer</p>
+            </div>
+            <div class="section-footer-categoria">
+                <p class="texto-body">CATEGORIA</p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Pagos
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Gratis
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Ver todas
+                </p>
+            </div>
+            <div class="section-footer-ayuda">
+                <p class="texto-body">AYUDA</p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Soporte tecnico
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Terminos de uso
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Politica de privacidad
+                </p>
+            </div>
+            <div class="section-footer-pagos">
+                <p class="texto-body">MEDIOS DE PAGOS</p>
+                <div class="medio-de-pago">
+                    <img src="iconos-svg/visa logo 1.png" alt="">
+                </div>
+                <div class="medio-de-pago">
+                    <img src="iconos-svg/master card 1.png" alt="">
+                </div>
+                <div class="medio-de-pago">
+                    <img src="iconos-svg/Mercado Pago.png" alt="">
+                </div>
+            </div>
+            <div class="section-footer-redes">
+                <div class="redes-sociales">
+                    <img src="iconos-svg/facebook.svg" class="icono-chico">
+                    <img src="iconos-svg/twitter.svg" class="icono-chico">
+                    <img src="iconos-svg/Instagram.svg" class="icono-chico">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="js/ocultar.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

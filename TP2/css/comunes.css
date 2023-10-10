@@ -1,0 +1,903 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+
+/* HEADER PARA CELULAR */
+
+.header {
+    grid-area: header;
+    height: 10vh;
+    width: 100%;
+    background-color: #00004F;
+    position: fixed;
+    z-index: 2;
+}
+
+.nav {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 100%;
+    grid-template-areas: "menu logo buscador carrito perfil";
+}
+
+.contenedor-menu-logo {
+    width: 33.3%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+}
+
+.contenedor-buscador {
+    width: 33.3%;
+    height: 100%;
+    background-color: blue;
+    display: flex;
+}
+
+.contenedor-fav-carrito-perfil {
+    width: 33.3%;
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+}
+
+.menu {
+    grid-area: menu;
+    height: 100%;
+}
+
+.logo-header {
+    grid-area: logo;
+    height: 100%;
+}
+
+.logo-img {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+}
+
+.buscador {
+    grid-area: buscador;
+    height: 100%;
+}
+
+.buscador-escritorio {
+    display: none;
+}
+
+.buscador-escritorio input {
+    background-color: #EFEFFF !important;
+}
+
+.carrito {
+    grid-area: carrito;
+    height: 100%;
+}
+
+.perfil {
+    grid-area: perfil;
+    height: 100%;
+}
+
+
+.contenedor-iconos-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.favoritos {
+    height: 100%;
+    display: none;
+}
+
+.icono {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-trasparente {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* FOOTER PARA CELULAR */
+
+.footer {
+    grid-area: footer;
+    width: 100%;
+    height: 100%;
+    background-color: #00004F;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: "categoria ayuda pagos"
+        "logo-copi logo-copi logo-copi";
+}
+
+.footer p {
+    cursor: pointer;
+    color: var(--color-blanco);
+}
+
+.logo-footer {
+    display: none;
+}
+
+.section-footer-redes {
+    display: none;
+}
+
+.section-footer-logo-copi {
+    grid-area: logo-copi;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.section-footer-categoria {
+    grid-area: categoria;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.section-footer-categoria p {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.section-footer-ayuda {
+    grid-area: ayuda;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.section-footer-ayuda p {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+
+
+.section-footer-pagos {
+    grid-area: pagos;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+.section-footer-pagos p {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.medio-de-pago {
+    width: 50px;
+    height: 20px;
+    background-color: #EFEFFF;
+}
+
+.medio-de-pago img {
+    width: 100%;
+    height: 100%;
+}
+
+/* MENU DESPLEGADO PARA ESCRITORIO */
+
+.menu-desplegado {
+    margin-top: 10vh;
+    width: 40%;
+    height: 90vh;
+    background-color: #00004F;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.menu-desplegado-categorias-principales {
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.menu-desplegado-categorias-principales::-webkit-scrollbar {
+    width: 3px;
+}
+
+.menu-desplegado-categorias-principales::-webkit-scrollbar-thumb {
+    background-color: #EFEFFF;
+    border-radius: 10px;
+}
+
+.menu-desplegado-redes-sociales {
+    height: 10%;
+    width: 100%;
+}
+
+.menu-desplegado-redes-sociales p {
+    color: var(--color-blanco);
+}
+
+.menu-desplegado-redes-sociales .redes-sociales {
+    margin: 5px 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoria-menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.categoria-menu img {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.categoria-menu li {
+    width: 70%;
+    height: 100%;
+    color: #EFEFFF;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu-desplegado hr {
+    width: 80%;
+    margin: 4% 0;
+    margin-left: 10%;
+}
+
+.icono-mas-chico {
+    width: 20px;
+    height: 20px;
+}
+
+.menu-desplegado-redes-sociales p {
+    text-align: center;
+}
+
+/* PERFIL DESPLEGADO PARA ESCRITORIO*/
+
+.mi-perfil-desplegado {
+    width: 60%;
+    height: 40vh;
+    background-color: #00004F;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.perfil-soy-yo {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: #EFEFFF;
+}
+
+.perfil-soy-yo p {
+    margin-left: 3px;
+}
+
+.contenedor-icono-perfil-desplegado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.configuraciones-perfil-desplegado {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: #EFEFFF;
+}
+
+.contenedor-cerrar-sesion {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-cerrar-sesion button {
+    background-color: transparent;
+    border: solid 2px #EFEFFF;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #EFEFFF;
+    height: 30px;
+    width: 150px;
+}
+
+.contenedor-configuraciones-perfil-desplegado {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* CARRITO PARA ESCRITORIO */
+
+.seccion-carrito {
+    display: flex;
+    justify-content: center;
+    background-color: #00004F;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    align-items: center;
+}
+
+.contenedor-carrito {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    justify-content: space-between;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.contenedor-todas-compras {
+    width: 100%;
+}
+
+.contenedor-compras {
+    margin-bottom: 20px;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    border-bottom: 2px solid #EFEFFF;
+}
+
+.contenedor-img-compra {
+    height: 70%;
+    width: 110px;
+    margin: 10px;
+}
+
+.contenedor-img-compra img {
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-compra-carrito {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 95%;
+}
+
+.titulo-compra {
+    color: #EFEFFF;
+}
+
+.btn-carrito {
+    border: none;
+    background-color: transparent;
+    color: #B0B0FF;
+    margin: 0 10px;
+}
+
+.btn-eliminar:hover {
+    color: var(--color-rojo);
+    cursor: pointer;
+}
+
+.btn-comprar:hover {
+    color: var(--color-verde);
+    cursor: pointer;
+}
+
+.contenedor-btn-compra {
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: start;
+}
+
+.imagen-carrito {
+    border: solid 1px white;
+}
+
+.contedor-agrego-compra {
+    display: flex;
+    align-items: center;
+    height: 70%;
+    margin: 0 5px;
+}
+
+.resumen-compra {
+    color: #EFEFFF;
+    margin-bottom: 10px;
+    width: 60%;
+}
+
+.titulo-resumen-compra {
+    border-bottom: 2px solid #EFEFFF;
+    text-align: center;
+}
+
+.articulo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.articulo p,
+h3 {
+    padding: 0 5px;
+}
+
+.contenedor-btn-realizar-compra {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-compra {
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+    background-color: #0000FF;
+    color: #EFEFFF;
+}
+
+.contenedor-cruz {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.icono-chico {
+    width: 24px;
+    height: 24px;
+}
+
+/* PARA DESKTOP */
+
+@media (min-width: 1024px) {
+
+    .menu-desplegado {
+        width: 15%;
+    }
+
+    /* HEADER PARA ESCRITORIO */
+    .nav {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 5% 5% 10% 10% 5% 30% 15% 10% 5% 5%;
+        grid-template-rows: 100%;
+        grid-template-areas: "menu . logo . . buscador-escritorio .  favoritos  carrito  perfil";
+    }
+
+    .contenedor-menu-logo {
+        height: 100%;
+        background-color: black;
+        display: flex;
+    }
+
+    .contenedor-buscador {
+        width: 33.3%;
+        height: 100%;
+        background-color: blue;
+        display: flex;
+    }
+
+    .contenedor-fav-carrito-perfil {
+        width: 33.3%;
+        height: 100%;
+        background-color: yellow;
+        display: flex;
+    }
+
+
+    .logo-img {
+        height: 45px;
+        width: 45px;
+        border-radius: 100%;
+    }
+
+    .buscador {
+        grid-area: buscador;
+        height: 100%;
+        display: none;
+    }
+
+    .buscador-escritorio {
+        grid-area: buscador-escritorio;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .buscador-escritorio input {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        height: 35px;
+        border-radius: 20px;
+        border: none;
+        position: relative;
+    }
+
+    .buscador-escritorio input::placeholder {
+        padding-left: 5%;
+        color: #00001D;
+    }
+
+    .buscador-escritorio img {
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        margin-left: 84%;
+    }
+
+    .favoritos {
+        height: 100%;
+        grid-area: favoritos;
+        display: flex;
+    }
+
+    .favoritos p {
+        white-space: nowrap;
+        margin: 0px 5px;
+        color: #EFEFFF;
+    }
+
+    .favoritos button {
+        display: flex;
+        height: 100%;
+        align-items: center;
+    }
+
+    .icono {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* FOOTER PARA ESCRITORIO */
+
+    .footer {
+        grid-area: footer;
+        width: 100%;
+        height: 100%;
+        background-color: #00004F;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20% 20%;
+        grid-template-rows: 15% 70% 15%;
+        grid-template-areas:
+            ". . . . ."
+            "logo-copi categoria ayuda pagos redes"
+            ". . . . .";
+    }
+
+    .logo-footer {
+        display: flex;
+        padding-bottom: 10%;
+    }
+
+    .section-footer-redes {
+        display: flex;
+        grid-area: redes;
+        justify-content: center;
+    }
+
+    .section-footer-logo-copi {
+        grid-area: logo-copi;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+    }
+
+    .section-footer-logo-copi p {
+        height: 20px;
+    }
+
+    .section-footer-categoria {
+        grid-area: categoria;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 12px;
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .section-footer-categoria p {
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+
+    .section-footer-ayuda {
+        grid-area: ayuda;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .section-footer-ayuda p {
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+
+
+    .section-footer-pagos {
+        grid-area: pagos;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+    }
+
+    .section-footer-pagos p {
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .medio-de-pago {
+        width: 50px;
+        height: 20px;
+        background-color: #EFEFFF;
+    }
+
+    .medio-de-pago img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* CARRITO PARA ESCRITORIO */
+
+    .seccion-carrito {
+        display: flex;
+        justify-content: center;
+        background-color: #00004F;
+        height: auto;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 2;
+    }
+
+    .contenedor-carrito {
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        justify-content: space-between;
+        margin-top: 10px;
+        align-items: flex-start;
+    }
+
+    .contenedor-todas-compras {
+        width: 60%;
+    }
+
+    .contenedor-compras {
+        margin-bottom: 20px;
+        display: flex;
+        width: 100%;
+        height: 155px;
+        border-bottom: 2px solid #EFEFFF;
+    }
+
+    .contenedor-img-compra {
+        height: 100%;
+        width: auto;
+        margin: 10px;
+    }
+
+    .contenedor-img-compra img {
+        object-fit: cover;
+        width: auto;
+        height: auto;
+    }
+
+    .contenedor-compra-carrito {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 95%;
+    }
+
+    .titulo-compra {
+        color: #EFEFFF;
+    }
+
+    .btn-carrito {
+        border: none;
+        background-color: transparent;
+        color: #B0B0FF;
+        margin: 0 10px;
+    }
+
+    .btn-eliminar:hover {
+        color: var(--color-rojo);
+        cursor: pointer;
+    }
+
+    .btn-comprar:hover {
+        color: var(--color-verde);
+        cursor: pointer;
+    }
+
+    .contenedor-btn-compra {
+        height: 30%;
+        width: 100%;
+        display: flex;
+        align-items: end;
+    }
+
+    .imagen-carrito {
+        border: solid 1px white;
+    }
+
+    .contedor-agrego-compra {
+        display: flex;
+        align-items: center;
+        height: 70%;
+        margin: 0 5px;
+    }
+
+    .resumen-compra {
+        color: #EFEFFF;
+        margin-bottom: 10px;
+        width: auto;
+    }
+
+    .titulo-resumen-compra {
+        border-bottom: 2px solid #EFEFFF;
+    }
+
+    .articulo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .articulo p,
+    h3 {
+        padding: 0 5px;
+    }
+
+    .contenedor-btn-realizar-compra {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-compra {
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+        outline: none;
+        background-color: #0000FF;
+        color: #EFEFFF;
+    }
+
+    .contenedor-cruz {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .icono-chico {
+        width: 24px;
+        height: 24px;
+    }
+
+    .mi-perfil-desplegado {
+        width: 30%;
+    }
+
+}
+
+
+/* PARA OCULTAR COSAS */
+
+.ocultar {
+    display: none;
+}
+
+.ocultar-degradado {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.aparecer {
+    animation: aparecer 1s ease-in-out;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

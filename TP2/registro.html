@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Juegos Gamer</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/comunes.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/fuentes-colores.css">
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="check_anime_outer">
+            <div class="check_anime_mask check_anime_mask_right"></div>
+            <div class="check_anime_mask check_anime_mask_left"></div>
+            <span class="check_mask"></span>
+            <div class="check_mark"></div>
+        </div>
+        <!-- HEADER -->
+        <header class="header">
+            <nav class="nav">
+                <div class="menu contenedor-iconos-nav">
+                    <button class="btn-trasparente" id="btnMenuPrincipal">
+                        <img src="iconos-svg/menu-comun.svg" class="icono">
+                    </button>
+                </div>
+                <div class="logo-headear contenedor-iconos-nav">
+                    <a href="home.html"><img src="iconos-svg/logo.jpg" class="logo-img"></a>
+                </div>
+                <div class="buscador contenedor-iconos-nav">
+                    <img src="iconos-svg/lupa-blanca.svg" class="icono">
+                </div>
+                <div class="buscador-escritorio">
+                    <input type="text" placeholder="Buscar juego...">
+                    <img src="iconos-svg/buscar.svg" alt="">
+                </div>
+                <div class="favoritos contenedor-iconos-nav">
+                    <button class="btn-trasparente">
+                        <img src="iconos-svg/corazon icono.svg" class="icono">
+                        <p class="texto-body">Mis favoritos</p>
+                    </button>
+                </div>
+                <div class="carrito contenedor-iconos-nav">
+                    <button class="btn-trasparente" id="btnCarrito">
+                        <img src="iconos-svg/carrito.svg" class="icono">
+                    </button>
+                </div>
+                <div class="perfil contenedor-iconos-nav">
+                    <button class="btn-trasparente" id="btnPerfil">
+                        <img src="iconos-svg/perfil.svg" class="icono">
+                    </button>
+                </div>
+            </nav>
+
+            <div class="menu-desplegado ocultar">
+                <!-- parte de arriba -->
+                <div class="menu-desplegado-categorias-principales">
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/Home.svg" class="icono-mas-chico">
+                        <li class="texto-body">Inicio</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/reciente.svg" class="icono-mas-chico">
+                        <li class="texto-body">Recientes</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/Home.svg" class="icono-mas-chico">
+                        <li class="texto-body">Nuevos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/carrito.svg" class="icono-mas-chico">
+                        <li class="texto-body">Mi carrito</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/corazon icono.svg" class="icono-mas-chico">
+                        <li class="texto-body">Mis favoritos</li>
+                    </div>
+                    <hr>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/aventura.svg" class="icono-mas-chico">
+                        <li class="texto-body">Aventura</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/Belleza.svg" class="icono-mas-chico">
+                        <li class="texto-body">Belleza</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/carreras.svg" class="icono-mas-chico">
+                        <li class="texto-body">Carreras</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/cartas.svg" class="icono-mas-chico">
+                        <li class="texto-body">Cartas</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/deportes.svg" class="icono-mas-chico">
+                        <li class="texto-body">Deportes</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/disparos.svg" class="icono-mas-chico">
+                        <li class="texto-body">Disparos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/escape.svg" class="icono-mas-chico">
+                        <li class="texto-body">Escapes</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/gratis.svg" class="icono-mas-chico">
+                        <li class="texto-body">Gratis</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/motos.svg" class="icono-mas-chico">
+                        <li class="texto-body">Motos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/musicales.svg" class="icono-mas-chico">
+                        <li class="texto-body">Musicales</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/pagos.svg" class="icono-mas-chico">
+                        <li class="texto-body">Pagos</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/terror.svg" class="icono-mas-chico">
+                        <li class="texto-body">Terror</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/multijugador.svg" class="icono-mas-chico">
+                        <li class="texto-body">Multijugador</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/estrategias.svg" class="icono-mas-chico">
+                        <li class="texto-body">Estrategia</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/puzlle.svg" class="icono-mas-chico">
+                        <li class="texto-body">Puzle</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/velocidad.svg" class="icono-mas-chico">
+                        <li class="texto-body">Velocidad</li>
+                    </div>
+                    <div class="categoria-menu">
+                        <img src="iconos-svg/vestir.svg" class="icono-mas-chico">
+                        <li class="texto-body">Vestir</li>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- ultima parte -->
+                <div class="menu-desplegado-redes-sociales">
+                    <p class="texto-body">Nuestras redes</p>
+                    <div class="redes-sociales">
+                        <img src="iconos-svg/facebook.svg" class="icono-chico">
+                        <img src="iconos-svg/twitter.svg" class="icono-chico">
+                        <img src="iconos-svg/Instagram.svg" class="icono-chico">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mi-perfil-desplegado ocultar">
+                <div class="contenedor-configuraciones-perfil-desplegado">
+                    <div class="perfil-soy-yo">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/perfil.svg" class="icono">
+                        </div>
+                        <div>
+                            <p class="texto-body">MateoElLibertario</p>
+                        </div>
+                    </div>
+                    <div class="configuraciones-perfil-desplegado">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/perfil-mini.svg" class="icono-mas-chico">
+                        </div>
+                        <div>
+                            <p class="texto-chico">Mi perfil</p>
+                        </div>
+                    </div>
+                    <div class="configuraciones-perfil-desplegado">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/editar perfil.svg" class="icono-mas-chico">
+                        </div>
+                        <div>
+                            <p class="texto-chico">Editar perfil</p>
+                        </div>
+                    </div>
+                    <div class="configuraciones-perfil-desplegado">
+                        <div class="contenedor-icono-perfil-desplegado">
+                            <img src="iconos-svg/Config.svg" class="icono-mas-chico">
+                        </div>
+                        <div>
+                            <p class="texto-chico">Configuracion de cuenta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor-cerrar-sesion">
+                    <a href="registro.html"><button>
+                            Cerrar sesión
+                        </button></a>
+                </div>
+                <div class="contenedor-cruz" id="btnCruzPerfil">
+                    <img src="iconos-svg/cruz-Grande.svg" class="icono-mas-chico">
+                </div>
+
+            </div>
+
+            <!-- CARRITO -->
+            <div class="seccion-carrito ocultar">
+                <div class="contenedor-carrito">
+                    <div class="contenedor-todas-compras">
+                        <div class="contenedor-compras">
+                            <div class="contenedor-img-compra">
+                                <img class="imagen-carrito" src="iconos-svg/mario-bros-carrito.png" alt="Mario">
+                            </div>
+                            <div class="contenedor-compra-carrito">
+                                <div class="contedor-agrego-compra">
+                                    <h3 class="titulo-compra">Super mario bros</h3>
+                                    <h3 class="titulo-compra">$999</h3>
+                                </div>
+                                <div class="contenedor-btn-compra">
+                                    <button class="btn-carrito btn-eliminar">Eliminar</button>
+                                    <button class="btn-carrito btn-comprar">Comprar ahora</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contenedor-compras">
+                            <div class="contenedor-img-compra">
+                                <img class="imagen-carrito" src="iconos-svg/fifa-carrito.png" alt="Fifa">
+                            </div>
+                            <div class="contenedor-compra-carrito">
+                                <div class="contedor-agrego-compra">
+                                    <h3 class="titulo-compra">Super mario bros</h3>
+                                    <h3 class="titulo-compra">$999</h3>
+                                </div>
+                                <div class="contenedor-btn-compra">
+                                    <button class="btn-carrito btn-eliminar">Eliminar</button>
+                                    <button class="btn-carrito btn-comprar">Comprar ahora</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resumen-compra">
+                        <div class="titulo-resumen-compra">
+                            <h2>Resumen de compra</h2>
+                        </div>
+                        <div class="articulo">
+                            <p class="texto-chico">Producto</p>
+                            <p class="texto-chico">$1998</p>
+                        </div>
+                        <div class="articulo">
+                            <p class="texto-chico">Descuento</p>
+                            <p class="texto-chico">10%</p>
+                        </div>
+                        <div class="articulo">
+                            <h3>Total</h3>
+                            <h3>$1798</h3>
+                        </div>
+                        <div class="contenedor-btn-realizar-compra">
+                            <button class="btn-compra">Continuar comprar</button>
+                        </div>
+                    </div>
+                    <div class="contenedor-cruz" id="btnCruzCarrito">
+                        <img src="iconos-svg/cruz-Grande.svg" class="icono">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- REGISTRO -->
+        <div class="contenedor-registro ocultar">
+            <section class="section-registro">
+                <form action="" class="formulario-registro">
+                    <h1>Crea tu cuenta</h1>
+                    <div class="seccion-formulario">
+                        <div class="input-regitro">
+                            <label>*Nombre</label>
+                            <input type="text" placeholder="mateo">
+                        </div>
+                        <div class="input-regitro">
+                            <label>*Apellido</label>
+                            <input type="text" placeholder="donati">
+                        </div>
+                        <div class="input-regitro">
+                            <label>*Fecha de nacimiento</label>
+                            <div class="contenedor-fecha">
+                                <select name="" class="dia-nacimiento">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="" selected>4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                    <option value="">7</option>
+                                    <option value="">8</option>
+                                    <option value="">9</option>
+                                    <option value="">10</option>
+                                    <option value="">11</option>
+                                    <option value="">12</option>
+                                    <option value="">13</option>
+                                    <option value="">14</option>
+                                    <option value="">15</option>
+                                    <option value="">16</option>
+                                    <option value="">17</option>
+                                    <option value="">18</option>
+                                    <option value="">19</option>
+                                    <option value="">20</option>
+                                    <option value="">21</option>
+                                    <option value="">22</option>
+                                    <option value="">23</option>
+                                    <option value="">24</option>
+                                    <option value="">25</option>
+                                    <option value="">26</option>
+                                    <option value="">27</option>
+                                    <option value="">28</option>
+                                    <option value="">29</option>
+                                    <option value="">30</option>
+                                    <option value="">31</option>
+                                </select>
+                                <select name="" class="dia-nacimiento">
+                                    <option value="">Ene</option>
+                                    <option value="">Feb</option>
+                                    <option value="">Mar</option>
+                                    <option value="">Abi</option>
+                                    <option value="">May</option>
+                                    <option value="">Jun</option>
+                                    <option value="">Jul</option>
+                                    <option value="" selected>Ago</option>
+                                    <option value="">Sep</option>
+                                    <option value="">Oct</option>
+                                    <option value="">Nov</option>
+                                    <option value="">Dic</option>
+                                </select>
+                                <select name="" class="dia-nacimiento">
+                                    <option value="">2000</option>
+                                    <option value="">2001</option>
+                                    <option value="">2002</option>
+                                    <option value="">2003</option>
+                                    <option value="">2004</option>
+                                    <option value="">2005</option>
+                                    <option value="">2006</option>
+                                    <option value="">2007</option>
+                                    <option value="">2008</option>
+                                    <option value="">2009</option>
+                                    <option value="" selected>2010</option>
+                                    <option value="">2011</option>
+                                    <option value="">2012</option>
+                                    <option value="">2013</option>
+                                    <option value="">2014</option>
+                                    <option value="">2015</option>
+                                    <option value="">2016</option>
+                                    <option value="">2017</option>
+                                    <option value="">2018</option>
+                                    <option value="">2019</option>
+                                    <option value="">2020</option>
+                                    <option value="">2021</option>
+                                    <option value="">2022</option>
+                                    <option value="">2023</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-regitro">
+                            <label>Apodo</label>
+                            <input type="text" placeholder="tatoLibertario201">
+                        </div>
+                        <div class="input-regitro">
+                            <label>*Email</label>
+                            <input type="email" placeholder="tomasdonati@hotmail.com">
+                        </div>
+                        <div class="input-regitro">
+                            <label>*Contraseña</label>
+                            <input type="password" placeholder="5 caracteres o mas">
+                        </div>
+                        <div class="input-regitro">
+                            <label>*Repetir contraseña</label>
+                            <input type="password" placeholder="5 caracteres o mas">
+                        </div>
+                        <div class="capchat">
+                            <div>
+                                <input type="checkbox" class="checkbox">
+                                <h5>No soy un robot</h5>
+                            </div>
+                            <img src="iconos-svg/Recaptcha.svg" class="reCapchat" alt="">
+                        </div>
+                    </div>
+                    <div class="aceptar-terminos">
+                        <input type="checkbox" class="checkbox">
+                        <h6>Acepto <span>termino</span>, <span>condiciones</span> y <span>privacidad</span></h6>
+                    </div>
+                    <div class="button-wrapper">
+                        <button class="btn-confirmacion">
+                            <p>Registrarse</p>
+                            <div class="fill"></div>
+                            <div class="fa fa-check"></div>
+                        </button>
+                        <div class="ocultar registroExitoso">Registro exitoso</div>
+                    </div>
+                    <h5>O</h5>
+                    <button class="btn-facebook btn-google">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path
+                                d="M21.3493 11.1088C21.4504 11.6908 21.5008 12.2805 21.5 12.8713C21.5 15.5095 20.557 17.7402 18.916 19.2501H18.9181C17.483 20.5757 15.5103 21.3431 13.1713 21.3431C10.8715 21.3431 8.66593 20.4295 7.03975 18.8033C5.41358 17.1772 4.5 14.9716 4.5 12.6718C4.5 10.3721 5.41358 8.1665 7.03975 6.54032C8.66593 4.91415 10.8715 4.00057 13.1713 4.00057C15.3238 3.97536 17.4027 4.78406 18.9723 6.25727L16.4967 8.73291C15.6018 7.87985 14.4074 7.4127 13.1713 7.43222C10.9091 7.43222 8.98737 8.95836 8.30234 11.0134C7.93913 12.0903 7.93913 13.2566 8.30234 14.3335H8.3056C8.99388 16.3853 10.9124 17.9114 13.1745 17.9114C14.343 17.9114 15.3467 17.6123 16.1249 17.0833H16.1216C16.5735 16.784 16.9601 16.3961 17.258 15.9433C17.5558 15.4904 17.7589 14.9818 17.8548 14.4483H13.1713V11.1099L21.3493 11.1088Z"
+                                fill="#00001D" />
+                        </svg>
+                        <span class="label">Continua con google</span>
+                    </button>
+                    <button class="btn-facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                            <path
+                                d="M9.698 22.3958H13.698V14.052H17.302L17.698 9.90621H13.698V7.81246C13.698 7.53619 13.8034 7.27124 13.9909 7.07589C14.1784 6.88054 14.4328 6.77079 14.698 6.77079H17.698V2.60413H14.698C13.3719 2.60413 12.1002 3.15286 11.1625 4.12961C10.2248 5.10636 9.698 6.43112 9.698 7.81246V9.90621H7.698L7.302 14.052H9.698V22.3958Z"
+                                fill="#EFEFFF" />
+                        </svg>
+                        <span class="label">Continua con facebook</span>
+                    </button>
+                    <h4>¿Ya tienes cuenta? <span class="inicio-sesion">Iniciar sesion</span></h4>
+                </form>
+            </section>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="contenedor-login ocultar">
+            <section class="seccion-login">
+                <h1>Login</h1>
+                <form action="" class="formulario-login">
+                    <div class="seccion-formulario">
+
+                        <div class="input-regitro">
+                            <label class="label-tomas">Email
+                                <input type="email" placeholder="tomasdonati123@gmail.com">
+                            </label>
+                        </div>
+                        <div class="input-regitro">
+                            <label class="label-tomas">Contraseña
+                                <input type="password" placeholder="5 o mas caracteres">
+                            </label>
+                        </div>
+                        <div class="recuerdame">
+                            <input type="checkbox" class="checkbox">
+                            <h5>Recuerdame</h5>
+                        </div>
+                        <div class="olvido-contra">
+                            <h5 class="olvido-contraseña">¿Ha olivdado su contraseña?</h5>
+                        </div>
+                    </div>
+                </form>
+                <div class="button-wrapper">
+                    <button class="btn-confirmacion">
+                        <p>Continuar</p>
+                        <div class="fill"></div>
+                        <div class="fa fa-check"></div>
+                    </button>
+                    <div class="ocultar registroExitoso">Sesión exitosa</div>
+                </div>
+                <h5>O</h5>
+                <button class="btn-facebook btn-google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path
+                            d="M21.3493 11.1088C21.4504 11.6908 21.5008 12.2805 21.5 12.8713C21.5 15.5095 20.557 17.7402 18.916 19.2501H18.9181C17.483 20.5757 15.5103 21.3431 13.1713 21.3431C10.8715 21.3431 8.66593 20.4295 7.03975 18.8033C5.41358 17.1772 4.5 14.9716 4.5 12.6718C4.5 10.3721 5.41358 8.1665 7.03975 6.54032C8.66593 4.91415 10.8715 4.00057 13.1713 4.00057C15.3238 3.97536 17.4027 4.78406 18.9723 6.25727L16.4967 8.73291C15.6018 7.87985 14.4074 7.4127 13.1713 7.43222C10.9091 7.43222 8.98737 8.95836 8.30234 11.0134C7.93913 12.0903 7.93913 13.2566 8.30234 14.3335H8.3056C8.99388 16.3853 10.9124 17.9114 13.1745 17.9114C14.343 17.9114 15.3467 17.6123 16.1249 17.0833H16.1216C16.5735 16.784 16.9601 16.3961 17.258 15.9433C17.5558 15.4904 17.7589 14.9818 17.8548 14.4483H13.1713V11.1099L21.3493 11.1088Z"
+                            fill="#00001D" />
+                    </svg>
+                    <span class="label">Continua con google</span>
+                </button>
+                <button class="btn-facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                        <path
+                            d="M9.698 22.3958H13.698V14.052H17.302L17.698 9.90621H13.698V7.81246C13.698 7.53619 13.8034 7.27124 13.9909 7.07589C14.1784 6.88054 14.4328 6.77079 14.698 6.77079H17.698V2.60413H14.698C13.3719 2.60413 12.1002 3.15286 11.1625 4.12961C10.2248 5.10636 9.698 6.43112 9.698 7.81246V9.90621H7.698L7.302 14.052H9.698V22.3958Z"
+                            fill="#EFEFFF" />
+                    </svg>
+                    <span class="label">Continua con facebook</span>
+                </button>
+                <h4>¿Aun no tienes cuenta?<span class="login">Registrate ahora</span></h4>
+            </section>
+        </div>
+
+        <!-- EL FOOTER -->
+        <footer class="footer">
+            <div class="section-footer-logo-copi">
+                <div class="logo-footer">
+                    <img src="iconos-svg/logo.jpg" class="logo-img">
+                </div>
+                <p class="texto-chico">@2023 Juegos gamer</p>
+            </div>
+            <div class="section-footer-categoria">
+                <p class="texto-body">CATEGORIA</p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Pagos
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Gratis
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Ver todas
+                </p>
+            </div>
+            <div class="section-footer-ayuda">
+                <p class="texto-body">AYUDA</p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Soporte tecnico
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Terminos de uso
+                </p>
+                <p class="texto-chico">
+                    <link rel="stylesheet" href="">Politica de privacidad
+                </p>
+            </div>
+            <div class="section-footer-pagos">
+                <p class="texto-body">MEDIOS DE PAGOS</p>
+                <div class="medio-de-pago">
+                    <img src="iconos-svg/visa logo 1.png" alt="">
+                </div>
+                <div class="medio-de-pago">
+                    <img src="iconos-svg/master card 1.png" alt="">
+                </div>
+                <div class="medio-de-pago">
+                    <img src="iconos-svg/Mercado Pago.png" alt="">
+                </div>
+            </div>
+            <div class="section-footer-redes">
+                <div class="redes-sociales">
+                    <img src="iconos-svg/facebook.svg" class="icono-chico">
+                    <img src="iconos-svg/twitter.svg" class="icono-chico">
+                    <img src="iconos-svg/Instagram.svg" class="icono-chico">
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <script src="js/registro.js"></script>
+    <script src="js/ocultar.js"></script>
+</body>
+
+</html>

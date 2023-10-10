@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* COLORES */
+
+:root {
+    /* Colores primarios */
+    --color-primario: #0000FF;
+    --color-primario-Luz-2: #7676FF;
+    --color-primario-Luz-3: #B0B0FF;
+    --color-primario-sombra-1: #0000E0;
+    --color-primario-sombra-2: #00008A;
+    --color-primario-sombra-3: #00004F;
+    /* Colores secundarios */
+    --color-secundario: #FF8000;
+    --color-secundario-luz-1: #FF9020;
+    --color-secundario-luz-2: #FFB568;
+    --color-secundario-luz-3: #FFCD99;
+    --color-secundario-sombre-1: #E77400;
+    --color-secundario-sombre-1: #CD6800;
+    --color-secundario-sombre-1: #AC5700;
+
+    /* Color negro */
+    --color-negro: #00001D;
+
+    /* Color blanco */
+    --color-blanco: #EFEFFF;
+
+    /* Color acento */
+    --color-acento: #008F39;
+
+    /* Color Estados */
+    --color-rojo: #DE0606;
+    --color-amarillo: #E5BE01;
+    --color-verde: #08CE57;
+
+    /* Color gris */
+    --color-gris: #616161;
+}
+
+h1 {
+    font-family: Inter !important;
+    font-size: 18px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+}
+
+h2 {
+    font-family: Inter !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+}
+
+h3 {
+    font-family: Inter !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+}
+
+.texto-body {
+    /* texto BODY */
+    font-family: Inter !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
+}
+
+.texto-chico {
+    /* texto chico */
+    font-family: Inter !important;
+    font-size: 10px !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+}
+
+.titulo-del-juego-card-box {
+    font-family: Inter !important;
+    font-size: 12px !important;
+    font-style: normal !important;
+    font-weight: 800 !important;
+    line-height: normal !important;
+}
+
+
+@media (min-width: 1024px) {
+    h1 {
+        font-family: Inter !important;
+        font-size: 30px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+    }
+
+    h2 {
+        font-family: Inter !important;
+        font-size: 24px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+    }
+
+    h3 {
+        font-family: Inter !important;
+        font-size: 20px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+    }
+
+    h4 {
+        font-family: Inter !important;
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: normal !important;
+    }
+
+    h5 {
+        font-family: Inter !important;
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: normal !important;
+    }
+
+    h6 {
+        font-family: Inter !important;
+        font-size: 12px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+    }
+
+    .texto-body {
+        /* texto BODY */
+        font-family: Inter !important;
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+    }
+
+    .texto-btn-chico {
+        /* texto BTN */
+        font-family: Roboto !important;
+        font-size: 8px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+        letter-spacing: 0.84px !important;
+    }
+
+    .texto-btn-grande {
+        /* texto BTN */
+        font-family: Roboto !important;
+        font-size: 12px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+        letter-spacing: 0.84px !important;
+    }
+
+    .texto-chico {
+        /* texto chico */
+        font-family: Inter !important;
+        font-size: 14px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: normal !important;
+    }
+
+    .texto-mini {
+        /* texto-mini */
+        font-family: Inter !important;
+        font-size: 13px !important;
+        font-style: normal !important;
+        font-weight: 800 !important;
+        line-height: normal !important;
+    }
+
+    .texto-grande {
+        /* texto GRANDE */
+        font-family: Roboto !important;
+        font-size: 16px !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: normal !important;
+        letter-spacing: 1.12px !important;
+    }
+
+    .titulo-del-juego-card-box {
+        font-family: Inter !important;
+        font-size: 18px !important;
+        font-style: normal !important;
+        font-weight: 800 !important;
+        line-height: normal !important;
+    }
+}
