@@ -803,7 +803,6 @@
         border-radius: 15px;
         background: #EFEFFF;
         position: relative;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
         transition: all .3s;
     }
 
