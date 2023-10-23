@@ -10,11 +10,13 @@ let btnPantallaCompleta = document.getElementById("pantalla-completa");
 let juegoCompleto = document.querySelector(".contenedor");
 let header = document.querySelector(".header");
 let escapePopPap = document.querySelector(".escape");
+let contenedorVideo = document.querySelector(".contenedor-video");
 
 //cuando le de al boton jugar trae el juego
 btnJugar.addEventListener("click", () => {
     btnJugar.classList.add("ocultar");
     juego.classList.remove("ocultar");
+    contenedorVideo.classList.add("ocultar");
 })
 
 //cuando clickea las instrucciones que muestre el pop pap de instrucciones

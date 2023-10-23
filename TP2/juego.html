@@ -300,7 +300,32 @@
                     <p>Presiona <span>Esc</span> para salir de la pantalla completa</p>
                 </div>
                 <div class="cuatro-linea">
-                    <img src="iconos-svg/4enLineaJugando.png">
+                    <div class="elegir-tablero">
+                        <button id="4enLinea">
+                            4 en linea
+                        </button>
+                        <button id="5enLinea">
+                            5 en linea
+                        </button>
+                    </div>
+                    <div class="fichas ocultar">
+                        <div class="jugador-fichas">
+                            <h3 class="textoJugador">Jugador 1 seleccionar ficha</h3>
+                            <div class="contenedor-fichas">
+                                <div class="ficha">
+                                    <img src="iconos-svg/fichajava.svg">
+                                </div>
+                                <div class="ficha">
+                                    <img src="iconos-svg/fichajs.svg">
+                                </div>
+                                <div class="ficha">
+                                    <img src="iconos-svg/fifa24.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas class="canvas ocultar" id="canvas" width="675" height="380"
+                        style="background-color: #B1B0FE;"></canvas>
                 </div>
                 <div class="intrucciones">
                     <div class="titulo-del-juego">
@@ -717,6 +742,9 @@
 
     <script src="js/Juego.js"></script>
     <script src="js/ocultar.js"></script>
+    <script src="js/Ficha.js"></script>
+    <script src="js/Tablero.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 
