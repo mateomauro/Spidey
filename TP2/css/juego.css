@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: 7% 71% 5% 10% 7%;
     grid-auto-rows: 100%;
-    grid-template-rows: 10vh 6vh 75vh 6vh 25vh 6vh auto 6vh 75vh 6vh 25vh;
+    grid-template-rows: 10vh 5vh 95vh 6vh 25vh 6vh auto 6vh 75vh 6vh 25vh;
     grid-template-areas:
         "header header header header header"
         " . br-es . . ."
@@ -28,6 +28,9 @@
         "footer footer footer footer footer";
 }
 
+.juego-header {
+    position: relative !important;
+}
 
 /* SECCION ESTRELLAS */
 .estrellas {
@@ -233,7 +236,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     margin: 0 15px;
     color: #EFEFFF;
     position: absolute;

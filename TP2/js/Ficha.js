@@ -11,6 +11,13 @@ class Ficha {
         this.img = img;
     }
 
+    getPosicionX() {
+        return this.posX;
+    }
+
+    getPosicionY() {
+        return this.posY;
+    }
 
     dibujar() {
         // Guarda el estado actual del lienzo
@@ -39,6 +46,11 @@ class Ficha {
         this.ctx.stroke();
 
         this.ctx.closePath();
+    }
+
+    mover(ejeX, ejeY) {
+        this.posX = ejeX;
+        this.posY = ejeY;
     }
 
 
