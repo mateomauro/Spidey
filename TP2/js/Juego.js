@@ -60,3 +60,34 @@ document.addEventListener('keydown', function (event) {
 });
 
 
+class Juego {
+    constructor(tablero, jugador1, jugador2) {
+        this.tablero = tablero;
+        this.jugador1 = jugador1;
+        this.jugador2 = jugador2;
+        this.matriz = [];
+    }
+
+    crearMatriz() {
+        let columnas = this.tablero.getCantidadX();
+        let filas = this.tablero.getCantidadY();
+        // Llena la matriz
+        for (let i = 0; i < filas; i++) {
+            // Crea una nueva fila (arreglo vacío)
+            let fila = [];
+            for (let j = 0; j < columnas; j++) {
+                // Llena la fila con valores. En este caso, usamos 0.
+                fila.push(0);
+            }
+            // Agrega la fila a la matriz
+            this.matriz.push(fila);
+        }
+        console.log(this.matriz);
+    }
+
+    getMatriz() {
+        return this.matriz;
+    }
+
+
+}

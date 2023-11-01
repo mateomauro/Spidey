@@ -21,7 +21,17 @@ let casillerosX
 let casillerosY
 
 let GrupoFichas = [];
+let JuegoGeneral;
 
+let grupoFichasJugador1;
+let grupoFichasJugador2;
+
+let y = 450;
+
+let jugador1;
+let jugador2;
+
+let tablero;
 
 btn4enLinea.addEventListener("click", () => {
     contenedorFichas.classList.remove("ocultar");
@@ -88,68 +98,112 @@ fichas.forEach(ficha => {
                         //creo el tablero para el 4 en linea 7x6 centrado
                         dibujarTablero();
 
-                        let y = 450;
-                        for (let i = 0; i < 21; i++) {
-                            let fichaJugador1 = new Ficha(143.75, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
-                            let fichaJugador2 = new Ficha(746.25, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
-                            fichaJugador1.dibujar();
-                            fichaJugador2.dibujar();
-                            y -= 7;
-                            GrupoFichas.push(fichaJugador2);
-                            GrupoFichas.push(fichaJugador1);
-                        }
-                        GrupoFichas.reverse();
+                        //creamos la ficha del jugador 1
+                        let fichaJugador1 = new Ficha(143.75, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
+                        //creamos la ficha del jugador 2
+                        let fichaJugador2 = new Ficha(746.25, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
+
+                        //crea el grupo de fichas del jugador 1
+                        grupoFichasJugador1 = new Grupo(21, fichaJugador1);
+                        //crea el grupo de fichas del jugador 2
+                        grupoFichasJugador2 = new Grupo(21, fichaJugador2);
+
+                        //creamos al jugador 1 
+                        jugador1 = new Jugador(grupoFichasJugador1);
+                        //creamos al jugador 2 
+                        jugador2 = new Jugador(grupoFichasJugador2);
+
+                        grupoFichasJugador1.dibujarGrupo();
+                        grupoFichasJugador2.dibujarGrupo();
+
+                        //crea el juego general
+                        JuegoGeneral = new Juego(tablero, false, false);
+                        JuegoGeneral.crearMatriz();
+
                     }
 
                     if (tableroJuego == 5) {
                         //creo el tablero para el 5 en linea 8x7 centrado
                         dibujarTablero();
 
-                        let y = 450;
-                        for (let i = 0; i < 28; i++) {
-                            let fichaJugador1 = new Ficha(132.5, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
-                            let fichaJugador2 = new Ficha(757.5, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
-                            fichaJugador1.dibujar();
-                            fichaJugador2.dibujar();
-                            y -= 7;
-                            GrupoFichas.push(fichaJugador2);
-                            GrupoFichas.push(fichaJugador1);
-                        }
-                        GrupoFichas.reverse();
+                        //creamos la ficha del jugador 1
+                        let fichaJugador1 = new Ficha(132.5, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
+                        //creamos la ficha del jugador 2
+                        let fichaJugador2 = new Ficha(757.5, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
+
+                        //crea el grupo de fichas del jugador 1
+                        grupoFichasJugador1 = new Grupo(28, fichaJugador1);
+                        //crea el grupo de fichas del jugador 2
+                        grupoFichasJugador2 = new Grupo(28, fichaJugador2);
+
+                        //creamos al jugador 1 
+                        jugador1 = new Jugador(grupoFichasJugador1);
+                        //creamos al jugador 2 
+                        jugador2 = new Jugador(grupoFichasJugador2);
+
+                        grupoFichasJugador1.dibujarGrupo();
+                        grupoFichasJugador2.dibujarGrupo();
+
+                        //crea el juego general
+                        JuegoGeneral = new Juego(tablero, false, false);
+                        JuegoGeneral.crearMatriz();
+
                     }
 
                     if (tableroJuego == 6) {
                         //creo el tablero para el 6 en linea 9x8 centrado
                         dibujarTablero();
 
-                        let y = 450;
-                        for (let i = 0; i < 36; i++) {
-                            let fichaJugador1 = new Ficha(121.25, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
-                            let fichaJugador2 = new Ficha(768.75, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
-                            fichaJugador1.dibujar();
-                            fichaJugador2.dibujar();
-                            y -= 7;
-                            GrupoFichas.push(fichaJugador2);
-                            GrupoFichas.push(fichaJugador1);
-                        }
-                        GrupoFichas.reverse();
+                        //creamos la ficha del jugador 1
+                        let fichaJugador1 = new Ficha(121.25, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
+                        //creamos la ficha del jugador 2
+                        let fichaJugador2 = new Ficha(768.75, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
+
+
+                        //crea el grupo de fichas del jugador 1
+                        grupoFichasJugador1 = new Grupo(36, fichaJugador1);
+                        //crea el grupo de fichas del jugador 2
+                        grupoFichasJugador2 = new Grupo(36, fichaJugador2);
+
+                        //creamos al jugador 1 
+                        jugador1 = new Jugador(grupoFichasJugador1);
+                        //creamos al jugador 2 
+                        jugador2 = new Jugador(grupoFichasJugador2);
+
+                        grupoFichasJugador1.dibujarGrupo();
+                        grupoFichasJugador2.dibujarGrupo();
+
+                        //crea el juego general
+                        JuegoGeneral = new Juego(tablero, false, false);
+                        JuegoGeneral.crearMatriz();
+
                     }
 
                     if (tableroJuego == 7) {
-                        //creo el tablero para el 7 en linea 10x9 centrado
+                        //dibuja el tablero
                         dibujarTablero();
 
-                        let y = 450;
-                        for (let i = 0; i < 45; i++) {
-                            let fichaJugador1 = new Ficha(110, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
-                            let fichaJugador2 = new Ficha(780, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
-                            fichaJugador1.dibujar();
-                            fichaJugador2.dibujar();
-                            y -= 7;
-                            GrupoFichas.push(fichaJugador2);
-                            GrupoFichas.push(fichaJugador1);
-                        }
-                        GrupoFichas.reverse();
+                        //creamos la ficha del jugador 1
+                        let fichaJugador1 = new Ficha(110, y, 20, '#000000', ctx, '#0000FF', imgJugador1);
+                        //creamos la ficha del jugador 2
+                        let fichaJugador2 = new Ficha(780, y, 20, '#000000', ctx, '#0000FF', imgJugador2);
+
+                        //crea el grupo de fichas del jugador 1
+                        grupoFichasJugador1 = new Grupo(45, fichaJugador1);
+                        //crea el grupo de fichas del jugador 2
+                        grupoFichasJugador2 = new Grupo(45, fichaJugador2);
+
+                        //creamos al jugador 1 
+                        jugador1 = new Jugador(grupoFichasJugador1);
+                        //creamos al jugador 2 
+                        jugador2 = new Jugador(grupoFichasJugador2);
+
+                        grupoFichasJugador1.dibujarGrupo();
+                        grupoFichasJugador2.dibujarGrupo();
+
+                        //crea el juego general
+                        JuegoGeneral = new Juego(tablero, false, false);
+                        JuegoGeneral.crearMatriz();
                     }
                 }
             }
@@ -157,34 +211,55 @@ fichas.forEach(ficha => {
     })
 });
 
+
 function dibujarTablero() {
     //creo el tablero.
-    let tablero = new Tablero(tableroX, tableroY, casillerosX, casillerosY, '#1F1FFF', ctx);
+    tablero = new Tablero(tableroX, tableroY, casillerosX, casillerosY, '#1F1FFF', ctx);
     tablero.dibujar();
 }
+
 
 // Manejo de eventos del mouse
 window.addEventListener("load", () => {
     document.addEventListener("mousedown", iniciarArrastre); // Evento cuando se presiona el botón del mouse
     document.addEventListener("mouseup", terminarArrastre); // Evento cuando se suelta el botón del mouse
     document.addEventListener("mousemove", arrastre); // Evento cuando se mueve el mouse
-    document.addEventListener("mousemove", cambiarCursor); // cambia el cursor cuando entra a la ficha
 });
 
-//inicia el arraste si toca la ficha del jugador
+let fichaClikeada;
+let grupoActual;
+
+
 function iniciarArrastre(event) {
-    if (GrupoFichas.length > 0) {
-        let pos = obtenerMousePosicion(event); // Obtiene la posición actual del mouse
-        let fichaX = GrupoFichas[0].getPosicionX();
-        let fichaY = GrupoFichas[0].getPosicionY();
-        let radioCirculo = 20;
-        let distancia = Math.sqrt(Math.pow(pos.x - fichaX, 2) + Math.pow(pos.y - fichaY, 2)); // Calcula la distancia entre la posición del mouse y el centro del círculo
-        if (distancia < radioCirculo) { // Si la distancia es menor que el radio del círculo, entonces el mouse está dentro del círculo
-            arrastro = true; // Se inicia el arrastre del círculo
-        }
+    if (jugador1 && jugador1.tengoFichas() == true || jugador2 && jugador2.tengoFichas() == true) {
+
+        //recorre las ficha del jugador 1
+        grupoFichasJugador1.getFichas().forEach(ficha => {
+            let pos = obtenerMousePosicion(event); // Obtiene la posición actual del mouse
+            let fichaX = ficha.getPosicionX();
+            let fichaY = ficha.getPosicionY();
+            let radioCirculo = 20;
+            let distancia = Math.sqrt(Math.pow(pos.x - fichaX, 2) + Math.pow(pos.y - fichaY, 2)); // Calcula la distancia entre la posición del mouse y el centro del círculo
+            if (distancia < radioCirculo) { // Si la distancia es menor que el radio del círculo, entonces el mouse está dentro del círculo
+                arrastro = true; // Se inicia el arrastre del círculo
+                fichaClikeada = ficha;
+            }
+        });
+
+        //recorre las ficha del jugador 1
+        grupoFichasJugador2.getFichas().forEach(ficha => {
+            let pos = obtenerMousePosicion(event); // Obtiene la posición actual del mouse
+            let fichaX = ficha.getPosicionX();
+            let fichaY = ficha.getPosicionY();
+            let radioCirculo = 20;
+            let distancia = Math.sqrt(Math.pow(pos.x - fichaX, 2) + Math.pow(pos.y - fichaY, 2)); // Calcula la distancia entre la posición del mouse y el centro del círculo
+            if (distancia < radioCirculo) { // Si la distancia es menor que el radio del círculo, entonces el mouse está dentro del círculo
+                arrastro = true; // Se inicia el arrastre del círculo
+                fichaClikeada = ficha;
+            }
+        });
     }
 }
-
 
 //obtiene la posicion actual del mouse en el canvas
 function obtenerMousePosicion(event) {
@@ -195,30 +270,75 @@ function obtenerMousePosicion(event) {
     }
 }
 
-//termina el arrastre
-function terminarArrastre(event) {
-    arrastro = false;
-}
+let fichasEnTablero = []; // Array para almacenar las fichas en el tablero
 
 function arrastre(event) {
     if (!arrastro) return;
 
     let pos = obtenerMousePosicion(event);
     if (pos.x > 0 && pos.x < canvasWidth && pos.y > 0 && pos.y < canvasHeight) {
-        GrupoFichas[0].mover(pos.x, pos.y);
-        GrupoFichas[0].dibujar();
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
+        dibujarGrupos();
+        dibujarTablero();
+        fichaClikeada.mover(pos.x, pos.y);
+        fichaClikeada.dibujar();
+
+        // Redibuja todas las fichas en el tablero
+        for (let i = 0; i < fichasEnTablero.length; i++) {
+            fichasEnTablero[i].dibujar();
+        }
     }
 }
 
-function cambiarCursor(event) {
-    let pos = obtenerMousePosicion(event); // Obtiene la posición actual del mouse
-    let fichaX = GrupoFichas[0].getPosicionX();
-    let fichaY = GrupoFichas[0].getPosicionY();
-    let radioCirculo = 20;
-    let distancia = Math.sqrt(Math.pow(pos.x - fichaX, 2) + Math.pow(pos.y - fichaY, 2)); // Calcula la distancia entre la posición del mouse y el centro del círculo
-    if (distancia < radioCirculo) {
-        canvas.style.cursor = 'pointer'; // Cambia el cursor a un puntero
-    } else {
-        canvas.style.cursor = 'default'; // Cambia el cursor a su estado predeterminado
+
+function terminarArrastre(event) {
+    if (arrastro) {
+        // Añade la ficha a la lista de fichas en el tablero
+        fichasEnTablero.push(fichaClikeada);
+
+        // Quita la ficha del grupo del jugador
+        if (jugador1.getFichas().getFichas().includes(fichaClikeada)) {
+            jugador1.getFichas().quitarFicha(fichaClikeada);
+        } else if (jugador2.getFichas().getFichas().includes(fichaClikeada)) {
+            jugador2.getFichas().quitarFicha(fichaClikeada);
+        }
+
+        // Calcula en qué columna del tablero se soltó la ficha
+        let columna = Math.floor((fichaClikeada.getPosicionX() - tableroX) / 45);
+
+        // Busca el casillero más bajo vacío en esa columna
+        let fila;
+        for (fila = JuegoGeneral.matriz.length - 1; fila >= 0; fila--) {
+            if (!JuegoGeneral.matriz[fila][columna]) {
+                break;
+            }
+        }
+
+        // Si encontró un casillero vacío, coloca la ficha allí
+        if (fila >= 0) {
+            JuegoGeneral.matriz[fila][columna] = fichaClikeada;
+            // Actualiza la posición de la ficha para que coincida con el centro del círculo en el casillero
+            let centroCasilleroX = columna * 45 + tableroX + 22.5; // Añade la mitad del tamaño del casillero a la posición X
+            let centroCasilleroY = fila * 45 + tableroY + 22.5; // Añade la mitad del tamaño del casillero a la posición Y
+            fichaClikeada.mover(centroCasilleroX, centroCasilleroY);
+        }
+
+        // Redibuja el tablero y todas las fichas
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
+        dibujarGrupos();
+        dibujarTablero();
+
+        // Redibuja todas las fichas en el tablero
+        for (let i = 0; i < fichasEnTablero.length; i++) {
+            fichasEnTablero[i].dibujar();
+        }
+        console.log(JuegoGeneral.getMatriz())
     }
+    arrastro = false;
+}
+
+
+function dibujarGrupos() {
+    grupoFichasJugador1.dibujarGrupo();
+    grupoFichasJugador2.dibujarGrupo();
 }

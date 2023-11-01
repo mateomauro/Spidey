@@ -8,6 +8,27 @@ class Tablero {
         this.cantidadY = cantidadY;
         this.fill = fill;
         this.ctx = contexto;
+        this.rangosX = [];
+        for (let i = 0; i <= this.cantidadX; i++) {
+            this.rangosX.push([this.posX + i * 45, this.posX + (i + 1) * 45]);
+        }
+    }
+
+    // getColumna(x) {
+    //     for (let i = 0; i < this.rangosX.length; i++) {
+    //         if (x >= this.rangosX[i][0] && x < this.rangosX[i][1]) {
+    //             return i;
+    //         }
+    //     }
+    //     return -1; // Devuelve -1 si x no está dentro de ningún rango
+    // }
+
+    getCantidadX() {
+        return this.cantidadX;
+    }
+
+    getCantidadY() {
+        return this.cantidadY;
     }
 
     dibujar() {
@@ -57,8 +78,17 @@ class Tablero {
             }
             this.posY = posicionInicialY;
             //mala solucion para detectar el borde entre casilleros
-            this.posX += Casillero - 0.5;
+            this.posX += Casillero;
+        }
+
+        this.ctx.strokeStyle = '#ff0000'; // Cambia esto al color que quieras para las líneas
+        for (let i = 0; i < this.rangosX.length; i++) {
+            this.ctx.beginPath();
+            this.ctx.moveTo(this.rangosX[i][0], 0);
+            this.ctx.lineTo(this.rangosX[i][0], canvasHeight);
+            this.ctx.stroke();
         }
     }
+
 
 }
