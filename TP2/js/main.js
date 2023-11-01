@@ -110,8 +110,11 @@ fichas.forEach(ficha => {
 
                         //creamos al jugador 1 
                         jugador1 = new Jugador(grupoFichasJugador1);
+                        jugador1.setTurno(true);
+
                         //creamos al jugador 2 
                         jugador2 = new Jugador(grupoFichasJugador2);
+                        jugador2.setTurno(false);
 
                         grupoFichasJugador1.dibujarGrupo();
                         grupoFichasJugador2.dibujarGrupo();
@@ -138,8 +141,11 @@ fichas.forEach(ficha => {
 
                         //creamos al jugador 1 
                         jugador1 = new Jugador(grupoFichasJugador1);
+                        jugador1.setTurno(true);
+
                         //creamos al jugador 2 
                         jugador2 = new Jugador(grupoFichasJugador2);
+                        jugador2.setTurno(false);
 
                         grupoFichasJugador1.dibujarGrupo();
                         grupoFichasJugador2.dibujarGrupo();
@@ -167,8 +173,11 @@ fichas.forEach(ficha => {
 
                         //creamos al jugador 1 
                         jugador1 = new Jugador(grupoFichasJugador1);
+                        jugador1.setTurno(true);
+
                         //creamos al jugador 2 
                         jugador2 = new Jugador(grupoFichasJugador2);
+                        jugador2.setTurno(false);
 
                         grupoFichasJugador1.dibujarGrupo();
                         grupoFichasJugador2.dibujarGrupo();
@@ -195,8 +204,11 @@ fichas.forEach(ficha => {
 
                         //creamos al jugador 1 
                         jugador1 = new Jugador(grupoFichasJugador1);
+                        jugador1.setTurno(true);
+
                         //creamos al jugador 2 
                         jugador2 = new Jugador(grupoFichasJugador2);
+                        jugador2.setTurno(false);
 
                         grupoFichasJugador1.dibujarGrupo();
                         grupoFichasJugador2.dibujarGrupo();
@@ -228,11 +240,10 @@ window.addEventListener("load", () => {
 
 let fichaClikeada;
 let grupoActual;
-
+let posicionOriginal;
 
 function iniciarArrastre(event) {
-    if (jugador1 && jugador1.tengoFichas() == true || jugador2 && jugador2.tengoFichas() == true) {
-
+    if (jugador1 && jugador1.tengoFichas() == true && jugador1.getTurno() == true) {
         //recorre las ficha del jugador 1
         grupoFichasJugador1.getFichas().forEach(ficha => {
             let pos = obtenerMousePosicion(event); // Obtiene la posición actual del mouse
@@ -243,10 +254,11 @@ function iniciarArrastre(event) {
             if (distancia < radioCirculo) { // Si la distancia es menor que el radio del círculo, entonces el mouse está dentro del círculo
                 arrastro = true; // Se inicia el arrastre del círculo
                 fichaClikeada = ficha;
+                fichaClikeada.posicionOriginal = { x: fichaClikeada.getPosicionX(), y: fichaClikeada.getPosicionY() }; // Almacena la posición original de la ficha
             }
         });
-
-        //recorre las ficha del jugador 1
+    } else if (jugador2 && jugador2.tengoFichas() == true && jugador2.getTurno() == true) {
+        //recorre las ficha del jugador 2
         grupoFichasJugador2.getFichas().forEach(ficha => {
             let pos = obtenerMousePosicion(event); // Obtiene la posición actual del mouse
             let fichaX = ficha.getPosicionX();
@@ -256,10 +268,13 @@ function iniciarArrastre(event) {
             if (distancia < radioCirculo) { // Si la distancia es menor que el radio del círculo, entonces el mouse está dentro del círculo
                 arrastro = true; // Se inicia el arrastre del círculo
                 fichaClikeada = ficha;
+                fichaClikeada.posicionOriginal = { x: fichaClikeada.getPosicionX(), y: fichaClikeada.getPosicionY() }; // Almacena la posición original de la ficha
             }
         });
     }
 }
+
+
 
 //obtiene la posicion actual del mouse en el canvas
 function obtenerMousePosicion(event) {
@@ -293,34 +308,46 @@ function arrastre(event) {
 
 function terminarArrastre(event) {
     if (arrastro) {
-        // Añade la ficha a la lista de fichas en el tablero
-        fichasEnTablero.push(fichaClikeada);
-
-        // Quita la ficha del grupo del jugador
-        if (jugador1.getFichas().getFichas().includes(fichaClikeada)) {
-            jugador1.getFichas().quitarFicha(fichaClikeada);
-        } else if (jugador2.getFichas().getFichas().includes(fichaClikeada)) {
-            jugador2.getFichas().quitarFicha(fichaClikeada);
-        }
-
         // Calcula en qué columna del tablero se soltó la ficha
         let columna = Math.floor((fichaClikeada.getPosicionX() - tableroX) / 45);
 
-        // Busca el casillero más bajo vacío en esa columna
-        let fila;
-        for (fila = JuegoGeneral.matriz.length - 1; fila >= 0; fila--) {
-            if (!JuegoGeneral.matriz[fila][columna]) {
-                break;
-            }
-        }
+        // Verifica si la ficha se soltó dentro de los límites del tablero
+        if (columna >= 0 && columna < tablero.getCantidadX() && fichaClikeada.getPosicionY() < tableroY) {
 
-        // Si encontró un casillero vacío, coloca la ficha allí
-        if (fila >= 0) {
-            JuegoGeneral.matriz[fila][columna] = fichaClikeada;
-            // Actualiza la posición de la ficha para que coincida con el centro del círculo en el casillero
-            let centroCasilleroX = columna * 45 + tableroX + 22.5; // Añade la mitad del tamaño del casillero a la posición X
-            let centroCasilleroY = fila * 45 + tableroY + 22.5; // Añade la mitad del tamaño del casillero a la posición Y
-            fichaClikeada.mover(centroCasilleroX, centroCasilleroY);
+            // Añade la ficha a la lista de fichas en el tablero
+            fichasEnTablero.push(fichaClikeada);
+
+            // Quita la ficha del grupo del jugador
+            if (jugador1.getFichas().getFichas().includes(fichaClikeada)) {
+                jugador1.getFichas().quitarFicha(fichaClikeada);
+                jugador1.setTurno(false); // Cambia el turno del jugador 1 a false
+                jugador2.setTurno(true); // Cambia el turno del jugador 2 a true
+            } else if (jugador2.getFichas().getFichas().includes(fichaClikeada)) {
+                jugador2.getFichas().quitarFicha(fichaClikeada);
+                jugador2.setTurno(false); // Cambia el turno del jugador 2 a false
+                jugador1.setTurno(true); // Cambia el turno del jugador 1 a true
+            }
+
+
+            // Busca el casillero más bajo vacío en esa columna
+            let fila;
+            for (fila = JuegoGeneral.matriz.length - 1; fila >= 0; fila--) {
+                if (!JuegoGeneral.matriz[fila][columna]) {
+                    break;
+                }
+            }
+
+            // Si encontró un casillero vacío, coloca la ficha allí
+            if (fila >= 0) {
+                JuegoGeneral.matriz[fila][columna] = fichaClikeada;
+                // Actualiza la posición de la ficha para que coincida con el centro del círculo en el casillero
+                let centroCasilleroX = columna * 45 + tableroX + 22.5; // Añade la mitad del tamaño del casillero a la posición X
+                let centroCasilleroY = fila * 45 + tableroY + 22.5; // Añade la mitad del tamaño del casillero a la posición Y
+                fichaClikeada.mover(centroCasilleroX, centroCasilleroY);
+            }
+        } else {
+            // Si la ficha se soltó fuera de los límites del tablero, mueve la ficha de vuelta a su posición original
+            fichaClikeada.mover(fichaClikeada.posicionOriginal.x, fichaClikeada.posicionOriginal.y);
         }
 
         // Redibuja el tablero y todas las fichas
@@ -333,6 +360,14 @@ function terminarArrastre(event) {
             fichasEnTablero[i].dibujar();
         }
         console.log(JuegoGeneral.getMatriz())
+    }
+
+    if (JuegoGeneral) {
+        if (JuegoGeneral.verificarGanador(jugador1)) {
+            console.log("¡El Jugador 1 ha ganado!");
+        } else if (JuegoGeneral.verificarGanador(jugador2)) {
+            console.log("¡El Jugador 2 ha ganado!");
+        }
     }
     arrastro = false;
 }
