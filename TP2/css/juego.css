@@ -55,6 +55,16 @@
     position: relative;
 }
 
+.juego-oculto {
+    background-color: #00001D;
+    width: 100%;
+    height: 92%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    opacity: 0.9;
+}
+
 .escape {
     position: absolute;
     top: 2%;
@@ -64,6 +74,7 @@
     justify-content: center;
     align-items: center;
     font-size: 18px;
+    z-index: 1;
 }
 
 .escape p {
@@ -86,6 +97,76 @@
     align-items: center;
     padding: 0px 5px;
     margin: 0 3px;
+}
+
+.seguro {
+    width: 400px;
+    height: 150px;
+    border: solid 2px #EFEFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #EFEFFF;
+    background-color: rgb(0, 0, 0, 0.4);
+}
+
+.estas-seguro {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.btn-seguro {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.cambiar-tablero {
+    background-color: #FF8000;
+    width: 160px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #EFEFFF;
+    border: solid 2px #00001D;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.cambiar-tablero:hover {
+    background-color: #df6f00;
+    border: solid 2px #EFEFFF;
+}
+
+.cancelar-tablero {
+    background-color: #EFEFFF;
+    width: 130px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #00001D;
+    border: solid 2px #00001D;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.cancelar-tablero:hover {
+    background-color: #616161;
+    color: #EFEFFF;
+    border: solid 2px #EFEFFF;
 }
 
 .pantallaCompleta {
@@ -352,6 +433,78 @@
     grid-area: anuncio;
     height: 100%;
     width: 100%;
+    background-color: #B1B0FE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.opcion-juego {
+    width: 90%;
+    height: 30px;
+    background-color: #00008A;
+    margin: 5px 0;
+    text-align: center;
+    cursor: pointer;
+    color: #EFEFFF;
+    border: solid 2px #00001D;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opcion-juego:hover {
+    opacity: 0.8;
+}
+
+/* reloj del juego */
+
+#countdown {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    user-select: none;
+}
+
+#countdown-number {
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke: white;
+    fill: none;
+    animation: countdown 260s linear infinite forwards;
+}
+
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0px;
+    }
+
+    to {
+        stroke-dashoffset: 113px;
+    }
 }
 
 .anuncio img {

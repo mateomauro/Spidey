@@ -1,7 +1,7 @@
 "use strict"
 
 class Ficha {
-    constructor(posX, posY, radius, fill, context, borde, img) {
+    constructor(posX, posY, radius, fill, context, borde, img, idJugador) {
         this.posX = posX;
         this.posY = posY;
         this.radius = radius;
@@ -9,6 +9,11 @@ class Ficha {
         this.ctx = context;
         this.borde = borde;
         this.img = img;
+        this.idJugador = idJugador;
+    }
+
+    getIdJugador() {
+        return this.idJugador;
     }
 
     getPosicionX() {
@@ -53,6 +58,10 @@ class Ficha {
         this.posY = ejeY;
     }
 
+    resaltar() {
+        this.borde = '#000000'; // Cambia el color del borde a rojo
+        this.dibujar();
+    }
 
 }
 

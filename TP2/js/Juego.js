@@ -82,53 +82,103 @@ class Juego {
             // Agrega la fila a la matriz
             this.matriz.push(fila);
         }
-        console.log(this.matriz);
     }
 
     getMatriz() {
         return this.matriz;
     }
 
+    verificarGanador(ficha) {
+        if (!ficha) {
+            return false;
+        }
 
-    verificarGanador(jugador) {
-        let fichas = jugador.getFichas().getFichas();
-        for (let i = 0; i < this.matriz.length; i++) {
-            for (let j = 0; j < this.matriz[i].length; j++) {
-                if (fichas.includes(this.matriz[i][j])) {
-                    // Comprueba horizontalmente
-                    if (j <= this.matriz[i].length - 4 &&
-                        fichas.includes(this.matriz[i][j + 1]) &&
-                        fichas.includes(this.matriz[i][j + 2]) &&
-                        fichas.includes(this.matriz[i][j + 3])) {
-                        return true;
-                    }
-                    // Comprueba verticalmente
-                    if (i <= this.matriz.length - 4 &&
-                        fichas.includes(this.matriz[i + 1][j]) &&
-                        fichas.includes(this.matriz[i + 2][j]) &&
-                        fichas.includes(this.matriz[i + 3][j])) {
-                        return true;
-                    }
-                    // Comprueba diagonalmente hacia abajo
-                    if (i <= this.matriz.length - 4 && j <= this.matriz[i].length - 4 &&
-                        fichas.includes(this.matriz[i + 1][j + 1]) &&
-                        fichas.includes(this.matriz[i + 2][j + 2]) &&
-                        fichas.includes(this.matriz[i + 3][j + 3])) {
-                        return true;
-                    }
-                    // Comprueba diagonalmente hacia arriba
-                    if (i >= 3 && j <= this.matriz[i].length - 4 &&
-                        fichas.includes(this.matriz[i - 1][j + 1]) &&
-                        fichas.includes(this.matriz[i - 2][j + 2]) &&
-                        fichas.includes(this.matriz[i - 3][j + 3])) {
-                        return true;
-                    }
+        let matriz = this.getMatriz();
+        let jugador = ficha.idJugador;
+        let posX = Math.floor((ficha.getPosicionX() - tableroX) / 45);
+        let posY = Math.floor((ficha.getPosicionY() - tableroY) / 45);
+
+        // El número de fichas en línea necesarias para ganar se basa en el tamaño del tablero
+        let fichasParaGanar = this.tablero.getCantidadX() - 3;
+
+        // Verificar horizontal
+        let contador = 0;
+        let fichasGanadoras = [];
+        for (let x = 0; x < matriz[0].length; x++) {
+            if (matriz[posY][x] && matriz[posY][x].idJugador === jugador) {
+                contador++;
+                fichasGanadoras.push(matriz[posY][x]);
+                if (contador === fichasParaGanar) {
+                    fichasGanadoras.forEach(f => f.resaltar());
+                    return true;
                 }
+            } else {
+                contador = 0;
+                fichasGanadoras = [];
             }
         }
+
+        // Verificar vertical
+        contador = 0;
+        fichasGanadoras = [];
+        for (let y = 0; y < matriz.length; y++) {
+            if (matriz[y][posX] && matriz[y][posX].idJugador === jugador) {
+                contador++;
+                fichasGanadoras.push(matriz[y][posX]);
+                if (contador === fichasParaGanar) {
+                    fichasGanadoras.forEach(f => f.resaltar());
+                    return true;
+                }
+            } else {
+                contador = 0;
+                fichasGanadoras = [];
+            }
+        }
+
+        // Verificar diagonal descendente
+        contador = 0;
+        let colInicio = posX - Math.min(posX, posY);
+        let filaInicio = posY - Math.min(posX, posY);
+        for (let i = 0; i < matriz.length; i++) {
+            if (matriz[filaInicio + i] && matriz[filaInicio + i][colInicio + i] && matriz[filaInicio + i][colInicio + i].idJugador === jugador) {
+                contador++;
+                fichasGanadoras.push(matriz[filaInicio + i][colInicio + i]);
+                if (contador === fichasParaGanar) {
+                    fichasGanadoras.forEach(f => f.resaltar());
+                    return true;
+                }
+            } else {
+                contador = 0;
+                fichasGanadoras = [];
+            }
+        }
+
+        // Verificar diagonal ascendente
+        contador = 0;
+        colInicio = posX + Math.min(matriz[0].length - posX - 1, posY);
+        filaInicio = posY - Math.min(matriz[0].length - posX - 1, posY);
+        for (let i = 0; i < matriz.length; i++) {
+            if (matriz[filaInicio + i] && matriz[filaInicio + i][colInicio - i] && matriz[filaInicio + i][colInicio - i].idJugador === jugador) {
+                contador++;
+                fichasGanadoras.push(matriz[filaInicio + i][colInicio - i]);
+                if (contador === fichasParaGanar) {
+                    fichasGanadoras.forEach(f => f.resaltar());
+                    return true;
+                }
+            } else {
+                contador = 0;
+                fichasGanadoras = [];
+            }
+        }
+
         return false;
     }
 }
+
+
+
+
+
 
 
 

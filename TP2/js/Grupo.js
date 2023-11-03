@@ -1,10 +1,21 @@
 class Grupo {
-    constructor(cantidadFichas, ficha) {
+    constructor(cantidadFichas, ficha, jugador) {
         this.fichas = [];
+        this.nombre = jugador;
+        let j = 0;
         for (let i = 0; i < cantidadFichas; i++) {
-            // Crea una nueva ficha para cada posición en el grupo
-            let nuevaFicha = new Ficha(ficha.posX, ficha.posY - i * 10, ficha.radius, ficha.fill, ficha.ctx, ficha.borde, ficha.img);
-            this.fichas.push(nuevaFicha);
+            let mitad = Math.floor(cantidadFichas / 2);
+            if (i <= mitad) {
+                // Crea una nueva ficha para cada posición en el grupo
+                let nuevaFicha = new Ficha(ficha.posX, ficha.posY - i * 10, ficha.radius, ficha.fill, ficha.ctx, ficha.borde, ficha.img, ficha.idJugador);
+                this.fichas.push(nuevaFicha);
+            }
+            else {
+                j++;
+                // Crea una nueva ficha para cada posición en el grupo
+                let nuevaFicha = new Ficha(ficha.posX + (ficha.radius * 2) + 15, ficha.posY - j * 10, ficha.radius, ficha.fill, ficha.ctx, ficha.borde, ficha.img, ficha.idJugador);
+                this.fichas.push(nuevaFicha);
+            }
         }
     }
 
@@ -12,6 +23,11 @@ class Grupo {
         for (let i = 0; i < this.fichas.length; i++) {
             this.fichas[i].dibujar();
         }
+
+        // Dibuja el texto debajo del grupo de fichas
+        this.fichas[0].ctx.font = '20px Arial';
+        this.fichas[0].ctx.fillStyle = 'black';
+        this.fichas[0].ctx.fillText(this.nombre, this.fichas[0].posX - 13, this.fichas[0].posY + 50);
     }
 
     reversaFichas() {

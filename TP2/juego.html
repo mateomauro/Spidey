@@ -296,21 +296,31 @@
         <!-- JUEGO -->
         <section class="juego">
             <div class="contenedor-jugando ocultar">
+                <div class="juego-oculto ocultar">
+
+                </div>
                 <div class="escape ocultar">
                     <p>Presiona <span>Esc</span> para salir de la pantalla completa</p>
                 </div>
+                <div class="seguro ocultar">
+                    <div class="estas-seguro">Estas seguro que desea cambiar de tablero?</div>
+                    <div class="btn-seguro">
+                        <div class="cancelar-tablero">Cancelar</div>
+                        <div class="cambiar-tablero">Cambiar de tablero</div>
+                    </div>
+                </div>
                 <div class="cuatro-linea">
                     <div class="elegir-tablero">
-                        <button id="4enLinea">
+                        <button class="enLinea4">
                             4 en linea
                         </button>
-                        <button id="5enLinea">
+                        <button class="enLinea5">
                             5 en linea
                         </button>
-                        <button id="6enLinea">
+                        <button class="enLinea6">
                             6 en linea
                         </button>
-                        <button id="7enLinea">
+                        <button class="enLinea7">
                             7 en linea
                         </button>
                     </div>
@@ -332,6 +342,13 @@
                     </div>
                     <canvas class="canvas ocultar" id="canvas" width="890" height="480"
                         style="background-color: #B1B0FE; border: solid;"></canvas>
+                    <div id="countdown">
+                        <div id="countdown-number"></div>
+                        <svg class="ocultar svg-circulo">
+                            <circle r="18" cx="20" cy="20"></circle>
+                        </svg>
+                    </div>
+
                 </div>
                 <div class="intrucciones">
                     <div class="titulo-del-juego">
@@ -402,7 +419,11 @@
 
         <!-- PRIMER ANUNCIO -->
         <section class="anuncio">
-            <img src="iconos-svg/anuncioBosh.png">
+            <!-- <img src="iconos-svg/anuncioBosh.png"> -->
+            <div class="opcion-juego enLinea4">Jugar 4 en linea</div>
+            <div class="opcion-juego enLinea5">Jugar 5 en linea</div>
+            <div class="opcion-juego enLinea6">Jugar 6 en linea</div>
+            <div class="opcion-juego enLinea7">Jugar 7 en linea</div>
         </section>
 
         <!-- MAS JUEGOS -->

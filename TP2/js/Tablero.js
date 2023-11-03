@@ -14,15 +14,6 @@ class Tablero {
         }
     }
 
-    // getColumna(x) {
-    //     for (let i = 0; i < this.rangosX.length; i++) {
-    //         if (x >= this.rangosX[i][0] && x < this.rangosX[i][1]) {
-    //             return i;
-    //         }
-    //     }
-    //     return -1; // Devuelve -1 si x no está dentro de ningún rango
-    // }
-
     getCantidadX() {
         return this.cantidadX;
     }
@@ -81,13 +72,13 @@ class Tablero {
             this.posX += Casillero;
         }
 
-        this.ctx.strokeStyle = '#ff0000'; // Cambia esto al color que quieras para las líneas
-        for (let i = 0; i < this.rangosX.length; i++) {
-            this.ctx.beginPath();
-            this.ctx.moveTo(this.rangosX[i][0], 0);
-            this.ctx.lineTo(this.rangosX[i][0], canvasHeight);
-            this.ctx.stroke();
-        }
+        // this.ctx.strokeStyle = '#ff0000'; // Cambia esto al color que quieras para las líneas
+        // for (let i = 0; i < this.rangosX.length; i++) {
+        //     this.ctx.beginPath();
+        //     this.ctx.moveTo(this.rangosX[i][0], 0);
+        //     this.ctx.lineTo(this.rangosX[i][0], canvasHeight);
+        //     this.ctx.stroke();
+        // }
     }
 
 
