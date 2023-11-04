@@ -11,8 +11,8 @@ let btn7enLinea = document.querySelectorAll(".enLinea7");
 let seguro = document.querySelector(".seguro")
 let juegoDegradado = document.querySelector(".juego-oculto")
 let contenedorFichas = document.querySelector(".fichas");
-let fichas = document.querySelectorAll(".ficha");
 let textoJugador = document.querySelector(".textoJugador");
+let empate = document.querySelector(".empate");
 let ficha1;
 let ficha2;
 let arrastro = false;
@@ -20,6 +20,8 @@ let tableroX
 let tableroY
 let casillerosX
 let casillerosY
+let pausa = document.getElementById("pause-button");
+let replay = document.querySelector(".btn-replay");
 
 let GrupoFichas = [];
 let JuegoGeneral;
@@ -44,6 +46,61 @@ let cantFichas;
 
 let circulo = document.querySelector(".svg-circulo");
 let miTemporizador;
+let paused = false;
+
+agregarEventosAFichas();
+
+//boton para reiniciar el juego si empatan
+document.querySelector(".empate-btn").addEventListener("click", () => {
+    elegirTablero.classList.remove("ocultar")
+    canvas.classList.add("ocultar")
+    empate.classList.add("ocultar")
+    juegoDegradado.classList.add("ocultar")
+    primeraVez = 0;
+    var countdownNumberEl = document.getElementById('countdown-number');
+    countdownNumberEl.textContent = '';
+    contenedorFichas.innerHTML = `<div class="jugador-fichas">
+        <h3 class="textoJugador">Jugador 1 seleccionar ficha</h3>
+        <div class="contenedor-fichas">
+            <div class="ficha">
+                <img src="iconos-svg/fichajava.svg">
+            </div>
+            <div class="ficha">
+                <img src="iconos-svg/fichajs.svg">
+            </div>
+            <div class="ficha">
+                <img src="iconos-svg/fifa24.png">
+            </div>
+        </div>
+    </div>`;
+
+    // Restablece las fichas seleccionadas
+    ficha1 = undefined;
+    ficha2 = undefined;
+    agregarEventosAFichas();
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
+    fichasEnTablero = [];
+
+    // Busca el nuevo elemento h3
+    textoJugador = document.querySelector(".textoJugador");
+
+    // Restablece el texto del jugador
+    textoJugador.innerHTML = "Jugador 1 seleccionar ficha"
+})
+
+function animacionCirculo() {
+    // Reinicia la animación
+    var circulo = document.querySelector(".svg-circulo");
+    circulo.classList.remove("animar");
+
+    // Forzar un reflow
+    void circulo.offsetWidth;
+
+    // Agregar un pequeño retardo antes de reiniciar la animación
+    setTimeout(function () {
+        circulo.classList.add("animar");
+    }, 10);
+}
 
 function comenzarTiempo() {
 
@@ -54,10 +111,8 @@ function comenzarTiempo() {
 
     circulo.classList.remove("ocultar");
 
-    // Reinicia la animación
-    var newCircle = circulo.cloneNode(true);
-    circulo.parentNode.replaceChild(newCircle, circulo);
-    circulo = newCircle;
+    // Inicia la animación
+    circulo.classList.add("animar");
 
     // Limpia el temporizador existente
     if (miTemporizador) {
@@ -66,22 +121,84 @@ function comenzarTiempo() {
 
     // Establece un nuevo temporizador
     miTemporizador = setInterval(function () {
-        countdown--;
-        if (countdown === 0) {
-            alert('empate');
-        }
+        if (!paused) {
+            countdown--;
+            if (countdown === 0) {
+                juegoDegradado.classList.remove("ocultar")
+                empate.classList.remove("ocultar");
+                clearInterval(miTemporizador); // Detiene el temporizador
+                pausa.classList.add("ocultar");
+                replay.classList.add("ocultar");
+            }
 
-        countdownNumberEl.textContent = countdown;
+            countdownNumberEl.textContent = countdown >= 0 ? countdown : 0; // Asegura que el contador no vaya a negativo
+        }
     }, 1000);
 }
 
+if (pausa) {
+    // Controlador de eventos para el botón de pausa
+    pausa.addEventListener('click', function () {
+        pausar()
+    });
+}
 
+function pausar() {
+    paused = !paused; // Cambia el estado de pausa
+    if (paused) {
+        document.querySelector(".svg-reanudar").classList.add("ocultar")
+        document.querySelector(".svg-pausa").classList.remove("ocultar")
+    } else {
+        document.querySelector(".svg-pausa").classList.add("ocultar")
+        document.querySelector(".svg-reanudar").classList.remove("ocultar")
+    }
+    // Pausa o reanuda la animación
+    if (paused) {
+        circulo.classList.add("pausado");
+    } else {
+        circulo.classList.remove("pausado");
+    }
+}
+
+
+//reinicia la partida
+replay.addEventListener("click", () => {
+    pausar()
+    juegoDegradado.classList.remove("ocultar")
+    document.querySelector(".reiniciarJuego").classList.remove("ocultar")
+
+    //si presiona cancelar se vuelve al juego
+    let cancelar = document.querySelector(".cancelar-reinicio");
+    cancelar.addEventListener("click", () => {
+        document.querySelector(".reiniciarJuego").classList.add("ocultar")
+        juegoDegradado.classList.add("ocultar");
+        paused = true;
+        pausar()
+    })
+
+    //si presiona aceptar reinicia el juego 
+    let aceptar = document.querySelector(".reiniciar-tablero");
+    aceptar.addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
+        dibujarTablero();
+        dibujarFichaGrupoJugador()
+        fichasEnTablero = [];
+        document.querySelector(".reiniciarJuego").classList.add("ocultar")
+        juegoDegradado.classList.add("ocultar");
+        pausa.classList.remove("ocultar");
+        replay.classList.remove("ocultar");
+        animacionCirculo()
+        paused = true;
+        pausar()
+    })
+})
 
 
 
 btn4enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
+            pausar()
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
@@ -90,6 +207,8 @@ btn4enLinea.forEach((btn) => {
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                paused = true;
+                pausar()
             })
 
             //si presiona aceptar reinicia el juego 
@@ -111,6 +230,11 @@ btn4enLinea.forEach((btn) => {
                 fichasEnTablero = [];
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                pausa.classList.remove("ocultar");
+                replay.classList.remove("ocultar");
+                animacionCirculo()
+                paused = true;
+                pausar()
                 return
             })
         } else {
@@ -132,6 +256,7 @@ btn4enLinea.forEach((btn) => {
 btn5enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
+            pausar()
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
@@ -140,6 +265,8 @@ btn5enLinea.forEach((btn) => {
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                paused = true;
+                pausar()
             })
 
             //si presiona aceptar reinicia el juego 
@@ -160,6 +287,11 @@ btn5enLinea.forEach((btn) => {
                 fichasEnTablero = [];
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                pausa.classList.remove("ocultar");
+                replay.classList.remove("ocultar");
+                animacionCirculo()
+                paused = true;
+                pausar()
                 return
             })
         } else {
@@ -181,6 +313,7 @@ btn5enLinea.forEach((btn) => {
 btn6enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
+            pausar()
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
@@ -189,6 +322,8 @@ btn6enLinea.forEach((btn) => {
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                paused = true;
+                pausar()
             })
 
             //si presiona aceptar reinicia el juego 
@@ -209,6 +344,11 @@ btn6enLinea.forEach((btn) => {
                 fichasEnTablero = [];
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                pausa.classList.remove("ocultar");
+                replay.classList.remove("ocultar");
+                animacionCirculo()
+                paused = true;
+                pausar()
                 return
             })
         } else {
@@ -230,6 +370,7 @@ btn6enLinea.forEach((btn) => {
 btn7enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
+            pausar()
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
@@ -238,6 +379,8 @@ btn7enLinea.forEach((btn) => {
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                paused = true;
+                pausar()
             })
 
             //si presiona aceptar reinicia el juego 
@@ -258,6 +401,11 @@ btn7enLinea.forEach((btn) => {
                 fichasEnTablero = [];
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
+                pausa.classList.remove("ocultar");
+                replay.classList.remove("ocultar");
+                animacionCirculo()
+                paused = true;
+                pausar()
                 return
             })
         } else {
@@ -277,55 +425,72 @@ btn7enLinea.forEach((btn) => {
 });
 
 
+function agregarEventosAFichas() {
+    let fichas = document.querySelectorAll(".ficha");
 
-fichas.forEach(ficha => {
-    ficha.addEventListener("click", () => {
-        if (typeof ficha1 === 'undefined') {
-            ficha1 = ficha
-            ficha.classList.add("ocultar");
-            textoJugador.innerHTML = "Jugador 2 seleccionar ficha";
-        } else {
-            ficha2 = ficha;
+    fichas.forEach(ficha => {
+        ficha.addEventListener("click", () => {
+            if (typeof ficha1 === 'undefined') {
+                ficha1 = ficha
+                ficha.classList.add("ocultar");
+                console.log(textoJugador.innerHTML);
+                textoJugador.innerHTML = "Jugador 2 seleccionar ficha";
+                console.log(textoJugador.innerHTML);
+                console.log("Jugador 1 ha seleccionado una ficha"); // Agrega esta línea
+            } else {
+                ficha2 = ficha;
+                console.log("Jugador 2 ha seleccionado una ficha"); // Agrega esta línea
 
-            imgJugador1 = new Image(); //creo la ficha de jugador1
-            imgJugador2 = new Image(); //creo la ficha de jugador2
+                imgJugador1 = new Image(); //creo la ficha de jugador1
+                imgJugador2 = new Image(); //creo la ficha de jugador2
 
-            // Asigno las imágenes a las variables basándome en las fichas seleccionadas
-            imgJugador1.src = ficha1.querySelector('img').src;
-            imgJugador2.src = ficha2.querySelector('img').src;
+                // Asigno las imágenes a las variables basándome en las fichas seleccionadas
+                imgJugador1.src = ficha1.querySelector('img').src;
+                imgJugador2.src = ficha2.querySelector('img').src;
 
-            imgJugador1.onload = () => {
-                imgJugador2.onload = () => {
-                    canvas.classList.remove("ocultar");
-                    contenedorFichas.classList.add("ocultar");
-                    if (tableroJuego == 4) {
-                        //creo el tablero para el 4 en linea 7x6 centrado
-                        dibujarTablero();
-                        dibujarFichaGrupoJugador()
-                    }
-                    if (tableroJuego == 5) {
-                        //creo el tablero para el 5 en linea 8x7 centrado
-                        dibujarTablero();
-                        dibujarFichaGrupoJugador()
-                    }
-                    if (tableroJuego == 6) {
-                        //creo el tablero para el 6 en linea 9x8 centrado
-                        dibujarTablero();
-                        dibujarFichaGrupoJugador()
-
-                    }
-                    if (tableroJuego == 7) {
-                        //dibuja el tablero
-                        dibujarTablero();
-                        dibujarFichaGrupoJugador()
+                imgJugador1.onload = () => {
+                    imgJugador2.onload = () => {
+                        canvas.classList.remove("ocultar");
+                        contenedorFichas.classList.add("ocultar");
+                        if (tableroJuego == 4) {
+                            //creo el tablero para el 4 en linea 7x6 centrado
+                            dibujarTablero();
+                            dibujarFichaGrupoJugador()
+                            pausa.classList.remove("ocultar");
+                            replay.classList.remove("ocultar");
+                            animacionCirculo()
+                        }
+                        if (tableroJuego == 5) {
+                            //creo el tablero para el 5 en linea 8x7 centrado
+                            dibujarTablero();
+                            dibujarFichaGrupoJugador()
+                            pausa.classList.remove("ocultar");
+                            replay.classList.remove("ocultar");
+                            animacionCirculo()
+                        }
+                        if (tableroJuego == 6) {
+                            //creo el tablero para el 6 en linea 9x8 centrado
+                            dibujarTablero();
+                            dibujarFichaGrupoJugador()
+                            pausa.classList.remove("ocultar");
+                            replay.classList.remove("ocultar");
+                            animacionCirculo()
+                        }
+                        if (tableroJuego == 7) {
+                            //dibuja el tablero
+                            dibujarTablero();
+                            dibujarFichaGrupoJugador()
+                            pausa.classList.remove("ocultar");
+                            replay.classList.remove("ocultar");
+                            animacionCirculo()
+                        }
                     }
                 }
             }
-        }
-    })
-});
+        })
+    });
 
-
+}
 function dibujarTablero() {
     //creo el tablero.
     tablero = new Tablero(tableroX, tableroY, casillerosX, casillerosY, '#1F1FFF', ctx);

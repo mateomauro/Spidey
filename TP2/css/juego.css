@@ -219,6 +219,116 @@
     background-color: #08CE57;
 }
 
+.reiniciarJuego {
+    width: 400px;
+    height: 150px;
+    border: solid 2px #EFEFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #EFEFFF;
+    background-color: rgb(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.estas-seguro-reiniciar {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.cancelar-reinicio {
+    background-color: #EFEFFF;
+    width: 130px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #00001D;
+    border: solid 2px #00001D;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.cancelar-reinicio:hover {
+    background-color: #616161;
+    color: #EFEFFF;
+    border: solid 2px #EFEFFF;
+}
+
+.reiniciar-tablero {
+    background-color: #FF8000;
+    width: 160px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #EFEFFF;
+    border: solid 2px #00001D;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.reiniciar-tablero:hover {
+    background-color: #df6f00;
+    border: solid 2px #EFEFFF;
+}
+
+.empate {
+    width: 400px;
+    height: 150px;
+    border: solid 2px #EFEFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #EFEFFF;
+    background-color: rgb(0, 0, 0, 0.4);
+    font-size: 20px;
+    align-items: center;
+    font-weight: bold;
+    z-index: 1;
+    letter-spacing: 1px;
+    user-select: none;
+}
+
+
+.empate-btn {
+    width: 160px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #08CE57;
+    cursor: pointer;
+    border: solid 2px #00001D;
+    margin-top: 10px;
+    color: #00001D;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.empate-btn:hover {
+    background-color: #008F39;
+    border: solid 2px #EFEFFF;
+}
+
 .cuatro-linea {
     width: 100%;
     height: 92%;
@@ -232,6 +342,52 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+/* btn pausa */
+#pause-button {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    cursor: pointer;
+    z-index: 1;
+    width: 100px;
+    height: 30px;
+    background-color: #E5BE01;
+    border: solid 2px #00001D;
+    opacity: 0.8;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pause-button:hover {
+    opacity: 1;
+
+}
+
+.btn-replay {
+    position: absolute;
+    top: 36px;
+    left: 3px;
+    cursor: pointer;
+    z-index: 1;
+    width: 100px;
+    height: 30px;
+    background-color: #E5BE01;
+    border: solid 2px #00001D;
+    opacity: 0.8;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-replay {
+    opacity: 1;
 }
 
 .elegir-tablero {
@@ -478,7 +634,7 @@
     line-height: 40px;
 }
 
-svg {
+#countdown svg {
     position: absolute;
     top: 0;
     right: 0;
@@ -487,14 +643,21 @@ svg {
     transform: rotateY(-180deg) rotateZ(-90deg);
 }
 
-svg circle {
+#countdown svg circle {
     stroke-dasharray: 113px;
     stroke-dashoffset: 0px;
     stroke-linecap: round;
     stroke-width: 2px;
     stroke: white;
     fill: none;
-    animation: countdown 260s linear infinite forwards;
+}
+
+.svg-circulo.animar circle {
+    animation: countdown 260s linear forwards;
+}
+
+.svg-circulo.animar.pausado circle {
+    animation-play-state: paused;
 }
 
 @keyframes countdown {
@@ -506,6 +669,7 @@ svg circle {
         stroke-dashoffset: 113px;
     }
 }
+
 
 .anuncio img {
     width: 100%;

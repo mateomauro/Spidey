@@ -879,7 +879,7 @@ h3 {
 /* PARA OCULTAR COSAS */
 
 .ocultar {
-    display: none;
+    display: none !important;
 }
 
 .ocultar-degradado {
