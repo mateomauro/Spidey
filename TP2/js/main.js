@@ -22,6 +22,7 @@ let casillerosX
 let casillerosY
 let pausa = document.getElementById("pause-button");
 let replay = document.querySelector(".btn-replay");
+let cruz = document.querySelector(".btn-cruz-juego");
 
 let GrupoFichas = [];
 let JuegoGeneral;
@@ -129,6 +130,7 @@ function comenzarTiempo() {
                 clearInterval(miTemporizador); // Detiene el temporizador
                 pausa.classList.add("ocultar");
                 replay.classList.add("ocultar");
+                cruz.classList.add("ocultar");
             }
 
             countdownNumberEl.textContent = countdown >= 0 ? countdown : 0; // Asegura que el contador no vaya a negativo
@@ -148,9 +150,11 @@ function pausar() {
     if (paused) {
         document.querySelector(".svg-reanudar").classList.add("ocultar")
         document.querySelector(".svg-pausa").classList.remove("ocultar")
+        terminarEventos()
     } else {
         document.querySelector(".svg-pausa").classList.add("ocultar")
         document.querySelector(".svg-reanudar").classList.remove("ocultar")
+        iniciarEventos()
     }
     // Pausa o reanuda la animación
     if (paused) {
@@ -163,7 +167,9 @@ function pausar() {
 
 //reinicia la partida
 replay.addEventListener("click", () => {
-    pausar()
+    if (!paused) {
+        pausar()
+    }
     juegoDegradado.classList.remove("ocultar")
     document.querySelector(".reiniciarJuego").classList.remove("ocultar")
 
@@ -179,6 +185,7 @@ replay.addEventListener("click", () => {
     //si presiona aceptar reinicia el juego 
     let aceptar = document.querySelector(".reiniciar-tablero");
     aceptar.addEventListener("click", () => {
+        iniciarEventos()
         ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
         dibujarTablero();
         dibujarFichaGrupoJugador()
@@ -189,7 +196,9 @@ replay.addEventListener("click", () => {
         replay.classList.remove("ocultar");
         animacionCirculo()
         paused = true;
+        mensajeGanador.classList.add("ocultar")
         pausar()
+        countdown.classList.remove("ocultar")
     })
 })
 
@@ -235,6 +244,10 @@ btn4enLinea.forEach((btn) => {
                 animacionCirculo()
                 paused = true;
                 pausar()
+                iniciarEventos()
+                mensajeGanador.classList.add("ocultar")
+                countdown.classList.remove("ocultar")
+                cruz.classList.remove("ocultar")
                 return
             })
         } else {
@@ -292,6 +305,10 @@ btn5enLinea.forEach((btn) => {
                 animacionCirculo()
                 paused = true;
                 pausar()
+                iniciarEventos()
+                mensajeGanador.classList.add("ocultar")
+                countdown.classList.remove("ocultar")
+                cruz.classList.remove("ocultar")
                 return
             })
         } else {
@@ -349,6 +366,10 @@ btn6enLinea.forEach((btn) => {
                 animacionCirculo()
                 paused = true;
                 pausar()
+                iniciarEventos()
+                mensajeGanador.classList.add("ocultar")
+                countdown.classList.remove("ocultar")
+                cruz.classList.remove("ocultar")
                 return
             })
         } else {
@@ -406,6 +427,10 @@ btn7enLinea.forEach((btn) => {
                 animacionCirculo()
                 paused = true;
                 pausar()
+                iniciarEventos()
+                mensajeGanador.classList.add("ocultar")
+                countdown.classList.remove("ocultar")
+                cruz.classList.remove("ocultar")
                 return
             })
         } else {
@@ -433,13 +458,9 @@ function agregarEventosAFichas() {
             if (typeof ficha1 === 'undefined') {
                 ficha1 = ficha
                 ficha.classList.add("ocultar");
-                console.log(textoJugador.innerHTML);
                 textoJugador.innerHTML = "Jugador 2 seleccionar ficha";
-                console.log(textoJugador.innerHTML);
-                console.log("Jugador 1 ha seleccionado una ficha"); // Agrega esta línea
             } else {
                 ficha2 = ficha;
-                console.log("Jugador 2 ha seleccionado una ficha"); // Agrega esta línea
 
                 imgJugador1 = new Image(); //creo la ficha de jugador1
                 imgJugador2 = new Image(); //creo la ficha de jugador2
@@ -459,6 +480,7 @@ function agregarEventosAFichas() {
                             pausa.classList.remove("ocultar");
                             replay.classList.remove("ocultar");
                             animacionCirculo()
+                            cruz.classList.remove("ocultar")
                         }
                         if (tableroJuego == 5) {
                             //creo el tablero para el 5 en linea 8x7 centrado
@@ -467,6 +489,7 @@ function agregarEventosAFichas() {
                             pausa.classList.remove("ocultar");
                             replay.classList.remove("ocultar");
                             animacionCirculo()
+                            cruz.classList.remove("ocultar")
                         }
                         if (tableroJuego == 6) {
                             //creo el tablero para el 6 en linea 9x8 centrado
@@ -475,6 +498,7 @@ function agregarEventosAFichas() {
                             pausa.classList.remove("ocultar");
                             replay.classList.remove("ocultar");
                             animacionCirculo()
+                            cruz.classList.remove("ocultar")
                         }
                         if (tableroJuego == 7) {
                             //dibuja el tablero
@@ -483,6 +507,7 @@ function agregarEventosAFichas() {
                             pausa.classList.remove("ocultar");
                             replay.classList.remove("ocultar");
                             animacionCirculo()
+                            cruz.classList.remove("ocultar")
                         }
                     }
                 }
@@ -499,9 +524,9 @@ function dibujarTablero() {
 
 function dibujarFichaGrupoJugador() {
     //creamos la ficha del jugador 1
-    let fichaJugador1 = new Ficha(grupo1X, y, 20, '#000000', ctx, '#0000FF', imgJugador1, 'jugador1');
+    let fichaJugador1 = new Ficha(grupo1X, y, 20, '#000000', ctx, '#0000FF', imgJugador1, 'jugador 1');
     //creamos la ficha del jugador 2
-    let fichaJugador2 = new Ficha(grupo2X, y, 20, '#000000', ctx, '#0000FF', imgJugador2, 'jugador2');
+    let fichaJugador2 = new Ficha(grupo2X, y, 20, '#000000', ctx, '#0000FF', imgJugador2, 'jugador 2');
 
     //crea el grupo de fichas del jugador 1
     grupoFichasJugador1 = new Grupo(cantFichas, fichaJugador1, 'jugador 1');
@@ -597,8 +622,23 @@ function arrastre(event) {
         for (let i = 0; i < fichasEnTablero.length; i++) {
             fichasEnTablero[i].dibujar();
         }
+    } else {
+        // Si la ficha se arrastra fuera de los límites del tablero, mueve la ficha de vuelta a su posición original
+        fichaClikeada.mover(fichaClikeada.posicionOriginal.x, fichaClikeada.posicionOriginal.y);
+        arrastro = false; // Detiene el arrastre
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
+        dibujarGrupos();
+        dibujarTablero();
+        // Redibuja todas las fichas en el tablero
+        for (let i = 0; i < fichasEnTablero.length; i++) {
+            fichasEnTablero[i].dibujar();
+        }
     }
 }
+
+document.addEventListener('dragstart', function (event) {
+    event.preventDefault();
+});
 
 
 function terminarArrastre(event) {
@@ -661,15 +701,41 @@ function terminarArrastre(event) {
 
     // Verifica si el jugador ha ganado
     if (JuegoGeneral && JuegoGeneral.verificarGanador(fichaClikeada)) {
-        console.log(fichaClikeada.idJugador + " ha ganado!");
-        // Aquí puedes agregar cualquier lógica adicional que quieras ejecutar cuando un jugador gane
+        // Muestra el mensaje de ganador
+        let fichaGanadora = document.getElementById('ficha-ganadora');
+        fichaGanadora.src = fichaClikeada.img.src; // Actualiza la imagen de la ficha ganadora
+        mensajeGanador.classList.remove("ocultar")
+        countdown.classList.add("ocultar")
+        let textoGanador = mensajeGanador.querySelector('p');
+        textoGanador.textContent = `¡El ${fichaClikeada.idJugador} ha ganado!`; // Actualiza el texto del mensaje de ganador
+
+        // Deshabilita el movimiento de fichas
+        terminarEventos();
+
+        pausar()
     }
+
 
     arrastro = false;
 }
 
+let mensajeGanador = document.getElementById('mensaje-ganador');
 
 function dibujarGrupos() {
     grupoFichasJugador1.dibujarGrupo();
     grupoFichasJugador2.dibujarGrupo();
+}
+
+
+function iniciarEventos() {
+    document.addEventListener("mousedown", iniciarArrastre); // Evento cuando se presiona el botón del mouse
+    document.addEventListener("mouseup", terminarArrastre); // Evento cuando se suelta el botón del mouse
+    document.addEventListener("mousemove", arrastre); // Evento cuando se mueve el mouse
+}
+
+function terminarEventos() {
+    // Deshabilita el movimiento de fichas
+    document.removeEventListener("mousedown", iniciarArrastre);
+    document.removeEventListener("mouseup", terminarArrastre);
+    document.removeEventListener("mousemove", arrastre);
 }

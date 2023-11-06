@@ -219,6 +219,28 @@
     background-color: #08CE57;
 }
 
+.ganador {
+    width: 400px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 245px;
+
+    font-size: 20px;
+}
+
+#ficha-ganadora {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: solid 2px #00001D;
+}
+
 .reiniciarJuego {
     width: 400px;
     height: 150px;
@@ -388,6 +410,20 @@
 
 .btn-replay {
     opacity: 1;
+}
+
+.btn-cruz-juego {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .elegir-tablero {
