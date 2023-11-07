@@ -17,6 +17,7 @@ class Grupo {
                 this.fichas.push(nuevaFicha);
             }
         }
+        this.nombrePosX = ficha.posX - 13; // Almacena la posición original de la ficha en la posición [0]
     }
 
     dibujarGrupo() {
@@ -24,10 +25,19 @@ class Grupo {
             this.fichas[i].dibujar();
         }
 
+        // // Dibuja el texto debajo del grupo de fichas
+        // this.fichas[0].ctx.font = '20px Arial';
+        // this.fichas[0].ctx.fillStyle = 'black';
+        // this.fichas[0].ctx.fillText(this.nombre, this.fichas[0].posX - 13, this.fichas[0].posY + 50);
+    }
+
+    dibujarNombre() {
         // Dibuja el texto debajo del grupo de fichas
         this.fichas[0].ctx.font = '20px Arial';
         this.fichas[0].ctx.fillStyle = 'black';
-        this.fichas[0].ctx.fillText(this.nombre, this.fichas[0].posX - 13, this.fichas[0].posY + 50);
+        // Calcula la posición del nombre basándote en la posición del grupo de fichas
+        let nombrePosY = 460;
+        this.fichas[0].ctx.fillText(this.nombre, this.nombrePosX, nombrePosY);
     }
 
     reversaFichas() {

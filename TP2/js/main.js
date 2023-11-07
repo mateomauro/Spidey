@@ -23,7 +23,8 @@ let casillerosY
 let pausa = document.getElementById("pause-button");
 let replay = document.querySelector(".btn-replay");
 let cruz = document.querySelector(".btn-cruz-juego");
-
+let seleccionTablero = document.querySelector(".seleccionTableroHijo")
+let opcionJuegoBtn = document.querySelectorAll(".opcion-juego")
 let GrupoFichas = [];
 let JuegoGeneral;
 
@@ -125,8 +126,6 @@ cruz.addEventListener("click", () => {
         replay.classList.add("ocultar")
         pausa.classList.add("ocultar")
         primeraVez = 0;
-        paused = true;
-        pausar()
         fichasEnTablero = [];
         mensajeGanador.classList.add("ocultar")
         // Restablece las fichas seleccionadas
@@ -141,6 +140,10 @@ cruz.addEventListener("click", () => {
         });
         JuegoGeneral.setMatriz([])
         JuegoGeneral.crearMatriz();
+        opcionJuegoBtn.forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+        });
     })
 })
 
@@ -275,19 +278,22 @@ btn4enLinea.forEach((btn) => {
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
+            if (!paused) {
+                document.querySelector(".svg-reanudar").classList.add("ocultar")
+                document.querySelector(".svg-pausa").classList.remove("ocultar")
+                pausar()
+            }
+
             //si presiona cancelar se vuelve al juego
             let cancelar = document.querySelector(".cancelar-tablero");
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
-                paused = true;
-                pausar()
+                if (!countdown.classList.contains("ocultar")) {
+                    paused = true;
+                    pausar()
+                }
                 if (JuegoGeneral && JuegoGeneral.verificarGanador(fichaClikeada)) {
-                    if (!paused) {
-                        document.querySelector(".svg-reanudar").classList.add("ocultar")
-                        document.querySelector(".svg-pausa").classList.remove("ocultar")
-                        pausar()
-                    }
                     terminarEventos()
                 }
             })
@@ -347,13 +353,21 @@ btn5enLinea.forEach((btn) => {
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
+            if (!paused) {
+                document.querySelector(".svg-reanudar").classList.add("ocultar")
+                document.querySelector(".svg-pausa").classList.remove("ocultar")
+                pausar()
+            }
+
             //si presiona cancelar se vuelve al juego
             let cancelar = document.querySelector(".cancelar-tablero");
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
-                paused = true;
-                pausar()
+                if (!countdown.classList.contains("ocultar")) {
+                    paused = true;
+                    pausar()
+                }
                 if (JuegoGeneral && JuegoGeneral.verificarGanador(fichaClikeada)) {
                     terminarEventos()
                     if (!paused) {
@@ -418,13 +432,21 @@ btn6enLinea.forEach((btn) => {
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
+            if (!paused) {
+                document.querySelector(".svg-reanudar").classList.add("ocultar")
+                document.querySelector(".svg-pausa").classList.remove("ocultar")
+                pausar()
+            }
+
             //si presiona cancelar se vuelve al juego
             let cancelar = document.querySelector(".cancelar-tablero");
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
-                paused = true;
-                pausar()
+                if (!countdown.classList.contains("ocultar")) {
+                    paused = true;
+                    pausar()
+                }
                 if (JuegoGeneral && JuegoGeneral.verificarGanador(fichaClikeada)) {
                     terminarEventos()
                     if (!paused) {
@@ -489,13 +511,21 @@ btn7enLinea.forEach((btn) => {
             seguro.classList.remove("ocultar");
             juegoDegradado.classList.remove("ocultar")
 
+            if (!paused) {
+                document.querySelector(".svg-reanudar").classList.add("ocultar")
+                document.querySelector(".svg-pausa").classList.remove("ocultar")
+                pausar()
+            }
+
             //si presiona cancelar se vuelve al juego
             let cancelar = document.querySelector(".cancelar-tablero");
             cancelar.addEventListener("click", () => {
                 seguro.classList.add("ocultar");
                 juegoDegradado.classList.add("ocultar");
-                paused = true;
-                pausar()
+                if (!countdown.classList.contains("ocultar")) {
+                    paused = true;
+                    pausar()
+                }
                 if (JuegoGeneral && JuegoGeneral.verificarGanador(fichaClikeada)) {
                     terminarEventos()
                     if (!paused) {
@@ -554,7 +584,12 @@ btn7enLinea.forEach((btn) => {
 
 function agregarEventosAFichas() {
     let fichas = document.querySelectorAll(".ficha");
-
+    if (juego.classList.contains("ocultar")) {
+        opcionJuegoBtn.forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+        });
+    }
     fichas.forEach(ficha => {
         ficha.addEventListener("click", () => {
             if (typeof ficha1 === 'undefined') {
@@ -589,6 +624,10 @@ function agregarEventosAFichas() {
                             if (paused) {
                                 pausar()
                             }
+                            opcionJuegoBtn.forEach(btn => {
+                                btn.disabled = false;
+                                btn.style.opacity = '1';
+                            });
                         }
                         if (tableroJuego == 5) {
                             //creo el tablero para el 5 en linea 8x7 centrado
@@ -604,6 +643,10 @@ function agregarEventosAFichas() {
                             if (paused) {
                                 pausar()
                             }
+                            opcionJuegoBtn.forEach(btn => {
+                                btn.disabled = false;
+                                btn.style.opacity = '1';
+                            });
                         }
                         if (tableroJuego == 6) {
                             //creo el tablero para el 6 en linea 9x8 centrado
@@ -619,6 +662,10 @@ function agregarEventosAFichas() {
                             if (paused) {
                                 pausar()
                             }
+                            opcionJuegoBtn.forEach(btn => {
+                                btn.disabled = false;
+                                btn.style.opacity = '1';
+                            });
                         }
                         if (tableroJuego == 7) {
                             //dibuja el tablero
@@ -634,6 +681,10 @@ function agregarEventosAFichas() {
                             if (paused) {
                                 pausar()
                             }
+                            opcionJuegoBtn.forEach(btn => {
+                                btn.disabled = false;
+                                btn.style.opacity = '1';
+                            });
                         }
                     }
                 }
@@ -669,12 +720,15 @@ function dibujarFichaGrupoJugador() {
 
     grupoFichasJugador1.dibujarGrupo();
     grupoFichasJugador2.dibujarGrupo();
+    grupoFichasJugador1.dibujarNombre();
+    grupoFichasJugador2.dibujarNombre();
 
     comenzarTiempo();
 
     //crea el juego general
     JuegoGeneral = new Juego(tablero, false, false);
     JuegoGeneral.crearMatriz();
+
 }
 
 // Manejo de eventos del mouse
@@ -855,6 +909,8 @@ let mensajeGanador = document.getElementById('mensaje-ganador');
 function dibujarGrupos() {
     grupoFichasJugador1.dibujarGrupo();
     grupoFichasJugador2.dibujarGrupo();
+    grupoFichasJugador1.dibujarNombre();
+    grupoFichasJugador2.dibujarNombre();
 }
 
 
