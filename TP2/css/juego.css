@@ -219,6 +219,63 @@
     background-color: #08CE57;
 }
 
+.seguro-salir {
+    width: 400px;
+    height: 150px;
+    border: solid 2px #EFEFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    color: #EFEFFF;
+    background-color: rgb(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.cancelar-salir {
+    background-color: #EFEFFF;
+    width: 130px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #00001D;
+    border: solid 2px #00001D;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.cancelar-salir:hover {
+    background-color: #616161;
+    color: #EFEFFF;
+    border: solid 2px #EFEFFF;
+}
+
+.salir-btn {
+    background-color: #FF8000;
+    width: 160px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #EFEFFF;
+    border: solid 2px #00001D;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.salir-btn:hover {
+    background-color: #df6f00;
+    border: solid 2px #EFEFFF;
+}
+
 .ganador {
     width: 400px;
     height: 80px;

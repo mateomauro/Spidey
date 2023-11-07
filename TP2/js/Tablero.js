@@ -72,6 +72,7 @@ class Tablero {
             this.posX += Casillero;
         }
 
+
         // this.ctx.strokeStyle = '#ff0000'; // Cambia esto al color que quieras para las líneas
         // for (let i = 0; i < this.rangosX.length; i++) {
         //     this.ctx.beginPath();

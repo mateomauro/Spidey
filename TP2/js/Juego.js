@@ -88,6 +88,9 @@ class Juego {
         return this.matriz;
     }
 
+    setMatriz(newMatriz) {
+        this.matriz = newMatriz;
+    }
     verificarGanador(ficha) {
         if (!ficha) {
             return false;
@@ -105,7 +108,7 @@ class Juego {
         let contador = 0;
         let fichasGanadoras = [];
         for (let x = 0; x < matriz[0].length; x++) {
-            if (matriz[posY][x] && matriz[posY][x].idJugador === jugador) {
+            if (matriz[posY] && matriz[posY][x] && matriz[posY][x].idJugador === jugador) {
                 contador++;
                 fichasGanadoras.push(matriz[posY][x]);
                 if (contador === fichasParaGanar) {
@@ -122,7 +125,7 @@ class Juego {
         contador = 0;
         fichasGanadoras = [];
         for (let y = 0; y < matriz.length; y++) {
-            if (matriz[y][posX] && matriz[y][posX].idJugador === jugador) {
+            if (matriz[y] && matriz[y][posX] && matriz[y][posX].idJugador === jugador) {
                 contador++;
                 fichasGanadoras.push(matriz[y][posX]);
                 if (contador === fichasParaGanar) {
