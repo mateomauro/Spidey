@@ -277,14 +277,15 @@
 }
 
 .ganador {
-    width: 400px;
-    height: 80px;
+    width: 500px;
+    height: 74px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     top: 0px;
-    left: 245px;
+    left: 195px;
+    background-color: #08CE57;
 
     font-size: 20px;
 }

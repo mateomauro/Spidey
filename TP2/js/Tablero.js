@@ -28,6 +28,24 @@ class Tablero {
         //reestablecemos la posicion en el eje Y
         let posicionInicialY = this.posY;
 
+        // Dibuja las flechas
+        for (let i = 0; i < this.cantidadX; i++) {
+            // Calcula la posición de la flecha
+            let flechaPosX = this.posX + i * 45 + 22.5; // Añade la mitad del tamaño del casillero a la posición X
+            let flechaPosY = this.posY - 8; // La flecha estará 30 píxeles por encima del tablero
+
+            // Dibuja la flecha
+            this.ctx.beginPath();
+            this.ctx.moveTo(flechaPosX, flechaPosY);
+            this.ctx.lineTo(flechaPosX - 10, flechaPosY - 20);
+            this.ctx.lineTo(flechaPosX + 10, flechaPosY - 20);
+            this.ctx.closePath();
+
+            // Establece el color de la flecha
+            this.ctx.fillStyle = 'blue';
+            this.ctx.fill();
+        }
+
         //recorre las columna
         for (let i = 0; i < this.cantidadX; i++) {
             //recorre toda las filas 
@@ -70,6 +88,7 @@ class Tablero {
             this.posY = posicionInicialY;
             //mala solucion para detectar el borde entre casilleros
             this.posX += Casillero;
+
         }
 
 

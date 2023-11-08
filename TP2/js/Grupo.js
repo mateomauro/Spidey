@@ -31,14 +31,26 @@ class Grupo {
         // this.fichas[0].ctx.fillText(this.nombre, this.fichas[0].posX - 13, this.fichas[0].posY + 50);
     }
 
-    dibujarNombre() {
+    dibujarNombre(turno) {
         // Dibuja el texto debajo del grupo de fichas
         this.fichas[0].ctx.font = '20px Arial';
         this.fichas[0].ctx.fillStyle = 'black';
         // Calcula la posición del nombre basándote en la posición del grupo de fichas
         let nombrePosY = 460;
         this.fichas[0].ctx.fillText(this.nombre, this.nombrePosX, nombrePosY);
+
+        // Si es el turno del jugador y el juego no ha terminado, dibuja un cuadrado alrededor del nombre
+        if (turno) {
+            let padding = 10; // Define el espacio entre el texto y el borde del cuadrado
+            let anchoTexto = this.fichas[0].ctx.measureText(this.nombre).width; // Obtiene el ancho del texto
+            let altoTexto = parseInt(this.fichas[0].ctx.font, 10); // Obtiene el alto del texto (tamaño de la fuente)
+            this.fichas[0].ctx.strokeStyle = 'red'; // El color del cuadrado será rojo si es el turno del jugador
+            this.fichas[0].ctx.strokeRect(this.nombrePosX - padding, nombrePosY - altoTexto - padding, anchoTexto + 2 * padding, altoTexto + 2 * padding);
+        }
     }
+
+
+
 
     reversaFichas() {
         this.fichas.reverse();

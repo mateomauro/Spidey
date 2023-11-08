@@ -266,6 +266,7 @@ replay.addEventListener("click", () => {
         pausar()
         countdown.classList.remove("ocultar")
         pausa.disabled = false;
+        dibujarGrupos()
     })
 })
 
@@ -327,6 +328,7 @@ btn4enLinea.forEach((btn) => {
                 countdown.classList.remove("ocultar")
                 cruz.classList.remove("ocultar")
                 pausa.disabled = false;
+                dibujarGrupos()
                 return
             })
         } else {
@@ -406,6 +408,7 @@ btn5enLinea.forEach((btn) => {
                 countdown.classList.remove("ocultar")
                 cruz.classList.remove("ocultar")
                 pausa.disabled = false;
+                dibujarGrupos()
                 return
             })
         } else {
@@ -485,6 +488,7 @@ btn6enLinea.forEach((btn) => {
                 countdown.classList.remove("ocultar")
                 cruz.classList.remove("ocultar")
                 pausa.disabled = false;
+                dibujarGrupos()
                 return
             })
         } else {
@@ -562,6 +566,7 @@ btn7enLinea.forEach((btn) => {
                 countdown.classList.remove("ocultar")
                 cruz.classList.remove("ocultar")
                 pausa.disabled = false;
+                dibujarGrupos()
                 return
             })
         } else {
@@ -611,6 +616,7 @@ function agregarEventosAFichas() {
                         canvas.classList.remove("ocultar");
                         contenedorFichas.classList.add("ocultar");
                         if (tableroJuego == 4) {
+                            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
                             //creo el tablero para el 4 en linea 7x6 centrado
                             dibujarTablero();
                             dibujarFichaGrupoJugador()
@@ -628,8 +634,10 @@ function agregarEventosAFichas() {
                                 btn.disabled = false;
                                 btn.style.opacity = '1';
                             });
+                            dibujarGrupos()
                         }
                         if (tableroJuego == 5) {
+                            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
                             //creo el tablero para el 5 en linea 8x7 centrado
                             dibujarTablero();
                             dibujarFichaGrupoJugador()
@@ -647,8 +655,10 @@ function agregarEventosAFichas() {
                                 btn.disabled = false;
                                 btn.style.opacity = '1';
                             });
+                            dibujarGrupos()
                         }
                         if (tableroJuego == 6) {
+                            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
                             //creo el tablero para el 6 en linea 9x8 centrado
                             dibujarTablero();
                             dibujarFichaGrupoJugador()
@@ -666,8 +676,10 @@ function agregarEventosAFichas() {
                                 btn.disabled = false;
                                 btn.style.opacity = '1';
                             });
+                            dibujarGrupos()
                         }
                         if (tableroJuego == 7) {
+                            ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
                             //dibuja el tablero
                             dibujarTablero();
                             dibujarFichaGrupoJugador()
@@ -685,6 +697,7 @@ function agregarEventosAFichas() {
                                 btn.disabled = false;
                                 btn.style.opacity = '1';
                             });
+                            dibujarGrupos()
                         }
                     }
                 }
@@ -874,7 +887,6 @@ function terminarArrastre(event) {
 
         // Redibuja el tablero y todas las fichas
         ctx.clearRect(0, 0, canvasWidth, canvasHeight); // Limpia el canvas
-        dibujarGrupos();
         dibujarTablero();
 
         // Redibuja todas las fichas en el tablero
@@ -896,10 +908,10 @@ function terminarArrastre(event) {
 
         // Deshabilita el movimiento de fichas
         terminarEventos();
-
         pausar()
+    } else {
+        dibujarGrupos();
     }
-
 
     arrastro = false;
 }
@@ -907,10 +919,16 @@ function terminarArrastre(event) {
 let mensajeGanador = document.getElementById('mensaje-ganador');
 
 function dibujarGrupos() {
-    grupoFichasJugador1.dibujarGrupo();
-    grupoFichasJugador2.dibujarGrupo();
-    grupoFichasJugador1.dibujarNombre();
-    grupoFichasJugador2.dibujarNombre();
+    if (grupoFichasJugador1 && grupoFichasJugador2) {
+        grupoFichasJugador1.dibujarGrupo();
+        grupoFichasJugador2.dibujarGrupo();
+        if (!JuegoGeneral.verificarGanador()) {
+            // Si el juego no ha terminado, dibuja los nombres de los jugadores
+            grupoFichasJugador1.dibujarNombre(jugador1.getTurno());
+            grupoFichasJugador2.dibujarNombre(jugador2.getTurno());
+        }
+    }
+
 }
 
 
