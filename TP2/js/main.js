@@ -176,7 +176,13 @@ function comenzarTiempo() {
     // Establece un nuevo temporizador
     miTemporizador = setInterval(function () {
         if (!paused) {
-            countdown--;
+            // Verifica si ambos grupos de fichas están llenos
+            if (grupoFichasJugador1 && grupoFichasJugador1.getFichas().length == 0 && grupoFichasJugador2 && grupoFichasJugador2.getFichas().length == 0) {
+                countdown = 0; // Fuerza el final del juego
+            } else {
+                countdown--;
+            }
+
             if (countdown === 0) {
                 juegoDegradado.classList.remove("ocultar")
                 empate.classList.remove("ocultar");
@@ -189,6 +195,7 @@ function comenzarTiempo() {
             countdownNumberEl.textContent = countdown >= 0 ? countdown : 0; // Asegura que el contador no vaya a negativo
         }
     }, 1000);
+
 }
 
 if (pausa) {
@@ -996,6 +1003,7 @@ document.addEventListener("mousemove", function (event) {
         canvas.style.cursor = 'default';
     }
 });
+
 
 
 
