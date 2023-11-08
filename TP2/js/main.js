@@ -52,6 +52,7 @@ document.querySelector(".empate-btn").addEventListener("click", () => {
     canvas.classList.add("ocultar")
     empate.classList.add("ocultar")
     juegoDegradado.classList.add("ocultar")
+    countdown.classList.add("ocultar")
     primeraVez = 0;
     var countdownNumberEl = document.getElementById('countdown-number');
     countdownNumberEl.textContent = '';
@@ -164,6 +165,7 @@ function comenzarTiempo() {
     countdownNumberEl.textContent = countdown;
 
     circulo.classList.remove("ocultar");
+    circulo.classList.add("animar")
 
     // Inicia la animación
     circulo.classList.add("animar");
@@ -190,6 +192,7 @@ function comenzarTiempo() {
                 pausa.classList.add("ocultar");
                 replay.classList.add("ocultar");
                 cruz.classList.add("ocultar");
+                circulo.classList.remove("animar")
             }
 
             countdownNumberEl.textContent = countdown >= 0 ? countdown : 0; // Asegura que el contador no vaya a negativo
