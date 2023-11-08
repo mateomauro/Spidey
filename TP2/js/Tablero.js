@@ -22,6 +22,7 @@ class Tablero {
         return this.cantidadY;
     }
 
+    //dibuja el tablero y las flechas
     dibujar() {
         //casillero es el tamaño de cada casillero
         let Casillero = 45;
@@ -92,13 +93,6 @@ class Tablero {
         }
 
 
-        // this.ctx.strokeStyle = '#ff0000'; // Cambia esto al color que quieras para las líneas
-        // for (let i = 0; i < this.rangosX.length; i++) {
-        //     this.ctx.beginPath();
-        //     this.ctx.moveTo(this.rangosX[i][0], 0);
-        //     this.ctx.lineTo(this.rangosX[i][0], canvasHeight);
-        //     this.ctx.stroke();
-        // }
     }
 
 

@@ -27,25 +27,18 @@ let seleccionTablero = document.querySelector(".seleccionTableroHijo")
 let opcionJuegoBtn = document.querySelectorAll(".opcion-juego")
 let GrupoFichas = [];
 let JuegoGeneral;
-
 let grupoFichasJugador1;
 let grupoFichasJugador2;
-
 let y = 400;
-
 let jugador1;
 let jugador2;
 let imgJugador1;
 let imgJugador2;
-
 let tablero;
-
 let primeraVez = 0;
 let grupo1X;
 let grupo2X;
 let cantFichas;
-
-
 let circulo = document.querySelector(".svg-circulo");
 let miTemporizador;
 let paused = false;
@@ -91,7 +84,7 @@ document.querySelector(".empate-btn").addEventListener("click", () => {
     textoJugador.innerHTML = "Jugador 1 seleccionar ficha"
 })
 
-
+//boton para salir del juego
 cruz.addEventListener("click", () => {
     juegoDegradado.classList.remove("ocultar")
     salir.classList.remove("ocultar")
@@ -147,6 +140,7 @@ cruz.addEventListener("click", () => {
     })
 })
 
+//arranca la animacion del circula de carga del timer
 function animacionCirculo() {
     // Reinicia la animación
     var circulo = document.querySelector(".svg-circulo");
@@ -161,6 +155,7 @@ function animacionCirculo() {
     }, 10);
 }
 
+//comienza el tiempo del timer
 function comenzarTiempo() {
 
     var countdownNumberEl = document.getElementById('countdown-number');
@@ -203,6 +198,7 @@ if (pausa) {
     });
 }
 
+//pausa el timer
 function pausar() {
     paused = !paused; // Cambia el estado de pausa
     if (paused) {
@@ -271,7 +267,7 @@ replay.addEventListener("click", () => {
 })
 
 
-
+//si apreta el boton 4 en linea dependiendo cual sea va quitando y comenzando el juego
 btn4enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
@@ -348,6 +344,7 @@ btn4enLinea.forEach((btn) => {
     });
 });
 
+//si apreta el boton 5 en linea dependiendo cual sea va quitando y comenzando el juego
 btn5enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
@@ -428,6 +425,7 @@ btn5enLinea.forEach((btn) => {
     });
 });
 
+//si apreta el boton 6 en linea dependiendo cual sea va quitando y comenzando el juego
 btn6enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
@@ -508,6 +506,7 @@ btn6enLinea.forEach((btn) => {
     });
 });
 
+//si apreta el boton 7 en linea dependiendo cual sea va quitando y comenzando el juego
 btn7enLinea.forEach((btn) => {
     btn.addEventListener("click", () => {
         if (primeraVez == 1) {
@@ -587,6 +586,7 @@ btn7enLinea.forEach((btn) => {
 });
 
 
+//comienza el juego aqui
 function agregarEventosAFichas() {
     let fichas = document.querySelectorAll(".ficha");
     if (juego.classList.contains("ocultar")) {
@@ -706,12 +706,15 @@ function agregarEventosAFichas() {
     });
 
 }
+
+//dibuja el tablero
 function dibujarTablero() {
     //creo el tablero.
     tablero = new Tablero(tableroX, tableroY, casillerosX, casillerosY, '#1F1FFF', ctx);
     tablero.dibujar();
 }
 
+//dibuja las fichas y el nombre del jugador
 function dibujarFichaGrupoJugador() {
     //creamos la ficha del jugador 1
     let fichaJugador1 = new Ficha(grupo1X, y, 20, '#000000', ctx, '#0000FF', imgJugador1, 'jugador 1');
@@ -744,6 +747,7 @@ function dibujarFichaGrupoJugador() {
 
 }
 
+
 // Manejo de eventos del mouse
 window.addEventListener("load", () => {
     document.addEventListener("mousedown", iniciarArrastre); // Evento cuando se presiona el botón del mouse
@@ -755,6 +759,7 @@ let fichaClikeada;
 let grupoActual;
 let posicionOriginal;
 
+//cuando arranca el arraste
 function iniciarArrastre(event) {
     if (jugador1 && jugador1.tengoFichas() == true && jugador1.getTurno() == true) {
         //recorre las ficha del jugador 1
@@ -800,6 +805,7 @@ function obtenerMousePosicion(event) {
 
 let fichasEnTablero = []; // Array para almacenar las fichas en el tablero
 
+//mientras arrastra
 function arrastre(event) {
     if (!arrastro) return;
 
@@ -829,11 +835,13 @@ function arrastre(event) {
     }
 }
 
+//previene que seleccione y pueda mover html 
 document.addEventListener('dragstart', function (event) {
     event.preventDefault();
 });
 
 
+//termina el arrastre
 function terminarArrastre(event) {
     if (arrastro) {
         // Calcula en qué columna del tablero se soltó la ficha
@@ -918,6 +926,7 @@ function terminarArrastre(event) {
 
 let mensajeGanador = document.getElementById('mensaje-ganador');
 
+//dibuja los grupo de fichas
 function dibujarGrupos() {
     if (grupoFichasJugador1 && grupoFichasJugador2) {
         grupoFichasJugador1.dibujarGrupo();
@@ -931,13 +940,14 @@ function dibujarGrupos() {
 
 }
 
-
+//inicia los eventos
 function iniciarEventos() {
     document.addEventListener("mousedown", iniciarArrastre); // Evento cuando se presiona el botón del mouse
     document.addEventListener("mouseup", terminarArrastre); // Evento cuando se suelta el botón del mouse
     document.addEventListener("mousemove", arrastre); // Evento cuando se mueve el mouse
 }
 
+//termina los eventos
 function terminarEventos() {
     // Deshabilita el movimiento de fichas
     document.removeEventListener("mousedown", iniciarArrastre);
@@ -989,6 +999,7 @@ document.addEventListener("mousemove", function (event) {
 
 
 
+//hace la animacionde caida pero no nos salio bien
 // function animarFicha(ficha, posicionFinalX, posicionFinalY, duracion) {
 //     let posicionInicialX = ficha.getPosicionX();
 //     let posicionInicialY = ficha.getPosicionY();
