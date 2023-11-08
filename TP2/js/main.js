@@ -66,7 +66,7 @@ document.querySelector(".empate-btn").addEventListener("click", () => {
                 <img src="iconos-svg/fichajs.svg">
             </div>
             <div class="ficha">
-                <img src="iconos-svg/fifa24.png">
+                <img src="iconos-svg/phpFicha.svg">
             </div>
         </div>
     </div>`;
