@@ -22,7 +22,7 @@ header {
     background: linear-gradient(180deg, #5499F8 0%, #5499F8 87.91%, rgba(84, 153, 248, 0.00) 100%);
     position: absolute;
     top: 0;
-    z-index: 2;
+    z-index: 20;
 }
 
 .seccion-1 {
@@ -87,6 +87,7 @@ header {
     background-size: 100% 100%;
     position: absolute;
     top: 6275px;
+    z-index: 2;
 }
 
 .seccion-7 {
@@ -96,6 +97,7 @@ header {
     background-size: 100% 100%;
     position: absolute;
     top: 6994px;
+    z-index: 1;
 }
 
 .seccion-8 {
@@ -123,6 +125,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: fixed;
 }
 
 nav .contenedor-1080 {
@@ -212,8 +215,11 @@ nav .contenedor-1080 {
     height: 41.8055555556%;
     position: absolute;
     top: -4.8611111111%;
-    left: 25.78125%;
-    z-index: 2;
+    /* left: 25.78125%; */
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 30;
 }
 
 /* .spiderman-rojo {
@@ -247,6 +253,7 @@ nav .contenedor-1080 {
     left: 7.03125%;
     top: 36.3888888889%;
     z-index: 3;
+    opacity: 0.95;
 }
 
 .spiderman-rojo-telaraña {
@@ -258,6 +265,7 @@ nav .contenedor-1080 {
     left: 0;
     top: 34.5833333333%;
     z-index: 3;
+    opacity: 0.95;
 }
 
 .spiderman-negro-telaraña {
@@ -269,6 +277,7 @@ nav .contenedor-1080 {
     right: 0;
     top: 29.0277777778%;
     z-index: 3;
+    opacity: 0.95;
 }
 
 /* ----  TERMINA LA SECCION 1 ---- */
@@ -388,7 +397,7 @@ nav .contenedor-1080 {
     border-radius: 41px;
     box-sizing: border-box;
     box-shadow: 4px 5px 0px 0px #02187E;
-
+    opacity: 0;
 }
 
 .spiderman-card2 {
@@ -402,6 +411,7 @@ nav .contenedor-1080 {
     border-radius: 41px;
     box-sizing: border-box;
     box-shadow: 4px 5px 0px 0px #02187E;
+    opacity: 0;
 
 }
 
@@ -410,12 +420,13 @@ nav .contenedor-1080 {
     width: 332.96px;
     height: 302.691px;
     bottom: 414.31px;
-    left: 745.92px;
+    right: 0;
     position: absolute;
     flex-shrink: 0;
     border-radius: 41px;
     box-sizing: border-box;
     box-shadow: 4px 5px 0px 0px #02187E;
+    opacity: 0;
 
 }
 
@@ -453,12 +464,73 @@ nav .contenedor-1080 {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    opacity: 0;
 }
+
+.animacion-card1 {
+    animation-name: aparecerCard1;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+}
+
+@keyframes aparecerCard1 {
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animacion-card2 {
+    animation-name: aparecerCard2;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+}
+
+@keyframes aparecerCard2 {
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animacion-card3 {
+    animation-name: aparecerCard3;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+}
+
+@keyframes aparecerCard3 {
+    0% {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 
 /* ----TERMINO LA SECCION 3---- */
 
 
 /* SECCION 4 */
+
+.seccion-4 svg {
+    position: absolute;
+}
 
 .seccion-4-parte-1 {
     width: 546.11px;
@@ -471,6 +543,8 @@ nav .contenedor-1080 {
     justify-content: center;
     align-items: center;
     z-index: 1;
+    pointer-events: none;
+    transition: transform 0.5s ease;
 }
 
 .seccion-4-parte-2 {
@@ -484,6 +558,8 @@ nav .contenedor-1080 {
     justify-content: center;
     align-items: center;
     z-index: 2;
+    pointer-events: none;
+    transition: transform 0.5s ease;
 }
 
 .seccion-4-parte-3 {
@@ -497,6 +573,23 @@ nav .contenedor-1080 {
     justify-content: center;
     align-items: center;
     z-index: 3;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+#miPoligono1 {
+    pointer-events: auto;
+    cursor: pointer !important;
+}
+
+#miPoligono2 {
+    pointer-events: auto;
+    cursor: pointer !important;
+}
+
+#miPoligono3 {
+    pointer-events: auto;
+    cursor: pointer !important;
 }
 
 /* ---- TERMINA SECCION 4 ----  */
@@ -517,14 +610,13 @@ nav .contenedor-1080 {
 }
 
 .cielo-hulk {
+    background-image: url("../img/cielo-seccion-5.png");
+    background-size: 100% 100%;
     width: 1077.06px;
     height: 527.63px;
     position: absolute;
     top: 389.11px;
     z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .sombra-cielo {
@@ -532,14 +624,28 @@ nav .contenedor-1080 {
 }
 
 .arboles-hulk {
+    background-image: url("../img/arboles-seccion-5.png");
+    background-size: 100% 100%;
+    width: 1077.06px;
+    height: 527.63px;
+    position: absolute;
+    top: 389.11px;
     z-index: 2;
 }
 
 .pasto-hulk {
+    background-image: url("../img/pasto-seccion-5.png");
+    background-size: 100% 100%;
+    width: 1077.06px;
+    height: 527.63px;
+    position: absolute;
+    top: 389.11px;
     z-index: 3;
 }
 
 .personaje-negro-hulk {
+    background-image: url("../img/personaje-negro-seccion-5.png");
+    background-size: 100% 100%;
     width: 368.31px;
     height: 552.46px;
     position: absolute;
@@ -553,6 +659,8 @@ nav .contenedor-1080 {
 }
 
 .hulk {
+    background-image: url("../img/hulk.png");
+    background-size: 100% 100%;
     width: 410.11px;
     height: 437.97px;
     position: absolute;
@@ -566,6 +674,8 @@ nav .contenedor-1080 {
 }
 
 .personaje-chicha-hulk {
+    background-image: url("../img/personaje-chica-seccion-5.png");
+    background-size: 100% 100%;
     width: 451.26px;
     height: 591.44px;
     position: absolute;
@@ -608,6 +718,7 @@ nav .contenedor-1080 {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .titulo-juego {
@@ -717,6 +828,19 @@ nav .contenedor-1080 {
     left: 609px;
 }
 
+.sticky-seccion-5 {
+    background-image: url("../img/seccion5-img-1.png");
+    width: 551px;
+    height: 301.25px;
+    border: solid;
+    position: fixed;
+    bottom: 61px;
+}
+
+.ocultar {
+    display: none;
+}
+
 /* ---- TERMINA LA SECCION 5 ---- */
 
 
@@ -766,6 +890,7 @@ nav .contenedor-1080 {
 /* ---- TERMINA LA SECCION COMPRA INTERMEDIA ---- */
 
 /* SECCION 6 */
+
 .seccion-6-img-1 {
     position: absolute;
     width: 268px;
@@ -773,6 +898,12 @@ nav .contenedor-1080 {
     flex-shrink: 0;
     left: 90px;
     top: 171.5px;
+    cursor: pointer;
+}
+
+.seccion-6-img-1:hover {
+    transform: scale(1.48);
+    transition: transform 0.5s;
 }
 
 .seccion-6-img-2 {
@@ -782,6 +913,13 @@ nav .contenedor-1080 {
     flex-shrink: 0;
     left: 294px;
     top: 180.14px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.seccion-6-img-2:hover {
+    transform: scale(1.48);
+    transition: transform 0.5s;
 }
 
 .seccion-6-img-3 {
@@ -791,6 +929,12 @@ nav .contenedor-1080 {
     flex-shrink: 0;
     top: 180.14px;
     right: 89.5px;
+    cursor: pointer;
+}
+
+.seccion-6-img-3:hover {
+    transform: scale(1.48);
+    transition: transform 0.5s;
 }
 
 /* ---- TERMINA LA SECCION 6 ---- */
@@ -1001,4 +1145,78 @@ nav .contenedor-1080 {
     bottom: 120px;
 }
 
+.sprisheet-spiderman-telaraña {
+    background-image: url("../img/tiraCompletaSprisheetRojo.png");
+    width: 50px;
+    height: 60px;
+    position: absolute;
+    top: 417px;
+    left: 444px;
+    animation: giro-telaraña 2s steps(7) infinite;
+}
+
+@keyframes giro-telaraña {
+    0% {
+        background-position: 0px;
+    }
+
+    100% {
+        background-position: 350px;
+    }
+}
+
 /* ---- TERMINO SECCION 9 ---- */
+
+/* LOADING */
+
+.contenedor-loading {
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
+
+.telaraña {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    animation: girar 4s linear infinite;
+}
+
+@keyframes girar {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.contenedor-contador {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+
+}
+
+.contador {
+    color: #FFF;
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+.ocultar {
+    display: none;
+}
+
+/* ---- TERMINA EL LOADING ---- */
