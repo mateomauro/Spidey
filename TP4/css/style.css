@@ -137,26 +137,33 @@ nav .contenedor-1080 {
     height: 50px;
     border-radius: 111px;
     border: 8px solid var(--2982-ff, #2982FF);
+    box-sizing: content-box;
     background: #FFE901;
-    /* Drop Shadow */
     box-shadow: 4px 5px 0px 0px #02187E;
     color: #02187E;
     font-family: 'Lato', sans-serif;
-    font-size: 20px;
+    font-size: 21px;
     font-style: normal;
     font-weight: 900;
-    line-height: 94.5%;
-    /* 18.9px */
-    letter-spacing: 2.2px;
+    line-height: 18.9px;
     position: absolute;
-    top: 19.41%;
+    top: 11.6504%;
     right: -8px;
     /* los 8 px por el borde */
+    cursor: pointer;
+    background-size: 200% 200%;
+    transition: all 0.5s;
+}
+
+.btn-comprar:hover {
+    background: #e0373f;
+    color: white;
+    font-size: 1.5em;
 }
 
 .menu-hamburguesa {
     position: absolute;
-    top: 19.41%;
+    top: 14%;
     left: -4px;
 }
 
@@ -173,6 +180,7 @@ nav .contenedor-1080 {
     top: 0;
     left: 0;
     z-index: 1;
+    animation: aparicion-cielo 2s;
 }
 
 .edificio-izquierdo {
@@ -184,7 +192,19 @@ nav .contenedor-1080 {
     top: 2.5%;
     left: -4%;
     z-index: 2;
+    animation: aparicion-edificio-izquierdo 2s;
 }
+
+@keyframes aparicion-edificio-izquierdo {
+    0% {
+        transform: translateX(-15px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 
 .edificio-medio {
     width: 45%;
@@ -195,6 +215,18 @@ nav .contenedor-1080 {
     left: 29%;
     bottom: 1.5px;
     z-index: 2;
+    animation: aparicion-edificio-medio 2s;
+}
+
+@keyframes aparicion-edificio-medio {
+    0% {
+        transform: translateY(15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
 }
 
 .edificio-derecho {
@@ -206,6 +238,17 @@ nav .contenedor-1080 {
     right: 0;
     bottom: -1%;
     z-index: 2;
+    animation: aparicion-edificio-derecho 2s;
+}
+
+@keyframes aparicion-edificio-derecho {
+    0% {
+        transform: translateX(15px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .spidey {
@@ -220,6 +263,17 @@ nav .contenedor-1080 {
     right: 0;
     margin: auto;
     z-index: 30;
+    animation: aparicion-spidey 2s;
+}
+
+@keyframes aparicion-spidey {
+    0% {
+        transform: translateY(30px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 /* .spiderman-rojo {
@@ -254,6 +308,20 @@ nav .contenedor-1080 {
     top: 36.3888888889%;
     z-index: 3;
     opacity: 0.95;
+    animation: aparicion-spiderman-blanco 2s;
+}
+
+@keyframes aparicion-spiderman-blanco {
+    0% {
+        transform: translateY(15px);
+        transform: translatex(-35px);
+    }
+
+    100% {
+        transform: translateY(0);
+        transform: translatex(0);
+
+    }
 }
 
 .spiderman-rojo-telaraña {
@@ -266,6 +334,17 @@ nav .contenedor-1080 {
     top: 34.5833333333%;
     z-index: 3;
     opacity: 0.95;
+    animation: aparicion-spiderman-rojo 2s;
+}
+
+@keyframes aparicion-spiderman-rojo {
+    0% {
+        transform: translateY(35px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .spiderman-negro-telaraña {
@@ -278,6 +357,20 @@ nav .contenedor-1080 {
     top: 29.0277777778%;
     z-index: 3;
     opacity: 0.95;
+    animation: aparicion-spiderman-negro 2s;
+}
+
+@keyframes aparicion-spiderman-negro {
+    0% {
+        transform: translateY(15px);
+        transform: translatex(35px);
+    }
+
+    100% {
+        transform: translateY(0);
+        transform: translatex(0);
+
+    }
 }
 
 /* ----  TERMINA LA SECCION 1 ---- */
@@ -714,7 +807,6 @@ nav .contenedor-1080 {
     height: 302.762px;
     flex-shrink: 0;
     top: 380.5px;
-    left: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -808,10 +900,10 @@ nav .contenedor-1080 {
     height: 308.25px;
     flex-shrink: 0;
     bottom: 163.75px;
-    left: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
+    visibility: hidden;
 }
 
 .titulo-juego4 {
@@ -828,17 +920,29 @@ nav .contenedor-1080 {
     left: 609px;
 }
 
-.sticky-seccion-5 {
-    background-image: url("../img/seccion5-img-1.png");
-    width: 551px;
-    height: 301.25px;
-    border: solid;
-    position: fixed;
-    bottom: 61px;
-}
 
 .ocultar {
     display: none;
+}
+
+.texto1-aparecer {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.texto2-aparecer {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.texto3-aparecer {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.texto4-aparecer {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* ---- TERMINA LA SECCION 5 ---- */
@@ -865,17 +969,16 @@ nav .contenedor-1080 {
     line-height: normal;
 }
 
-.comprar-ahora {
-    position: absolute;
-    top: 211px;
-}
 
 .btn-intermedio {
+    position: absolute;
+    top: 203px;
     width: 292px;
     height: 50px;
     box-sizing: border-box;
     flex-shrink: 0;
     border-radius: 111px;
+    box-sizing: content-box;
     border: 8px solid var(--2982-ff, #2982FF);
     background: #FFE901;
     box-shadow: 4px 5px 0px 0px #02187E;
@@ -884,7 +987,15 @@ nav .contenedor-1080 {
     font-style: normal;
     font-weight: 900;
     line-height: 18.9px;
-    letter-spacing: 2.2px;
+    transition: all 0.5s;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.btn-intermedio:hover {
+    background: #e0373f;
+    color: white;
+    font-size: 1.5em;
 }
 
 /* ---- TERMINA LA SECCION COMPRA INTERMEDIA ---- */
@@ -966,6 +1077,27 @@ nav .contenedor-1080 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.sprisheet-spiderman-telaraña {
+    background-image: url("../img/tiraCompletaSprisheetRojo.png");
+    width: 97px;
+    height: 116px;
+    position: absolute;
+    bottom: 5.4783950617%;
+    left: 17.109375%;
+    animation: giro-telaraña 2s steps(7) infinite;
+}
+
+@keyframes giro-telaraña {
+    0% {
+        background-position: 0px;
+    }
+
+    100% {
+        background-position: 679px;
+    }
 }
 
 .spiderman-blanco-sprisheet {
@@ -1143,26 +1275,6 @@ nav .contenedor-1080 {
     height: 41px;
     background-color: #FFE901;
     bottom: 120px;
-}
-
-.sprisheet-spiderman-telaraña {
-    background-image: url("../img/tiraCompletaSprisheetRojo.png");
-    width: 50px;
-    height: 60px;
-    position: absolute;
-    top: 417px;
-    left: 444px;
-    animation: giro-telaraña 2s steps(7) infinite;
-}
-
-@keyframes giro-telaraña {
-    0% {
-        background-position: 0px;
-    }
-
-    100% {
-        background-position: 350px;
-    }
 }
 
 /* ---- TERMINO SECCION 9 ---- */

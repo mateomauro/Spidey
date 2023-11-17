@@ -24,6 +24,201 @@ window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
 
     //NAVEGACION
+    aparicionNavegacionYLogo(scrollY)
+
+    //SECCION 1
+    ParallaxSeccion1(scrollY);
+
+    //SECCION 2
+    //MUEVE EL DUENDE MAS LENTO QUE EL SCROLL
+    duende.style.top = 70 + scrollY * -0.05 + '%';
+
+    //SECCION 3
+    aparicionCardsFlotadas(scrollY)
+
+    //SECCION 4
+    parallaxSeccion4(scrollY)
+
+
+    //SECCION 5
+    stickySeccion5()
+
+});
+
+let aux = 0
+let juego1 = document.querySelector(".juego1");
+let juego4 = document.querySelector(".juego4");
+let texto1_sticky = document.querySelector(".texto1-sticky");
+let texto2_sticky = document.querySelector(".texto2-sticky");
+let texto3_sticky = document.querySelector(".texto3-sticky");
+let texto4_sticky = document.querySelector(".texto4-sticky");
+let texto1aparecer = document.querySelector(".texto1-aparecer")
+let texto2aparecer = document.querySelector(".texto2-aparecer")
+let texto3aparecer = document.querySelector(".texto3-aparecer")
+let texto4aparecer = document.querySelector(".texto4-aparecer")
+
+
+//SECCION 4 HOVER CARDS
+document.addEventListener('DOMContentLoaded', (event) => {
+    document.getElementById('miPoligono1').addEventListener('mouseover', funcionHover1);
+    document.getElementById('miPoligono2').addEventListener('mouseover', funcionHover2);
+    document.getElementById('miPoligono3').addEventListener('mouseover', funcionHover3);
+    document.getElementById('miPoligono1').addEventListener('mouseout', quitarHover1);
+    document.getElementById('miPoligono2').addEventListener('mouseout', quitarHover2);
+    document.getElementById('miPoligono3').addEventListener('mouseout', quitarHover3);
+
+    function funcionHover1() {
+        seccion4parte1.style.transform = "rotate(-13.078deg) scale(1.2) skewX(-10deg) skewY(12deg)";
+    }
+
+    function funcionHover2() {
+        seccion4parte2.style.transform = "rotate(-26.474deg) scale(1.2) skewX(-10deg) skewY(12deg)";
+    }
+
+    function funcionHover3() {
+        seccion4parte3.style.transform = "rotate(-36.016deg) scale(1.2) skewX(-10deg) skewY(12deg)";
+    }
+
+    function quitarHover1() {
+        seccion4parte1.style.transform = "rotate(-13.078deg) scale(1)";
+    }
+
+    function quitarHover2() {
+        seccion4parte2.style.transform = "rotate(-26.474deg) scale(1)";
+    }
+
+    function quitarHover3() {
+        seccion4parte3.style.transform = "rotate(-36.016deg) scale(1)";
+    }
+
+
+});
+
+
+//LOADING 
+let contador = 0;
+let tiempo = 3000 / 100;
+let contenedorHome = document.querySelector(".contendor-principal");
+let contenedorLoader = document.querySelector(".contenedor-loading");
+let incrementador = document.querySelector(".contador");
+let body = document.querySelector("body");
+
+body.style.height = 100 + 'vh';
+
+
+let temporizador = setInterval(() => {
+    if (contador <= 100) {
+        incrementador.innerHTML = contador + "%"
+        contador++;
+    }
+    else {
+        contenedorHome.classList.remove("ocultar");
+        contenedorLoader.classList.add("ocultar");
+        body.style.height = 8096 + 'px';
+        clearInterval(temporizador)//Limpio en consola
+    }
+
+}, tiempo)
+
+window.onload = function () {
+    nubesSeccion1.classList.add("cielo")
+    edificioIzquierdoPrincipal.classList.add("edificio-izquierdo")
+    edificioDerechoPrincipal.classList.add("edificio-derecho")
+    edificioMedioPrincipal.classList.add("edificio-medio")
+    // spidey.classList.add("spidey")
+    spidermanBlancoPrincipal.classList.add("spiderman-blanco")
+    spidermanRojoTelaraña.classList.add("spiderman-rojo-telaraña")
+    spidermanNegroTelaraña.classList.add("spiderman-negro-telaraña")
+};
+
+
+function ParallaxSeccion1(scrollY) {
+
+    //MUEVE LAS NUBES MUY POCO
+    nubesSeccion1.style.backgroundPosition = scrollY * -0.1 + 'px';
+
+    //CALCULA EL NUEVO TAMAÑO Y OPACIDAD BASANDOSE EN CUANDO SCROLIO
+    let newSize = 1 + scrollY * 0.00025;
+    let OpacityPositiva = 0.95 + scrollY * 0.01;
+    let OpacityNegativa = 1 - scrollY * 0.0006;
+
+    // ASEGURA QUE LA OPACIDAD ESTE ENTRE 0.9 A 1 
+    OpacityPositiva = Math.min(1, Math.max(0.9, OpacityPositiva));
+
+
+    // LO AGRANDA Y LE SUBE LA OPACIDAD CUANDO SCROLEA 
+    spidermanRojoTelaraña.style.transform = `scale(${newSize})`;
+    spidermanRojoTelaraña.style.opacity = OpacityPositiva;
+
+    //MUEVE AL SPIDERMAN NEGRO A LA DERECHA LE SUBE LA OPACIDAD Y LO AGRANDA CUANDO SCROLEA
+    spidermanNegroTelaraña.style.right = scrollY * -0.02 + '%'
+    spidermanNegroTelaraña.style.opacity = OpacityPositiva;
+    spidermanNegroTelaraña.style.transform = `scale(${newSize})`;
+
+    //MUEVE AL SPIDERMAN BLANCO A LA IZQUIERDA LE SUBE LA OPACIDAD Y LO AGRANDA CUANDO SCROLEA
+    spidermanBlancoPrincipal.style.left = 7.03125 + scrollY * -0.02 + '%'
+    spidermanBlancoPrincipal.style.opacity = OpacityPositiva;
+    spidermanBlancoPrincipal.style.transform = `scale(${newSize})`;
+
+    //LE DA MENOS OPACIDAD CUANDO SCROLLEA Y MUEVE EL EDIFICIO DERECHO HACIA LA DERECHA
+    edificioDerechoPrincipal.style.opacity = OpacityNegativa
+    edificioDerechoPrincipal.style.right = (- scrollY * 0.004) + '%';
+
+    //LE DA MENOS OPACIDAD CUANDO SCROLLEA Y MUEVE EL EDIFICIO IZQUIERDO
+    edificioIzquierdoPrincipal.style.opacity = OpacityNegativa
+    edificioIzquierdoPrincipal.style.left = (-4 - scrollY * 0.004) + '%';
+
+    //LE DA MENOS OPACIDAD Y CUANDO SCROLLEA LO MUEVE HACIA ABAJO 
+    edificioMedioPrincipal.style.opacity = OpacityNegativa
+    edificioMedioPrincipal.style.bottom = (1.5 - scrollY * 0.004) + 'px';
+
+
+    //MUESTRA CUANDO LOS MUEVE CUANDO LOS OPACA Y CUANTO LO AGRANDA
+    // console.log('nuevo tamaño: ' + newSize)
+    // console.log('opacidad positiva: ' + OpacityPositiva)
+    // console.log('opacidad negativa: ' + OpacityNegativa)
+    // console.log('edificio izquierda: ' + (-4 - scrollY * 0.004) + '%')
+    // console.log('edificio derecha: ' + (- scrollY * 0.004) + '%')
+    // console.log('edificio del medio abajo: ' + (1.5 - scrollY * 0.004) + 'px')
+}
+
+
+function aparicionCardsFlotadas(scrollY) {
+    if (scrollY > 1582) {
+
+        //LE AGREGA LA ANIMACION A LAS CARD QUE TIENEN DISTINTAS VELOCIDADES 
+        card1_seccion3.classList.add("animacion-card1")
+        card2_seccion3.classList.add("animacion-card2")
+        card3_seccion3.classList.add("animacion-card3")
+
+        //LE AGREGA LA ANIMACION A LOS TEXTOS QUE TIENEN DISTINTAS VELOCIDADES 
+        textoCard1.classList.add("animacion-card1")
+        textoCard2.classList.add("animacion-card2")
+        textoCard3.classList.add("animacion-card3")
+
+        //LE DA OPACIDAD DE 1 A LAS CARD
+        card1_seccion3.style.opacity = 1;
+        card2_seccion3.style.opacity = 1;
+        card3_seccion3.style.opacity = 1;
+
+        //LE DA OPACIDAD DE 1 A LOS TEXTOS
+        textoCard1.style.opacity = 1;
+        textoCard2.style.opacity = 1;
+        textoCard3.style.opacity = 1;
+    }
+}
+
+
+function parallaxSeccion4(scrollY) {
+    //LE DA MOVIMIENTO A LAS CARD QUE ESTAN TORCIDAS CUANDO HACE SCROLL
+    seccion4parte1.style.top = 100 + scrollY * -0.05 + '%'
+    seccion4parte2.style.top = 132 + scrollY * -0.05 + '%'
+    seccion4parte3.style.top = 169 + scrollY * -0.05 + '%'
+}
+
+
+function aparicionNavegacionYLogo(scrollY) {
+    //NAVEGACION
     let nav = document.querySelector("nav");
     let header = document.querySelector("header");
     let spidey = document.querySelector(".spidey");
@@ -75,162 +270,74 @@ window.addEventListener("scroll", () => {
         header.style.zIndex = '2';
     }
 
-    //SECCION 1
-    nubesSeccion1.style.backgroundPosition = scrollY * -0.1 + 'px 0';
+}
 
-    // Calcula el nuevo tamaño y opacidad basándote en cuánto se ha desplazado la página
-    let newSize = 1 + scrollY * 0.00015; // Ajusta el 0.01 para cambiar cuánto crece el tamaño
-    let OpacityPositiva = 0.95 + scrollY * 0.01; // Ajusta el 0.01 para cambiar cuánto cambia la opacidad
-    let OpacityNegativa = 1 - scrollY * 0.0006; // Ajusta el 0.01 para cambiar cuánto cambia la opacidad
+function stickySeccion5() {
 
-    // Asegúrate de que la opacidad esté entre 0.9 y 1
-    OpacityPositiva = Math.min(1, Math.max(0.9, OpacityPositiva));
+    let altoViewport = window.innerHeight;
+    let rectJuego = juego1.getBoundingClientRect();
+    let rectTexto1 = texto1_sticky.getBoundingClientRect();
+    let rectTexto2 = texto2_sticky.getBoundingClientRect();
+    let rectTexto3 = texto3_sticky.getBoundingClientRect();
+    let rectTexto4 = texto4_sticky.getBoundingClientRect();
+    let topPorcentajeJuego = ((rectJuego.top * 100) / altoViewport)
+    let topPorcentajeTexto1 = ((rectTexto1.top * 100) / altoViewport)
+    let topPorcentajeTexto2 = ((rectTexto2.top * 100) / altoViewport)
+    let topPorcentajeTexto3 = ((rectTexto3.top * 100) / altoViewport)
+    let topPorcentajeTexto4 = ((rectTexto4.top * 100) / altoViewport)
+    let tituloSeccion5 = document.querySelector(".titulo-seccion-5");
+    let rectTituloSeccion5 = tituloSeccion5.getBoundingClientRect();
+    let distancia = rectJuego.top - rectTituloSeccion5.bottom;
 
-
-    // Aplica el nuevo tamaño y opacidad
-    spidermanRojoTelaraña.style.transform = `scale(${newSize})`;
-    spidermanRojoTelaraña.style.opacity = OpacityPositiva;
-
-    spidermanNegroTelaraña.style.right = scrollY * -0.005 + '%'
-    spidermanNegroTelaraña.style.opacity = OpacityPositiva;
-    spidermanNegroTelaraña.style.transform = `scale(${newSize})`;
-
-    spidermanBlancoPrincipal.style.left = 7.03125 + scrollY * -0.005 + '%'
-    spidermanBlancoPrincipal.style.opacity = OpacityPositiva;
-    spidermanBlancoPrincipal.style.transform = `scale(${newSize})`;
-
-    edificioDerechoPrincipal.style.opacity = OpacityNegativa
-    edificioIzquierdoPrincipal.style.opacity = OpacityNegativa
-    edificioMedioPrincipal.style.opacity = OpacityNegativa
-
-    //SECCION 2
-    duende.style.top = 70 + scrollY * -0.05 + '%';
-
-    //SECCION 3
-    if (scrollY > 1582) {
-
-        card1_seccion3.classList.add("animacion-card1")
-        card2_seccion3.classList.add("animacion-card2")
-        card3_seccion3.classList.add("animacion-card3")
-
-        textoCard1.classList.add("animacion-card1")
-        textoCard2.classList.add("animacion-card2")
-        textoCard3.classList.add("animacion-card3")
-
-        card1_seccion3.style.opacity = 1;
-        card2_seccion3.style.opacity = 1;
-        card3_seccion3.style.opacity = 1;
-
-        textoCard1.style.opacity = 1;
-        textoCard2.style.opacity = 1;
-        textoCard3.style.opacity = 1;
+    if (topPorcentajeJuego <= 40) {
+        juego1.style.position = 'sticky'
+        juego1.style.top = 40 + '%'
     }
 
-    //SECCION 4
-    seccion4parte1.style.top = 100 + scrollY * -0.05 + '%'
-    seccion4parte2.style.top = 132 + scrollY * -0.05 + '%'
-    seccion4parte3.style.top = 169 + scrollY * -0.05 + '%'
-
-    // //SECCION 5
-    // let stickySeccion5 = document.querySelector(".sticky-seccion-5");
-
-    // // Asume que .juego1, .juego2, etc. son los contenedores de las imágenes
-    // let juego1 = document.querySelector(".juego1");
-    // let juego2 = document.querySelector(".juego2");
-
-    // // Obtiene la posición de .juego1 y .juego2 relativa al documento
-    // let juego1Pos = juego1.getBoundingClientRect().top + window.scrollY;
-    // let juego2Pos = juego2.getBoundingClientRect().top + window.scrollY;
-
-    // console.log('scroll y: ' + scrollY)
-    // console.log("juego1: " + juego1Pos)
-    // console.log("juego2: " + juego2Pos)
-    // if (juego1Pos > 4212) {
-    //     stickySeccion5.classList.remove("ocultar");
-    //     stickySeccion5.style.backgroundImage = 'url("img/seccion5-img-2.png")';
-    // } else {
-    //     stickySeccion5.classList.add("ocultar");
-    // }
-
-
-});
-
-
-//SECCION 4 HOVER CARDS
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('miPoligono1').addEventListener('mouseover', funcionHover1);
-    document.getElementById('miPoligono2').addEventListener('mouseover', funcionHover2);
-    document.getElementById('miPoligono3').addEventListener('mouseover', funcionHover3);
-    document.getElementById('miPoligono1').addEventListener('mouseout', quitarHover1);
-    document.getElementById('miPoligono2').addEventListener('mouseout', quitarHover2);
-    document.getElementById('miPoligono3').addEventListener('mouseout', quitarHover3);
-
-    function funcionHover1() {
-        seccion4parte1.style.transform = "rotate(-13.078deg) scale(1.2) skewX(-10deg) skewY(12deg)";
+    if (distancia <= 70) {
+        juego1.style.position = ''
+        juego1.style.top = 380.5 + 'px'
     }
 
-    function funcionHover2() {
-        seccion4parte2.style.transform = "rotate(-26.474deg) scale(1.2) skewX(-10deg) skewY(12deg)";
+
+    if (topPorcentajeTexto2 < 92 && topPorcentajeTexto2 != 0) {
+        juego1.innerHTML = '<img src="img/seccion5-img-2.png" alt="">';
+        texto2aparecer.style.opacity = 1;
+        texto1aparecer.style.opacity = 0;
+        texto3aparecer.style.opacity = 0;
+    } else {
+        texto2aparecer.style.opacity = 0;
+        texto1aparecer.style.opacity = 1;
+        juego1.innerHTML = '<img src="img/seccion5-img-1.png" alt="">'
     }
 
-    function funcionHover3() {
-        seccion4parte3.style.transform = "rotate(-36.016deg) scale(1.2) skewX(-10deg) skewY(12deg)";
+    if (topPorcentajeTexto3 < 92 && topPorcentajeTexto3 != 0) {
+        juego1.innerHTML = '<img src="img/seccion5-img-3.png" alt="">'
+        texto3aparecer.style.opacity = 1;
+        texto2aparecer.style.opacity = 0;
+        texto4aparecer.style.opacity = 0;
+
     }
 
-    function quitarHover1() {
-        seccion4parte1.style.transform = "rotate(-13.078deg) scale(1)";
+    if (topPorcentajeTexto4 < 92 && topPorcentajeTexto4 != 0) {
+        juego1.innerHTML = '<img src="img/seccion5-img-4.png" alt="">'
+        texto4aparecer.style.opacity = 1;
+        texto3aparecer.style.opacity = 0;
     }
 
-    function quitarHover2() {
-        seccion4parte2.style.transform = "rotate(-26.474deg) scale(1)";
+    // Obtén la posición de juego1 y juego4
+    let rectJuego1 = juego1.getBoundingClientRect();
+    let rectJuego4 = juego4.getBoundingClientRect();
+
+    // Comprueba si juego1 ha alcanzado la posición de juego4
+    if (rectJuego1.top >= rectJuego4.top && topPorcentajeTexto1 != 0) {
+        // Si es así, oculta juego1
+        juego1.style.visibility = 'hidden';
+        juego4.style.visibility = 'visible';
+    } else {
+        // Si no, muestra juego1
+        juego1.style.visibility = 'visible';
+        juego4.style.visibility = 'hidden';
     }
 
-    function quitarHover3() {
-        seccion4parte3.style.transform = "rotate(-36.016deg) scale(1)";
-    }
-
-});
-
-
-// // Selecciona los elementos
-// let seccion6 = document.querySelector(".seccion-6");
-// let seccion6img1 = document.querySelector(".seccion-6-img-1");
-
-// // // Agrega un listener para el evento 'mouseover' a .seccion-6-img-1
-// // seccion6img1.addEventListener("mouseover", function () {
-// //     // Agrega la clase cuando haces hover
-// //     seccion6.classList.add("hover");
-// // });
-
-// // // Agrega un listener para el evento 'mouseout' a .seccion-6-img-1
-// // seccion6img1.addEventListener("mouseout", function () {
-// //     // Elimina la clase cuando dejas de hacer hover
-// //     // seccion6.classList.remove("hover");
-// // });
-
-
-
-//LOADING 
-let contador = 0;
-let tiempo = 3000 / 100;
-let contenedorHome = document.querySelector(".contendor-principal");
-let contenedorLoader = document.querySelector(".contenedor-loading");
-let incrementador = document.querySelector(".contador");
-let body = document.querySelector("body");
-
-body.style.height = 100 + 'vh';
-
-
-let temporizador = setInterval(() => {
-    if (contador <= 100) {
-        incrementador.innerHTML = contador + "%"
-        contador++;
-    }
-    else {
-        contenedorHome.classList.remove("ocultar");
-        contenedorLoader.classList.add("ocultar");
-        body.style.height = 8096 + 'px';
-        clearInterval(temporizador)//Limpio en consola
-    }
-
-}, tiempo)
+}
