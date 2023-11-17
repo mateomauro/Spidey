@@ -345,24 +345,34 @@ function stickySeccion5() {
 //PRIMER POP UP
 let primerSpider = document.querySelector(".seccion-6-img-1");
 let popup1 = document.querySelector(".personaje-1");
+let scrollPosition;
 
 primerSpider.addEventListener('click', function(){
+    //CAPTURO LA POSICION DEL SCROLL TOP ANTES DE OCULTAR TODO EL HOME
+    scrollPosition = document.documentElement.scrollTop;
     contenedorHome.classList.add("ocultar");
     
     body.style.height = 100 + 'vh';
-    
+
     popup1.classList.remove("ocultar");
     
     let cruz = popup1.querySelector(".cerrar-popup");
+    
     cruz.addEventListener('click', function(){
         popup1.classList.add("ocultar");
-        contenedorHome.classList.remove("ocultar");        
+        contenedorHome.classList.remove("ocultar");  
+        
+        // Vuelve a la posición guardada del scroll
+        window.scrollTo(0, scrollPosition);
     })
 
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             popup1.classList.add("ocultar");
             contenedorHome.classList.remove("ocultar"); 
+            
+            // Vuelve a la posición guardada del scroll
+            window.scrollTo(0, scrollPosition);
         }
       });
 
@@ -373,6 +383,7 @@ let segundoSpider = document.querySelector(".seccion-6-img-2");
 let popup2 = document.querySelector(".personaje-2");
 
 segundoSpider.addEventListener('click', function(){
+    scrollPosition = document.documentElement.scrollTop;
     contenedorHome.classList.add("ocultar");
     
     body.style.height = 100 + 'vh';
@@ -382,13 +393,17 @@ segundoSpider.addEventListener('click', function(){
     let cruz = popup2.querySelector(".cerrar-popup");
     cruz.addEventListener('click', function(){
         popup2.classList.add("ocultar");
-        contenedorHome.classList.remove("ocultar");        
+        contenedorHome.classList.remove("ocultar"); 
+        // Vuelve a la posición guardada del scroll
+        window.scrollTo(0, scrollPosition);       
     })
 
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             popup2.classList.add("ocultar");
             contenedorHome.classList.remove("ocultar"); 
+            // Vuelve a la posición guardada del scroll
+            window.scrollTo(0, scrollPosition);
         }
       });
 
@@ -400,6 +415,7 @@ let tercerSpider = document.querySelector(".seccion-6-img-3");
 let popup3 = document.querySelector(".personaje-3");
 
 tercerSpider.addEventListener('click', function(){
+    scrollPosition = document.documentElement.scrollTop;
     contenedorHome.classList.add("ocultar");
     
     body.style.height = 100 + 'vh';
@@ -409,13 +425,17 @@ tercerSpider.addEventListener('click', function(){
     let cruz = popup3.querySelector(".cerrar-popup");
     cruz.addEventListener('click', function(){
         popup3.classList.add("ocultar");
-        contenedorHome.classList.remove("ocultar");        
+        contenedorHome.classList.remove("ocultar");
+        // Vuelve a la posición guardada del scroll
+        window.scrollTo(0, scrollPosition);        
     })
 
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             popup3.classList.add("ocultar");
             contenedorHome.classList.remove("ocultar"); 
+            // Vuelve a la posición guardada del scroll
+            window.scrollTo(0, scrollPosition);
         }
       });
 
