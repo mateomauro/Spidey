@@ -1332,3 +1332,71 @@ nav .contenedor-1080 {
 }
 
 /* ---- TERMINA EL LOADING ---- */
+
+/* ARRANCO POP UP */
+
+.personaje-1 {
+    width: 1280px;
+    height: 832px;
+    background-color: #000;
+}
+
+.foto-popup {
+    position: absolute;
+    width: 284px;
+    height: 715px;
+    background-color: #3b3a2d;
+    left: 61px;
+    top: 58px;
+    /* bottom: 59px; */
+}
+
+.titulo-nombre-personaje {
+    position: absolute;
+    width: 724px;
+    left: 398px;
+    top: 58px;
+}
+
+.nombre{
+    color: #FFF;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.texto-personaje {
+    position: absolute;
+    width: 724px;
+    left: 404px;
+    top: 140px;
+}
+
+.info-personaje {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.cerrar-popup{
+    position: absolute;
+    top: 28px;
+    right: 35px;
+}
+
+.circulo-popup{
+    fill: #FFF;
+    cursor: pointer;
+}
+    
+
+.cruz {
+    position: absolute;
+    right: 26.38px;
+    top: 29px;
+}
+
+/* TERMINA EL  POP UP */

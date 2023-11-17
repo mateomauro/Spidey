@@ -341,3 +341,82 @@ function stickySeccion5() {
     }
 
 }
+
+//PRIMER POP UP
+let primerSpider = document.querySelector(".seccion-6-img-1");
+let popup1 = document.querySelector(".personaje-1");
+
+primerSpider.addEventListener('click', function(){
+    contenedorHome.classList.add("ocultar");
+    
+    body.style.height = 100 + 'vh';
+    
+    popup1.classList.remove("ocultar");
+    
+    let cruz = popup1.querySelector(".cerrar-popup");
+    cruz.addEventListener('click', function(){
+        popup1.classList.add("ocultar");
+        contenedorHome.classList.remove("ocultar");        
+    })
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            popup1.classList.add("ocultar");
+            contenedorHome.classList.remove("ocultar"); 
+        }
+      });
+
+});
+
+//SEGUNDO POP UP
+let segundoSpider = document.querySelector(".seccion-6-img-2");
+let popup2 = document.querySelector(".personaje-2");
+
+segundoSpider.addEventListener('click', function(){
+    contenedorHome.classList.add("ocultar");
+    
+    body.style.height = 100 + 'vh';
+    
+    popup2.classList.remove("ocultar");
+
+    let cruz = popup2.querySelector(".cerrar-popup");
+    cruz.addEventListener('click', function(){
+        popup2.classList.add("ocultar");
+        contenedorHome.classList.remove("ocultar");        
+    })
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            popup2.classList.add("ocultar");
+            contenedorHome.classList.remove("ocultar"); 
+        }
+      });
+
+});
+
+//TERCER POPUP
+
+let tercerSpider = document.querySelector(".seccion-6-img-3");
+let popup3 = document.querySelector(".personaje-3");
+
+tercerSpider.addEventListener('click', function(){
+    contenedorHome.classList.add("ocultar");
+    
+    body.style.height = 100 + 'vh';
+    
+    popup3.classList.remove("ocultar");
+
+    let cruz = popup3.querySelector(".cerrar-popup");
+    cruz.addEventListener('click', function(){
+        popup3.classList.add("ocultar");
+        contenedorHome.classList.remove("ocultar");        
+    })
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            popup3.classList.add("ocultar");
+            contenedorHome.classList.remove("ocultar"); 
+        }
+      });
+
+});
