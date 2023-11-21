@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 //LOADING 
 let contador = 0;
-let tiempo = 3000 / 100;
+let tiempo = 3 / 100;
 let contenedorHome = document.querySelector(".contendor-principal");
 let contenedorLoader = document.querySelector(".contenedor-loading");
 let incrementador = document.querySelector(".contador");
@@ -342,101 +342,196 @@ function stickySeccion5() {
 
 }
 
-//PRIMER POP UP
-let primerSpider = document.querySelector(".seccion-6-img-1");
-let popup1 = document.querySelector(".personaje-1");
-let scrollPosition;
+// //PRIMER POP UP
+// let primerSpider = document.querySelector(".seccion-6-img-1");
+// let popup1 = document.querySelector(".personaje-1");
+// let scrollPosition;
 
-primerSpider.addEventListener('click', function(){
-    //CAPTURO LA POSICION DEL SCROLL TOP ANTES DE OCULTAR TODO EL HOME
-    scrollPosition = document.documentElement.scrollTop;
-    contenedorHome.classList.add("ocultar");
-    
-    body.style.height = 100 + 'vh';
+// primerSpider.addEventListener('click', function () {
+//     //CAPTURO LA POSICION DEL SCROLL TOP ANTES DE OCULTAR TODO EL HOME
+//     scrollPosition = document.documentElement.scrollTop;
+//     contenedorHome.classList.add("ocultar");
 
-    popup1.classList.remove("ocultar");
-    
-    let cruz = popup1.querySelector(".cerrar-popup");
-    
-    cruz.addEventListener('click', function(){
-        popup1.classList.add("ocultar");
-        contenedorHome.classList.remove("ocultar");  
-        
-        // Vuelve a la posición guardada del scroll
-        window.scrollTo(0, scrollPosition);
-    })
+//     body.style.height = 100 + 'vh';
 
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            popup1.classList.add("ocultar");
-            contenedorHome.classList.remove("ocultar"); 
-            
-            // Vuelve a la posición guardada del scroll
-            window.scrollTo(0, scrollPosition);
-        }
-      });
+//     popup1.classList.remove("ocultar");
 
+//     let cruz = popup1.querySelector(".cerrar-popup");
+
+//     cruz.addEventListener('click', function () {
+//         popup1.classList.add("ocultar");
+//         contenedorHome.classList.remove("ocultar");
+
+//         // Vuelve a la posición guardada del scroll
+//         window.scrollTo(0, scrollPosition);
+//     })
+
+//     document.addEventListener('keydown', function (event) {
+//         if (event.key === 'Escape') {
+//             popup1.classList.add("ocultar");
+//             contenedorHome.classList.remove("ocultar");
+
+//             // Vuelve a la posición guardada del scroll
+//             window.scrollTo(0, scrollPosition);
+//         }
+//     });
+
+// });
+
+// //SEGUNDO POP UP
+// let segundoSpider = document.querySelector(".seccion-6-img-2");
+// let popup2 = document.querySelector(".personaje-2");
+
+// segundoSpider.addEventListener('click', function () {
+//     scrollPosition = document.documentElement.scrollTop;
+//     contenedorHome.classList.add("ocultar");
+
+//     body.style.height = 100 + 'vh';
+
+//     popup2.classList.remove("ocultar");
+
+//     let cruz = popup2.querySelector(".cerrar-popup");
+//     cruz.addEventListener('click', function () {
+//         popup2.classList.add("ocultar");
+//         contenedorHome.classList.remove("ocultar");
+//         // Vuelve a la posición guardada del scroll
+//         window.scrollTo(0, scrollPosition);
+//     })
+
+//     document.addEventListener('keydown', function (event) {
+//         if (event.key === 'Escape') {
+//             popup2.classList.add("ocultar");
+//             contenedorHome.classList.remove("ocultar");
+//             // Vuelve a la posición guardada del scroll
+//             window.scrollTo(0, scrollPosition);
+//         }
+//     });
+
+// });
+
+// //TERCER POPUP
+
+// let tercerSpider = document.querySelector(".seccion-6-img-3");
+// let popup3 = document.querySelector(".personaje-3");
+
+// tercerSpider.addEventListener('click', function () {
+//     scrollPosition = document.documentElement.scrollTop;
+//     contenedorHome.classList.add("ocultar");
+
+//     body.style.height = 100 + 'vh';
+
+//     popup3.classList.remove("ocultar");
+
+//     let cruz = popup3.querySelector(".cerrar-popup");
+//     cruz.addEventListener('click', function () {
+//         popup3.classList.add("ocultar");
+//         contenedorHome.classList.remove("ocultar");
+//         // Vuelve a la posición guardada del scroll
+//         window.scrollTo(0, scrollPosition);
+//     })
+
+//     document.addEventListener('keydown', function (event) {
+//         if (event.key === 'Escape') {
+//             popup3.classList.add("ocultar");
+//             contenedorHome.classList.remove("ocultar");
+//             // Vuelve a la posición guardada del scroll
+//             window.scrollTo(0, scrollPosition);
+//         }
+//     });
+
+// });
+
+
+let seccionHulk = document.querySelector(".prueba2");
+seccionHulk.addEventListener("mousemove", parallax);
+
+function parallax(e) {
+    // Obtenemos las coordenadas del centro del div
+    let rect = seccionHulk.getBoundingClientRect();
+    let centerX = rect.left + rect.width / 2;
+    let centerY = rect.top + rect.height / 2;
+
+    // Calculamos la distancia del mouse al centro del div
+    let distX = e.clientX - centerX;
+    let distY = e.clientY - centerY;
+
+    console.log(distX)
+    console.log(distY)
+    let x = -distX / 50
+    let y = -distY / 50
+    console.log(x)
+    console.log(y)
+
+    hulk.style.transform = 'translate(' + x + 'px, ' + y + 'px)' + 'rotate(7.515deg)';
+    personaje_negro.style.transform = 'translate(' + x + 'px, ' + y + 'px)' + 'rotate(13.615deg)';
+    personaje_chica.style.transform = 'translate(' + x + 'px, ' + y + 'px)' + 'rotate(-12.483deg)';
+    cieloHulk.style.backgroundPosition = (x / 4) + 'px ' + (y / 4) + 'px';
+    arboles_hulk.style.backgroundPosition = (x / 6) + 'px ' + (y / 6) + 'px';
+}
+
+let hulk = document.querySelector(".hulk")
+let personaje_negro = document.querySelector(".personaje-negro-hulk")
+let personaje_chica = document.querySelector(".personaje-chicha-hulk")
+let cieloHulk = document.querySelector(".cielo-hulk")
+let arboles_hulk = document.querySelector(".arboles-hulk")
+
+
+
+
+let seccion_blanco_hover = document.querySelector(".seccion-6-img-1")
+let seccion_rojo_hover = document.querySelector(".seccion-6-img-2")
+let seccion_negro_hover = document.querySelector(".seccion-6-img-3")
+let spiderman_blanco_hover = document.querySelector(".hover-img1-seccion6")
+let spiderman_rojo_hover = document.querySelector(".hover-img2-seccion6")
+let spiderman_negro_hover = document.querySelector(".hover-img3-seccion6")
+
+spiderman_blanco_hover.addEventListener("mouseover", () => {
+    seccion_blanco_hover.style.transform = 'scale(1.6)';
+    seccion_blanco_hover.style.filter = 'blur(0px)';
+    seccion_rojo_hover.style.transform = 'scale(0.77)';
+    seccion_rojo_hover.style.filter = 'blur(5px)';
+    seccion_negro_hover.style.transform = 'scale(0.77)';
+    seccion_negro_hover.style.filter = 'blur(5px)';
+})
+seccion_blanco_hover.addEventListener('mouseout', () => {
+    seccion_blanco_hover.style.transform = 'scale(1)';
+    seccion_blanco_hover.style.filter = 'blur(0px)';
+    seccion_rojo_hover.style.transform = 'scale(1)';
+    seccion_rojo_hover.style.filter = 'blur(0px)';
+    seccion_negro_hover.style.transform = 'scale(1)';
+    seccion_negro_hover.style.filter = 'blur(0px)';
 });
 
-//SEGUNDO POP UP
-let segundoSpider = document.querySelector(".seccion-6-img-2");
-let popup2 = document.querySelector(".personaje-2");
+spiderman_rojo_hover.addEventListener("mouseover", () => {
+    seccion_rojo_hover.style.transform = 'scale(1.47)';
+    seccion_rojo_hover.style.filter = 'blur(0px)';
+    seccion_blanco_hover.style.transform = 'scale(0.77)';
+    seccion_blanco_hover.style.filter = 'blur(5px)';
+    seccion_negro_hover.style.transform = 'scale(0.77)';
+    seccion_negro_hover.style.filter = 'blur(5px)';
+})
+spiderman_rojo_hover.addEventListener("mouseout", () => {
+    seccion_rojo_hover.style.transform = 'scale(1)';
+    seccion_rojo_hover.style.filter = 'blur(0px)';
+    seccion_blanco_hover.style.transform = 'scale(1)';
+    seccion_blanco_hover.style.filter = 'blur(0px)';
+    seccion_negro_hover.style.transform = 'scale(1)';
+    seccion_negro_hover.style.filter = 'blur(0px)';
+})
 
-segundoSpider.addEventListener('click', function(){
-    scrollPosition = document.documentElement.scrollTop;
-    contenedorHome.classList.add("ocultar");
-    
-    body.style.height = 100 + 'vh';
-    
-    popup2.classList.remove("ocultar");
-
-    let cruz = popup2.querySelector(".cerrar-popup");
-    cruz.addEventListener('click', function(){
-        popup2.classList.add("ocultar");
-        contenedorHome.classList.remove("ocultar"); 
-        // Vuelve a la posición guardada del scroll
-        window.scrollTo(0, scrollPosition);       
-    })
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            popup2.classList.add("ocultar");
-            contenedorHome.classList.remove("ocultar"); 
-            // Vuelve a la posición guardada del scroll
-            window.scrollTo(0, scrollPosition);
-        }
-      });
-
-});
-
-//TERCER POPUP
-
-let tercerSpider = document.querySelector(".seccion-6-img-3");
-let popup3 = document.querySelector(".personaje-3");
-
-tercerSpider.addEventListener('click', function(){
-    scrollPosition = document.documentElement.scrollTop;
-    contenedorHome.classList.add("ocultar");
-    
-    body.style.height = 100 + 'vh';
-    
-    popup3.classList.remove("ocultar");
-
-    let cruz = popup3.querySelector(".cerrar-popup");
-    cruz.addEventListener('click', function(){
-        popup3.classList.add("ocultar");
-        contenedorHome.classList.remove("ocultar");
-        // Vuelve a la posición guardada del scroll
-        window.scrollTo(0, scrollPosition);        
-    })
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            popup3.classList.add("ocultar");
-            contenedorHome.classList.remove("ocultar"); 
-            // Vuelve a la posición guardada del scroll
-            window.scrollTo(0, scrollPosition);
-        }
-      });
-
-});
+spiderman_negro_hover.addEventListener("mouseover", () => {
+    seccion_negro_hover.style.transform = 'scale(1.6)';
+    seccion_negro_hover.style.filter = 'blur(0px)';
+    seccion_blanco_hover.style.transform = 'scale(0.77)';
+    seccion_blanco_hover.style.filter = 'blur(5px)';
+    seccion_rojo_hover.style.transform = 'scale(0.77)';
+    seccion_rojo_hover.style.filter = 'blur(5px)';
+})
+spiderman_negro_hover.addEventListener("mouseout", () => {
+    seccion_negro_hover.style.transform = 'scale(1)';
+    seccion_negro_hover.style.filter = 'blur(0px)';
+    seccion_blanco_hover.style.transform = 'scale(1)';
+    seccion_blanco_hover.style.filter = 'blur(0px)';
+    seccion_rojo_hover.style.transform = 'scale(1)';
+    seccion_rojo_hover.style.filter = 'blur(0px)';
+})

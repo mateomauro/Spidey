@@ -153,6 +153,8 @@ nav .contenedor-1080 {
     cursor: pointer;
     background-size: 200% 200%;
     transition: all 0.5s;
+    -webkit-text-stroke: 2px;
+    letter-spacing: 2px;
 }
 
 .btn-comprar:hover {
@@ -437,6 +439,12 @@ nav .contenedor-1080 {
     position: absolute;
     top: 356px;
     left: -5px;
+    color: #FFF;
+    font-family: Lato;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 /* 
@@ -705,10 +713,12 @@ nav .contenedor-1080 {
 .cielo-hulk {
     background-image: url("../img/cielo-seccion-5.png");
     background-size: 100% 100%;
+    background-repeat: repeat;
     width: 1077.06px;
     height: 527.63px;
     position: absolute;
-    top: 389.11px;
+    /* top: 389.11px; */
+    top: 0;
     z-index: 1;
 }
 
@@ -719,10 +729,12 @@ nav .contenedor-1080 {
 .arboles-hulk {
     background-image: url("../img/arboles-seccion-5.png");
     background-size: 100% 100%;
+    background-repeat: repeat;
     width: 1077.06px;
     height: 527.63px;
     position: absolute;
-    top: 389.11px;
+    /* top: 389.11px; */
+    top: 0;
     z-index: 2;
 }
 
@@ -733,7 +745,8 @@ nav .contenedor-1080 {
     height: 527.63px;
     position: absolute;
     top: 389.11px;
-    z-index: 3;
+    /* top: 0; */
+    z-index: 6;
 }
 
 .personaje-negro-hulk {
@@ -743,8 +756,9 @@ nav .contenedor-1080 {
     height: 552.46px;
     position: absolute;
     top: 169.59px;
+    /* bottom: 194.68px; */
     right: 198.66px;
-    z-index: 4;
+    z-index: 5;
     transform: rotate(13.615deg);
     display: flex;
     justify-content: center;
@@ -758,11 +772,12 @@ nav .contenedor-1080 {
     height: 437.97px;
     position: absolute;
     top: 519.94px;
+    /* top: 130.83px; */
     right: -30.17px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
     transform: rotate(7.515deg);
 }
 
@@ -773,12 +788,31 @@ nav .contenedor-1080 {
     height: 591.44px;
     position: absolute;
     top: 335.78px;
+    /* top: -53.33px; */
     left: 84.99px;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: rotate(-12.483deg);
+}
+
+.prueba {
+    width: 1076.06px;
+    height: 527.63px;
+    position: absolute;
+    top: 389.11px;
+    box-sizing: content-box;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.prueba2 {
+    width: 1077.06px;
+    height: 527.63px;
+    position: absolute;
+    top: 389.11px;
+    z-index: 10;
 }
 
 /* ---- TERMINANDO LA SECCION HULK */
@@ -1009,13 +1043,28 @@ nav .contenedor-1080 {
     flex-shrink: 0;
     left: 90px;
     top: 171.5px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease;
+
+}
+
+.seccion-6-img-1 svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 15px;
+    left: 0;
+}
+
+.hover-img1-seccion6 {
     cursor: pointer;
 }
 
-.seccion-6-img-1:hover {
+
+/* .seccion-6-img-1:hover {
     transform: scale(1.48);
     transition: transform 0.5s;
-}
+} */
 
 .seccion-6-img-2 {
     position: absolute;
@@ -1025,13 +1074,30 @@ nav .contenedor-1080 {
     left: 294px;
     top: 180.14px;
     z-index: 3;
-    cursor: pointer;
+    pointer-events: none;
+    transition: transform 0.5s ease;
 }
 
-.seccion-6-img-2:hover {
+.seccion-6-img-2 svg {
+    width: 86%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 49px;
+}
+
+.hover-img2-seccion6 {
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.5s ease;
+}
+
+
+
+/* .seccion-6-img-2:hover {
     transform: scale(1.48);
     transition: transform 0.5s;
-}
+} */
 
 .seccion-6-img-3 {
     position: absolute;
@@ -1040,13 +1106,26 @@ nav .contenedor-1080 {
     flex-shrink: 0;
     top: 180.14px;
     right: 89.5px;
+    transition: transform 0.5s ease;
+}
+
+.seccion-6-img-3 svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 17px;
+    left: 46px;
+}
+
+.hover-img3-seccion6 {
     cursor: pointer;
 }
 
-.seccion-6-img-3:hover {
+
+/* .seccion-6-img-3:hover {
     transform: scale(1.48);
     transition: transform 0.5s;
-}
+} */
 
 /* ---- TERMINA LA SECCION 6 ---- */
 
@@ -1077,6 +1156,28 @@ nav .contenedor-1080 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.sprisheet-spiderman-tirando-telaraña {
+    background-image: url("../img/sprisheet-tirando-telaraña.png");
+    width: 140px;
+    height: 70px;
+    border: solid 2px black;
+    position: absolute;
+    left: 456px;
+    bottom: -58px;
+    animation: tira-telaraña 2s steps(3) infinite;
+}
+
+@keyframes tira-telaraña {
+    0% {
+        background-position: 0px;
+    }
+
+    100% {
+        background-position: 420px;
+    }
+
 }
 
 
@@ -1283,7 +1384,7 @@ nav .contenedor-1080 {
 
 .contenedor-loading {
     width: 100%;
-    height: 100%;
+    height: 100vh !important;
     background-color: red;
 }
 
@@ -1358,7 +1459,7 @@ nav .contenedor-1080 {
     top: 58px;
 }
 
-.nombre{
+.nombre {
     color: #FFF;
     font-size: 60px;
     font-style: normal;
@@ -1381,17 +1482,17 @@ nav .contenedor-1080 {
     line-height: normal;
 }
 
-.cerrar-popup{
+.cerrar-popup {
     position: absolute;
     top: 28px;
     right: 35px;
 }
 
-.circulo-popup{
+.circulo-popup {
     fill: #FFF;
     cursor: pointer;
 }
-    
+
 
 .cruz {
     position: absolute;
