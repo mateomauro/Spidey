@@ -300,7 +300,7 @@ nav .contenedor-1080 {
     z-index: -1;
     background-color: #ffe901;
     border-radius: 12px;
-    animation: aparecer-lado-izquierdo 2s forwards;
+    /* animation: aparecer-lado-izquierdo 1s forwards; */
 }
 
 .mi-carrito {
@@ -325,7 +325,7 @@ nav .contenedor-1080 {
     font-weight: 900;
     line-height: 18.9px;
     opacity: 0;
-    animation: aparecer-lado-izquierdo 2s forwards;
+    animation: aparecer-lado-izquierdo 0.5s forwards;
     cursor: pointer;
 }
 
@@ -351,7 +351,7 @@ nav .contenedor-1080 {
     font-weight: 900;
     line-height: 18.9px;
     opacity: 0;
-    animation: aparecer-lado-izquierdo 2s forwards;
+    animation: aparecer-lado-izquierdo 1s forwards;
     cursor: pointer;
 }
 
@@ -377,7 +377,7 @@ nav .contenedor-1080 {
     font-weight: 900;
     line-height: 18.9px;
     opacity: 0;
-    animation: aparecer-lado-izquierdo 2s forwards;
+    animation: aparecer-lado-izquierdo 1.5s forwards;
     cursor: pointer;
 }
 
