@@ -294,17 +294,17 @@ function stickySeccion5() {
     let rectTituloSeccion5 = tituloSeccion5.getBoundingClientRect();
     let distancia = rectJuego.top - rectTituloSeccion5.bottom;
 
-    console.log('rect del juego: ' + rectJuego)
-    console.log('rect texto 1: : ' + rectTexto1)
-    console.log('rect texto 2: : ' + rectTexto2)
-    console.log('rect texto 3: : ' + rectTexto3)
-    console.log('rect texto 4: : ' + rectTexto4)
-    console.log('top porcentaje juego: ' + topPorcentajeJuego)
-    console.log('top porcentaje texto 1: ' + topPorcentajeTexto1)
-    console.log('top porcentaje texto 2: ' + topPorcentajeTexto2)
-    console.log('top porcentaje texto 3: ' + topPorcentajeTexto3)
-    console.log('top porcentaje texto 4: ' + topPorcentajeTexto4)
-    console.log('distancia: ' + distancia)
+    // console.log('rect del juego: ' + rectJuego)
+    // console.log('rect texto 1: : ' + rectTexto1)
+    // console.log('rect texto 2: : ' + rectTexto2)
+    // console.log('rect texto 3: : ' + rectTexto3)
+    // console.log('rect texto 4: : ' + rectTexto4)
+    // console.log('top porcentaje juego: ' + topPorcentajeJuego)
+    // console.log('top porcentaje texto 1: ' + topPorcentajeTexto1)
+    // console.log('top porcentaje texto 2: ' + topPorcentajeTexto2)
+    // console.log('top porcentaje texto 3: ' + topPorcentajeTexto3)
+    // console.log('top porcentaje texto 4: ' + topPorcentajeTexto4)
+    // console.log('distancia: ' + distancia)
 
 
     if (topPorcentajeJuego <= 40) {
