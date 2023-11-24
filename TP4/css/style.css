@@ -22,7 +22,7 @@ header {
     background: linear-gradient(180deg, #5499F8 0%, #5499F8 87.91%, rgba(84, 153, 248, 0.00) 100%);
     position: absolute;
     top: 0;
-    z-index: 20;
+    z-index: 2;
 }
 
 .seccion-1 {
@@ -88,6 +88,7 @@ header {
     position: absolute;
     top: 6275px;
     z-index: 2;
+    overflow: hidden;
 }
 
 .seccion-7 {
@@ -165,8 +166,231 @@ nav .contenedor-1080 {
 
 .menu-hamburguesa {
     position: absolute;
+    width: 34px;
+    height: 26px;
     top: 14%;
     left: -4px;
+    filter: drop-shadow(4px 5px 0px #02187E);
+    cursor: pointer;
+}
+
+.rect1 {
+    position: absolute;
+    width: 34px;
+    height: 4px;
+    top: 0;
+    background-color: #FFE901;
+    border-radius: 111px;
+    border: 4px solid #2981FF;
+}
+
+.rect2 {
+    position: absolute;
+    width: 34px;
+    height: 4px;
+    top: 11px;
+    background-color: #FFE901;
+    border-radius: 111px;
+    margin-bottom: 11px;
+    border: 4px solid #2981FF;
+}
+
+.rect3 {
+    position: absolute;
+    width: 34px;
+    height: 4px;
+    top: 22px;
+    background-color: #FFE901;
+    border-radius: 111px;
+    border: 4px solid #2981FF;
+}
+
+.girar1 {
+    animation: rotarArriba 1s;
+    animation-fill-mode: forwards;
+}
+
+.girar3 {
+    animation: rotarAbajo 1s;
+    animation-fill-mode: forwards;
+}
+
+.centro {
+    position: absolute;
+    width: 34px;
+    height: 26px;
+    top: 14%;
+    left: -4px;
+}
+
+@keyframes rotarArriba {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-45deg) translate(-8px, 6px);
+        box-shadow: none;
+    }
+}
+
+@keyframes rotarAbajo {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(45deg) translate(-9px, -8px);
+        box-shadow: none;
+    }
+}
+
+.volver2 {
+    animation: volver 1s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes volver {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.volver1 {
+    animation: revertirRotarArriba 1s;
+    animation-fill-mode: forwards;
+}
+
+.volver3 {
+    animation: revertirRotarAbajo 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes revertirRotarArriba {
+    0% {
+        transform: rotate(-45deg) translate(-8px, 6px);
+    }
+
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+
+@keyframes revertirRotarAbajo {
+    0% {
+        transform: rotate(45deg) translate(-9px, -8px);
+    }
+
+    100% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+}
+
+.menu-desplegado {
+    width: 174px;
+    height: 229px;
+    border: solid 4px #2982ff;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    z-index: -1;
+    background-color: #ffe901;
+    border-radius: 12px;
+    animation: aparecer-lado-izquierdo 2s forwards;
+}
+
+.mi-carrito {
+    width: 150px;
+    height: 30px;
+    border: solid;
+    position: absolute;
+    top: 70px;
+    left: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 111px;
+    border: 4px solid #f10408;
+    box-sizing: content-box;
+    background: #ffffff;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    color: #02187E;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 18.9px;
+    opacity: 0;
+    animation: aparecer-lado-izquierdo 2s forwards;
+    cursor: pointer;
+}
+
+.mis-personajes {
+    width: 150px;
+    height: 30px;
+    border: solid;
+    position: absolute;
+    top: 120px;
+    left: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 111px;
+    border: 4px solid #f10408;
+    box-sizing: content-box;
+    background: #ffffff;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    color: #02187E;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 18.9px;
+    opacity: 0;
+    animation: aparecer-lado-izquierdo 2s forwards;
+    cursor: pointer;
+}
+
+.mis-compras {
+    width: 150px;
+    height: 30px;
+    border: solid;
+    position: absolute;
+    top: 170px;
+    left: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 111px;
+    border: 4px solid #f10408;
+    box-sizing: content-box;
+    background: #ffffff;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    color: #02187E;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 18.9px;
+    opacity: 0;
+    animation: aparecer-lado-izquierdo 2s forwards;
+    cursor: pointer;
+}
+
+@keyframes aparecer-lado-izquierdo {
+    0% {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* ---- TERMINA LA NAVEGACION ---- */
@@ -195,6 +419,7 @@ nav .contenedor-1080 {
     left: -4%;
     z-index: 2;
     animation: aparicion-edificio-izquierdo 2s;
+    pointer-events: none;
 }
 
 @keyframes aparicion-edificio-izquierdo {
@@ -241,6 +466,7 @@ nav .contenedor-1080 {
     bottom: -1%;
     z-index: 2;
     animation: aparicion-edificio-derecho 2s;
+    pointer-events: none;
 }
 
 @keyframes aparicion-edificio-derecho {
@@ -277,28 +503,6 @@ nav .contenedor-1080 {
         transform: translateY(0);
     }
 }
-
-/* .spiderman-rojo {
-    background-image: url("../img/spiderman-rojo.png");
-    background-size: 100% 100%;
-    width: 36.32%;
-    height: 64.58%;
-    position: absolute;
-    top: 31.52%;
-    left: 31.56%;
-    z-index: 2;
-}
-
-.spiderman-negro {
-    background-image: url("../img/spiderman-negro.png");
-    background-size: 100% 100%;
-    width: 30.70%;
-    height: 54.58%;
-    position: absolute;
-    top: 29%;
-    right: 15%;
-    z-index: 2;
-} */
 
 .spiderman-blanco {
     background-image: url("../img/spiderman-blanco.png");
@@ -424,15 +628,6 @@ nav .contenedor-1080 {
 
 }
 
-/* .seccion-2-1080px p {
-    color: #FFF;
-    font-family: Lato;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-} */
-
 .subtitulo-seccion-2 {
     width: 586px;
     height: 154px;
@@ -446,23 +641,6 @@ nav .contenedor-1080 {
     font-weight: 400;
     line-height: normal;
 }
-
-/* 
-.seccion2-img {
-    background-image: url("../img/seccion-2-imagen.png");
-    background-size: 100% 100%;
-    width: 751.65px;
-    height: 413.13px;
-    position: absolute;
-    top: 537.5px;
-    right: 322.63px;
-    left: -9.72px;
-    z-index: 2;
-    border-radius: 26px;
-    border: 9px solid #FFF;
-    box-shadow: 3px 6px 8px 4px rgba(0, 0, 0, 0.15);
-    transform: rotate(-2.222deg);
-} */
 
 
 .seccion2-img {
@@ -710,6 +888,19 @@ nav .contenedor-1080 {
     margin: auto
 }
 
+.seccion5-1077 p {
+    color: #FFF;
+    font-family: Lato;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 94.5%;
+    /* 56.7px */
+    position: absolute;
+    top: 163px;
+    left: 0;
+}
+
 .cielo-hulk {
     background-image: url("../img/cielo-seccion-5.png");
     background-size: 100% 100%;
@@ -844,8 +1035,8 @@ nav .contenedor-1080 {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
+
 
 .titulo-juego {
     position: absolute;
@@ -961,22 +1152,22 @@ nav .contenedor-1080 {
 
 .texto1-aparecer {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .texto2-aparecer {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .texto3-aparecer {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 .texto4-aparecer {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
 }
 
 /* ---- TERMINA LA SECCION 5 ---- */
@@ -1024,6 +1215,8 @@ nav .contenedor-1080 {
     transition: all 0.5s;
     z-index: 4;
     cursor: pointer;
+    -webkit-text-stroke: 2px;
+    letter-spacing: 2px;
 }
 
 .btn-intermedio:hover {
@@ -1045,7 +1238,7 @@ nav .contenedor-1080 {
     top: 171.5px;
     box-sizing: border-box;
     transition: transform 0.5s ease;
-
+    z-index: 6;
 }
 
 .seccion-6-img-1 svg {
@@ -1060,12 +1253,6 @@ nav .contenedor-1080 {
     cursor: pointer;
 }
 
-
-/* .seccion-6-img-1:hover {
-    transform: scale(1.48);
-    transition: transform 0.5s;
-} */
-
 .seccion-6-img-2 {
     position: absolute;
     width: 416.5px;
@@ -1076,6 +1263,7 @@ nav .contenedor-1080 {
     z-index: 3;
     pointer-events: none;
     transition: transform 0.5s ease;
+    z-index: 6;
 }
 
 .seccion-6-img-2 svg {
@@ -1092,13 +1280,6 @@ nav .contenedor-1080 {
     transition: transform 0.5s ease;
 }
 
-
-
-/* .seccion-6-img-2:hover {
-    transform: scale(1.48);
-    transition: transform 0.5s;
-} */
-
 .seccion-6-img-3 {
     position: absolute;
     width: 313.5px;
@@ -1107,6 +1288,7 @@ nav .contenedor-1080 {
     top: 180.14px;
     right: 89.5px;
     transition: transform 0.5s ease;
+    z-index: 6;
 }
 
 .seccion-6-img-3 svg {
@@ -1121,11 +1303,14 @@ nav .contenedor-1080 {
     cursor: pointer;
 }
 
-
-/* .seccion-6-img-3:hover {
-    transform: scale(1.48);
-    transition: transform 0.5s;
-} */
+.hover-spidermans {
+    width: 100%;
+    height: 719.861px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
 
 /* ---- TERMINA LA SECCION 6 ---- */
 
@@ -1158,16 +1343,6 @@ nav .contenedor-1080 {
     align-items: center;
 }
 
-.sprisheet-spiderman-tirando-telaraña {
-    background-image: url("../img/sprisheet-tirando-telaraña.png");
-    width: 140px;
-    height: 70px;
-    border: solid 2px black;
-    position: absolute;
-    left: 456px;
-    bottom: -58px;
-    animation: tira-telaraña 2s steps(3) infinite;
-}
 
 @keyframes tira-telaraña {
     0% {
@@ -1189,6 +1364,7 @@ nav .contenedor-1080 {
     bottom: 5.4783950617%;
     left: 17.109375%;
     animation: giro-telaraña 2s steps(7) infinite;
+    cursor: pointer;
 }
 
 @keyframes giro-telaraña {
@@ -1199,6 +1375,14 @@ nav .contenedor-1080 {
     100% {
         background-position: 679px;
     }
+}
+
+.sprisheet-spiderman-telaraña:hover {
+    background-image: url("../img/sprisheet-tirando-telaraña.png");
+    background-repeat: repeat-x;
+    width: 140px;
+    height: 116px;
+    animation: tira-telaraña 2s steps(3) infinite;
 }
 
 .spiderman-blanco-sprisheet {
@@ -1280,12 +1464,13 @@ nav .contenedor-1080 {
     background: #FFE901;
     box-shadow: 4px 5px 0px 0px #02187E;
     color: #02187E;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-size: 20px;
     font-style: normal;
     font-weight: 900;
     line-height: 94.5%;
-    letter-spacing: 2.2px;
+    -webkit-text-stroke: 2px;
+    letter-spacing: 2px;
 }
 
 .seccion-7-titulo {

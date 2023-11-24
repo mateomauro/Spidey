@@ -18,6 +18,18 @@ let textoCard3 = document.querySelector(".texto-card3");
 let seccion4parte1 = document.querySelector(".seccion-4-parte-1");
 let seccion4parte2 = document.querySelector(".seccion-4-parte-2");
 let seccion4parte3 = document.querySelector(".seccion-4-parte-3");
+let aux = 0
+let juego1 = document.querySelector(".juego1");
+let juego4 = document.querySelector(".juego4");
+let texto1_sticky = document.querySelector(".texto1-sticky");
+let texto2_sticky = document.querySelector(".texto2-sticky");
+let texto3_sticky = document.querySelector(".texto3-sticky");
+let texto4_sticky = document.querySelector(".texto4-sticky");
+let texto1aparecer = document.querySelector(".texto1-aparecer")
+let texto2aparecer = document.querySelector(".texto2-aparecer")
+let texto3aparecer = document.querySelector(".texto3-aparecer")
+let texto4aparecer = document.querySelector(".texto4-aparecer")
+
 
 
 window.addEventListener("scroll", () => {
@@ -43,19 +55,22 @@ window.addEventListener("scroll", () => {
     //SECCION 5
     stickySeccion5()
 
+
 });
 
-let aux = 0
-let juego1 = document.querySelector(".juego1");
-let juego4 = document.querySelector(".juego4");
-let texto1_sticky = document.querySelector(".texto1-sticky");
-let texto2_sticky = document.querySelector(".texto2-sticky");
-let texto3_sticky = document.querySelector(".texto3-sticky");
-let texto4_sticky = document.querySelector(".texto4-sticky");
-let texto1aparecer = document.querySelector(".texto1-aparecer")
-let texto2aparecer = document.querySelector(".texto2-aparecer")
-let texto3aparecer = document.querySelector(".texto3-aparecer")
-let texto4aparecer = document.querySelector(".texto4-aparecer")
+
+//ANIMACION DE APARICION EN LA PRIMERA SECCION
+window.onload = function () {
+    nubesSeccion1.classList.add("cielo")
+    edificioIzquierdoPrincipal.classList.add("edificio-izquierdo")
+    edificioDerechoPrincipal.classList.add("edificio-derecho")
+    edificioMedioPrincipal.classList.add("edificio-medio")
+    // spidey.classList.add("spidey")
+    spidermanBlancoPrincipal.classList.add("spiderman-blanco")
+    spidermanRojoTelaraña.classList.add("spiderman-rojo-telaraña")
+    spidermanNegroTelaraña.classList.add("spiderman-negro-telaraña")
+};
+
 
 
 //SECCION 4 HOVER CARDS
@@ -91,13 +106,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
         seccion4parte3.style.transform = "rotate(-36.016deg) scale(1)";
     }
 
-
 });
 
 
 //LOADING 
 let contador = 0;
-let tiempo = 3 / 100;
+let tiempo = 3000 / 100;
 let contenedorHome = document.querySelector(".contendor-principal");
 let contenedorLoader = document.querySelector(".contenedor-loading");
 let incrementador = document.querySelector(".contador");
@@ -120,18 +134,8 @@ let temporizador = setInterval(() => {
 
 }, tiempo)
 
-window.onload = function () {
-    nubesSeccion1.classList.add("cielo")
-    edificioIzquierdoPrincipal.classList.add("edificio-izquierdo")
-    edificioDerechoPrincipal.classList.add("edificio-derecho")
-    edificioMedioPrincipal.classList.add("edificio-medio")
-    // spidey.classList.add("spidey")
-    spidermanBlancoPrincipal.classList.add("spiderman-blanco")
-    spidermanRojoTelaraña.classList.add("spiderman-rojo-telaraña")
-    spidermanNegroTelaraña.classList.add("spiderman-negro-telaraña")
-};
 
-
+//PARALAX DE LA SECCION 1
 function ParallaxSeccion1(scrollY) {
 
     //MUEVE LAS NUBES MUY POCO
@@ -182,7 +186,7 @@ function ParallaxSeccion1(scrollY) {
     // console.log('edificio del medio abajo: ' + (1.5 - scrollY * 0.004) + 'px')
 }
 
-
+//APARECEN LAS CARDS FLOTADAS
 function aparicionCardsFlotadas(scrollY) {
     if (scrollY > 1582) {
 
@@ -272,6 +276,7 @@ function aparicionNavegacionYLogo(scrollY) {
 
 }
 
+//FUNCION DE CAMBIO DE IMAGEN DEPENDIENDO EL TEXTO
 function stickySeccion5() {
 
     let altoViewport = window.innerHeight;
@@ -288,6 +293,19 @@ function stickySeccion5() {
     let tituloSeccion5 = document.querySelector(".titulo-seccion-5");
     let rectTituloSeccion5 = tituloSeccion5.getBoundingClientRect();
     let distancia = rectJuego.top - rectTituloSeccion5.bottom;
+
+    console.log('rect del juego: ' + rectJuego)
+    console.log('rect texto 1: : ' + rectTexto1)
+    console.log('rect texto 2: : ' + rectTexto2)
+    console.log('rect texto 3: : ' + rectTexto3)
+    console.log('rect texto 4: : ' + rectTexto4)
+    console.log('top porcentaje juego: ' + topPorcentajeJuego)
+    console.log('top porcentaje texto 1: ' + topPorcentajeTexto1)
+    console.log('top porcentaje texto 2: ' + topPorcentajeTexto2)
+    console.log('top porcentaje texto 3: ' + topPorcentajeTexto3)
+    console.log('top porcentaje texto 4: ' + topPorcentajeTexto4)
+    console.log('distancia: ' + distancia)
+
 
     if (topPorcentajeJuego <= 40) {
         juego1.style.position = 'sticky'
@@ -342,108 +360,15 @@ function stickySeccion5() {
 
 }
 
-// //PRIMER POP UP
-// let primerSpider = document.querySelector(".seccion-6-img-1");
-// let popup1 = document.querySelector(".personaje-1");
-// let scrollPosition;
 
-// primerSpider.addEventListener('click', function () {
-//     //CAPTURO LA POSICION DEL SCROLL TOP ANTES DE OCULTAR TODO EL HOME
-//     scrollPosition = document.documentElement.scrollTop;
-//     contenedorHome.classList.add("ocultar");
-
-//     body.style.height = 100 + 'vh';
-
-//     popup1.classList.remove("ocultar");
-
-//     let cruz = popup1.querySelector(".cerrar-popup");
-
-//     cruz.addEventListener('click', function () {
-//         popup1.classList.add("ocultar");
-//         contenedorHome.classList.remove("ocultar");
-
-//         // Vuelve a la posición guardada del scroll
-//         window.scrollTo(0, scrollPosition);
-//     })
-
-//     document.addEventListener('keydown', function (event) {
-//         if (event.key === 'Escape') {
-//             popup1.classList.add("ocultar");
-//             contenedorHome.classList.remove("ocultar");
-
-//             // Vuelve a la posición guardada del scroll
-//             window.scrollTo(0, scrollPosition);
-//         }
-//     });
-
-// });
-
-// //SEGUNDO POP UP
-// let segundoSpider = document.querySelector(".seccion-6-img-2");
-// let popup2 = document.querySelector(".personaje-2");
-
-// segundoSpider.addEventListener('click', function () {
-//     scrollPosition = document.documentElement.scrollTop;
-//     contenedorHome.classList.add("ocultar");
-
-//     body.style.height = 100 + 'vh';
-
-//     popup2.classList.remove("ocultar");
-
-//     let cruz = popup2.querySelector(".cerrar-popup");
-//     cruz.addEventListener('click', function () {
-//         popup2.classList.add("ocultar");
-//         contenedorHome.classList.remove("ocultar");
-//         // Vuelve a la posición guardada del scroll
-//         window.scrollTo(0, scrollPosition);
-//     })
-
-//     document.addEventListener('keydown', function (event) {
-//         if (event.key === 'Escape') {
-//             popup2.classList.add("ocultar");
-//             contenedorHome.classList.remove("ocultar");
-//             // Vuelve a la posición guardada del scroll
-//             window.scrollTo(0, scrollPosition);
-//         }
-//     });
-
-// });
-
-// //TERCER POPUP
-
-// let tercerSpider = document.querySelector(".seccion-6-img-3");
-// let popup3 = document.querySelector(".personaje-3");
-
-// tercerSpider.addEventListener('click', function () {
-//     scrollPosition = document.documentElement.scrollTop;
-//     contenedorHome.classList.add("ocultar");
-
-//     body.style.height = 100 + 'vh';
-
-//     popup3.classList.remove("ocultar");
-
-//     let cruz = popup3.querySelector(".cerrar-popup");
-//     cruz.addEventListener('click', function () {
-//         popup3.classList.add("ocultar");
-//         contenedorHome.classList.remove("ocultar");
-//         // Vuelve a la posición guardada del scroll
-//         window.scrollTo(0, scrollPosition);
-//     })
-
-//     document.addEventListener('keydown', function (event) {
-//         if (event.key === 'Escape') {
-//             popup3.classList.add("ocultar");
-//             contenedorHome.classList.remove("ocultar");
-//             // Vuelve a la posición guardada del scroll
-//             window.scrollTo(0, scrollPosition);
-//         }
-//     });
-
-// });
-
-
+//PARALLAX DE LA SECCION DE HULK
 let seccionHulk = document.querySelector(".prueba2");
 seccionHulk.addEventListener("mousemove", parallax);
+let hulk = document.querySelector(".hulk")
+let personaje_negro = document.querySelector(".personaje-negro-hulk")
+let personaje_chica = document.querySelector(".personaje-chicha-hulk")
+let cieloHulk = document.querySelector(".cielo-hulk")
+let arboles_hulk = document.querySelector(".arboles-hulk")
 
 function parallax(e) {
     // Obtenemos las coordenadas del centro del div
@@ -455,83 +380,140 @@ function parallax(e) {
     let distX = e.clientX - centerX;
     let distY = e.clientY - centerY;
 
-    console.log(distX)
-    console.log(distY)
     let x = -distX / 50
     let y = -distY / 50
-    console.log(x)
-    console.log(y)
 
-    hulk.style.transform = 'translate(' + x + 'px, ' + y + 'px)' + 'rotate(7.515deg)';
-    personaje_negro.style.transform = 'translate(' + x + 'px, ' + y + 'px)' + 'rotate(13.615deg)';
-    personaje_chica.style.transform = 'translate(' + x + 'px, ' + y + 'px)' + 'rotate(-12.483deg)';
-    cieloHulk.style.backgroundPosition = (x / 4) + 'px ' + (y / 4) + 'px';
-    arboles_hulk.style.backgroundPosition = (x / 6) + 'px ' + (y / 6) + 'px';
+    hulk.style.transform = 'translate(' + (x / 2) + 'px, ' + (y / 2) + 'px)' + 'rotate(7.515deg)';
+    personaje_negro.style.transform = 'translate(' + (x * 2) + 'px, ' + (y) + 'px)' + 'rotate(13.615deg)';
+    personaje_chica.style.transform = 'translate(' + (x * 2) + 'px, ' + (y * 2) + 'px)' + 'rotate(-12.483deg)';
+    cieloHulk.style.backgroundPosition = Math.abs(x / 8) + 'px ' + Math.abs(y / 8) + 'px';
+    arboles_hulk.style.backgroundPosition = Math.abs(x / 8) + 'px ' + Math.abs(y / 8) + 'px';
+
 }
 
-let hulk = document.querySelector(".hulk")
-let personaje_negro = document.querySelector(".personaje-negro-hulk")
-let personaje_chica = document.querySelector(".personaje-chicha-hulk")
-let cieloHulk = document.querySelector(".cielo-hulk")
-let arboles_hulk = document.querySelector(".arboles-hulk")
 
 
 
 
+//HOVER DE LOS PERSONAJES SPIDERMANS
 let seccion_blanco_hover = document.querySelector(".seccion-6-img-1")
 let seccion_rojo_hover = document.querySelector(".seccion-6-img-2")
 let seccion_negro_hover = document.querySelector(".seccion-6-img-3")
 let spiderman_blanco_hover = document.querySelector(".hover-img1-seccion6")
 let spiderman_rojo_hover = document.querySelector(".hover-img2-seccion6")
 let spiderman_negro_hover = document.querySelector(".hover-img3-seccion6")
+let hover_spidermans = document.querySelector(".hover-spidermans")
 
+//HOVER DE SPIDERMAN BLANCO
 spiderman_blanco_hover.addEventListener("mouseover", () => {
-    seccion_blanco_hover.style.transform = 'scale(1.6)';
+    seccion_blanco_hover.style.transform = 'scale(1.6) translateX(-10px)';
     seccion_blanco_hover.style.filter = 'blur(0px)';
     seccion_rojo_hover.style.transform = 'scale(0.77)';
     seccion_rojo_hover.style.filter = 'blur(5px)';
     seccion_negro_hover.style.transform = 'scale(0.77)';
     seccion_negro_hover.style.filter = 'blur(5px)';
+    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-blanco-fondo.png')";
+
 })
 seccion_blanco_hover.addEventListener('mouseout', () => {
-    seccion_blanco_hover.style.transform = 'scale(1)';
+    seccion_blanco_hover.style.transform = 'scale(1) translateX(0)';
     seccion_blanco_hover.style.filter = 'blur(0px)';
     seccion_rojo_hover.style.transform = 'scale(1)';
     seccion_rojo_hover.style.filter = 'blur(0px)';
     seccion_negro_hover.style.transform = 'scale(1)';
     seccion_negro_hover.style.filter = 'blur(0px)';
+    hover_spidermans.style.backgroundImage = "";
+
 });
 
+//HOVER DE SPIDERMAN ROJO
 spiderman_rojo_hover.addEventListener("mouseover", () => {
     seccion_rojo_hover.style.transform = 'scale(1.47)';
     seccion_rojo_hover.style.filter = 'blur(0px)';
-    seccion_blanco_hover.style.transform = 'scale(0.77)';
+    seccion_blanco_hover.style.transform = 'scale(0.77) translateX(-45px) translateY(20px)';
     seccion_blanco_hover.style.filter = 'blur(5px)';
-    seccion_negro_hover.style.transform = 'scale(0.77)';
+    seccion_negro_hover.style.transform = 'scale(0.77) translateX(45px) translateY(20px)';
     seccion_negro_hover.style.filter = 'blur(5px)';
+    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-rojo-fondo.png')";
+
 })
 spiderman_rojo_hover.addEventListener("mouseout", () => {
     seccion_rojo_hover.style.transform = 'scale(1)';
     seccion_rojo_hover.style.filter = 'blur(0px)';
-    seccion_blanco_hover.style.transform = 'scale(1)';
+    seccion_blanco_hover.style.transform = 'scale(1) translate(0)';
     seccion_blanco_hover.style.filter = 'blur(0px)';
-    seccion_negro_hover.style.transform = 'scale(1)';
+    seccion_negro_hover.style.transform = 'scale(1) translate(0)';
     seccion_negro_hover.style.filter = 'blur(0px)';
+    hover_spidermans.style.backgroundImage = "";
 })
 
+//HOVER DE SPIDERMAN NEGRO
 spiderman_negro_hover.addEventListener("mouseover", () => {
-    seccion_negro_hover.style.transform = 'scale(1.6)';
+    seccion_negro_hover.style.transform = 'scale(1.6) translateX(10px)';
     seccion_negro_hover.style.filter = 'blur(0px)';
     seccion_blanco_hover.style.transform = 'scale(0.77)';
     seccion_blanco_hover.style.filter = 'blur(5px)';
     seccion_rojo_hover.style.transform = 'scale(0.77)';
     seccion_rojo_hover.style.filter = 'blur(5px)';
+    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-negro-fondo.png')";
 })
+
 spiderman_negro_hover.addEventListener("mouseout", () => {
-    seccion_negro_hover.style.transform = 'scale(1)';
+    seccion_negro_hover.style.transform = 'scale(1) translateX(0)';
     seccion_negro_hover.style.filter = 'blur(0px)';
     seccion_blanco_hover.style.transform = 'scale(1)';
     seccion_blanco_hover.style.filter = 'blur(0px)';
     seccion_rojo_hover.style.transform = 'scale(1)';
     seccion_rojo_hover.style.filter = 'blur(0px)';
+    hover_spidermans.style.backgroundImage = "";
 })
+
+
+//MENU DESPLEGABLE Y ANIMACION CRUZ
+let menuDes = 0;
+let miCarrito = document.querySelector(".mi-carrito")
+let misPersonajes = document.querySelector(".mis-personajes")
+let misCompras = document.querySelector(".mis-compras")
+let menuDesplegado = document.querySelector(".menu-desplegado")
+let menu = document.querySelector(".menu-hamburguesa");
+let rect2 = document.querySelector(".rect2");
+let rect1 = document.querySelector(".rect1");
+let rect3 = document.querySelector(".rect3");
+
+document.addEventListener('DOMContentLoaded', (event) => {
+
+    menu.addEventListener('click', function () {
+
+        if (menuDes == 0) {
+            rect1.classList.remove("volver1");
+            rect3.classList.remove("volver3");
+            rect2.classList.add("ocultar");
+            rect1.classList.add("girar1");
+            rect3.classList.add("girar3");
+            menu.classList.add("centro");
+            menu.style.filter = "none";
+            menuDes = 1;
+            miCarrito.classList.remove("ocultar")
+            misPersonajes.classList.remove("ocultar")
+            misCompras.classList.remove("ocultar")
+            menuDesplegado.classList.remove("ocultar")
+        }
+        else {
+            menuDes = 0;
+            rect1.classList.remove("girar1");
+            rect3.classList.remove("girar3");
+            rect2.classList.remove("ocultar");
+            rect2.classList.add("volver2");
+            rect1.classList.add("volver1");
+            rect3.classList.add("volver3");
+            menu.style.filter = "";
+            miCarrito.classList.add("ocultar")
+            misPersonajes.classList.add("ocultar")
+            misCompras.classList.add("ocultar")
+            menuDesplegado.classList.add("ocultar")
+
+        }
+    });
+
+});
+
