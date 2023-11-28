@@ -363,9 +363,6 @@ function stickySeccion5() {
     let rectJuego1 = juego1.getBoundingClientRect();
     let rectJuego4 = juego4.getBoundingClientRect();
 
-    console.log('rect juego 1: ' + rectJuego1.top)
-    console.log('rect juego 4: ' + rectJuego4.top)
-
     // Comprueba si juego1 ha alcanzado la posición de juego4
     if (rectJuego1.top >= rectJuego4.top && topPorcentajeTexto1 != 0) {
         // Si es así, oculta juego1
