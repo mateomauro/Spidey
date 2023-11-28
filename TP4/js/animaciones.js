@@ -276,6 +276,11 @@ function aparicionNavegacionYLogo(scrollY) {
 
 }
 
+let img1 = document.querySelector(".img-1")
+let img2 = document.querySelector(".img-2")
+let img3 = document.querySelector(".img-3")
+let img4 = document.querySelector(".img-4")
+
 //FUNCION DE CAMBIO DE IMAGEN DEPENDIENDO EL TEXTO
 function stickySeccion5() {
 
@@ -319,26 +324,37 @@ function stickySeccion5() {
 
 
     if (topPorcentajeTexto2 < 92 && topPorcentajeTexto2 != 0) {
-        juego1.innerHTML = '<img src="img/seccion5-img-2.png" alt="">';
+        img1.style.opacity = 0
+        img4.style.opacity = 0
+        img3.style.opacity = 0
+        img2.style.opacity = 1
         texto2aparecer.style.opacity = 1;
         texto1aparecer.style.opacity = 0;
         texto3aparecer.style.opacity = 0;
     } else {
         texto2aparecer.style.opacity = 0;
         texto1aparecer.style.opacity = 1;
-        juego1.innerHTML = '<img src="img/seccion5-img-1.png" alt="">'
+        img1.style.opacity = 1
+        img2.style.opacity = 0
+        img3.style.opacity = 0
+        img4.style.opacity = 0
     }
 
     if (topPorcentajeTexto3 < 92 && topPorcentajeTexto3 != 0) {
-        juego1.innerHTML = '<img src="img/seccion5-img-3.png" alt="">'
+        img2.style.opacity = 0
+        img1.style.opacity = 0
+        img4.style.opacity = 0
+        img3.style.opacity = 1
         texto3aparecer.style.opacity = 1;
         texto2aparecer.style.opacity = 0;
         texto4aparecer.style.opacity = 0;
-
     }
 
     if (topPorcentajeTexto4 < 92 && topPorcentajeTexto4 != 0) {
-        juego1.innerHTML = '<img src="img/seccion5-img-4.png" alt="">'
+        img3.style.opacity = 0
+        img2.style.opacity = 0
+        img1.style.opacity = 0
+        img4.style.opacity = 1
         texto4aparecer.style.opacity = 1;
         texto3aparecer.style.opacity = 0;
     }
@@ -347,15 +363,20 @@ function stickySeccion5() {
     let rectJuego1 = juego1.getBoundingClientRect();
     let rectJuego4 = juego4.getBoundingClientRect();
 
+    console.log('rect juego 1: ' + rectJuego1.top)
+    console.log('rect juego 4: ' + rectJuego4.top)
+
     // Comprueba si juego1 ha alcanzado la posición de juego4
     if (rectJuego1.top >= rectJuego4.top && topPorcentajeTexto1 != 0) {
         // Si es así, oculta juego1
-        juego1.style.visibility = 'hidden';
-        juego4.style.visibility = 'visible';
+        img4.style.transition = '0s';
+        juego1.style.opacity = '0';
+        juego4.style.opacity = '1';
     } else {
         // Si no, muestra juego1
-        juego1.style.visibility = 'visible';
-        juego4.style.visibility = 'hidden';
+        juego1.style.opacity = '1';
+        juego4.style.opacity = '0';
+        img4.style.transition = '0.5s all';
     }
 
 }

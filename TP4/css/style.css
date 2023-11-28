@@ -1038,6 +1038,37 @@ nav .contenedor-1080 {
 }
 
 
+.img-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
+}
+
+.img-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.img-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.img-4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 25s;
+}
+
 .titulo-juego {
     position: absolute;
     width: 467px;
@@ -1128,7 +1159,7 @@ nav .contenedor-1080 {
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
+    opacity: 0;
 }
 
 .titulo-juego4 {
