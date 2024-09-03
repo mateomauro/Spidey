@@ -430,7 +430,7 @@ spiderman_blanco_hover.addEventListener("mouseover", () => {
     seccion_rojo_hover.style.filter = 'blur(5px)';
     seccion_negro_hover.style.transform = 'scale(0.77)';
     seccion_negro_hover.style.filter = 'blur(5px)';
-    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-blanco-fondo.png')";
+    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-blanco-fondo.webp')";
 
 })
 seccion_blanco_hover.addEventListener('mouseout', () => {
@@ -452,7 +452,7 @@ spiderman_rojo_hover.addEventListener("mouseover", () => {
     seccion_blanco_hover.style.filter = 'blur(5px)';
     seccion_negro_hover.style.transform = 'scale(0.77) translateX(45px) translateY(20px)';
     seccion_negro_hover.style.filter = 'blur(5px)';
-    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-rojo-fondo.png')";
+    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-rojo-fondo.webp')";
 
 })
 spiderman_rojo_hover.addEventListener("mouseout", () => {
@@ -473,7 +473,7 @@ spiderman_negro_hover.addEventListener("mouseover", () => {
     seccion_blanco_hover.style.filter = 'blur(5px)';
     seccion_rojo_hover.style.transform = 'scale(0.77)';
     seccion_rojo_hover.style.filter = 'blur(5px)';
-    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-negro-fondo.png')";
+    hover_spidermans.style.backgroundImage = "url('img/hover-spiderman-negro-fondo.webp')";
 })
 
 spiderman_negro_hover.addEventListener("mouseout", () => {
